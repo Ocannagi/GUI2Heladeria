@@ -1,16 +1,24 @@
 ﻿Imports System.IO
 
 Public Class frmABMProductos
-    Const espaciosCodigo As Integer = 3
-    Const espaciosDescripcion As Integer = 30
-    Const espaciosPrecio As Integer = 7
-    Const minEspaciosBlanco As Integer = 5
+    Friend Const espaciosCodigo As Integer = 3
+    Friend Const espaciosDescripcion As Integer = 30
+    Friend Const espaciosPrecio As Integer = 7
+    Friend Const minEspaciosBlanco As Integer = 5
     Const maxEnteros As Integer = 4
     Const maxDecimales As Integer = 2
 
     Const nomArchivo As String = "Productos.txt" 'Nombre físico del archivo
     Const ubicacion As String = "C:\Intel\" ' Ubicación dosnde se va a guardar
     Dim hayCambios As Boolean = False
+    Friend productos As New List(Of Producto)
+
+
+    Friend Class Producto
+        Public Property Codigo As String
+        Public Property Descripcion As String
+        Public Property Precio As String
+    End Class
 
     Friend Function GetArchivo() As String
         Return ubicacion & nomArchivo
@@ -18,7 +26,7 @@ Public Class frmABMProductos
 
     Private Sub frmABMProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not File.Exists(ubicacion & nomArchivo) Then
-            Me.Crear(ubicacion & nomArchivo)
+            Crear(ubicacion & nomArchivo)
         Else
             Me.Leer(ubicacion & nomArchivo)
         End If
@@ -28,10 +36,7 @@ Public Class frmABMProductos
 
 #Region "SUBRUTINAS LECTOESCRITURA ARCHIVO"
 
-    Private Sub Crear(archivo As String)
-        Dim crearArchivo As FileStream = File.Create(archivo)
-        crearArchivo.Close()
-    End Sub
+
 
     Private Sub LeerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LeerToolStripMenuItem.Click
         Leer(ubicacion & nomArchivo)
@@ -51,9 +56,15 @@ Public Class frmABMProductos
         End If
 
         Me.lstProductos.Items.Clear()
+        Me.productos.Clear()
         Dim leerArchivo = My.Computer.FileSystem.OpenTextFileReader(archivo)
         While Not leerArchivo.EndOfStream
-            Me.lstProductos.Items.Add(leerArchivo.ReadLine)
+            Dim registro = leerArchivo.ReadLine
+            Dim codigo = "", descripcion = "", precio = ""
+
+            Me.lstProductos.Items.Add(registro)
+            DistribuirRegistro(registro, codigo, descripcion, precio)
+            Me.productos.Add(New Producto With {.Codigo = codigo, .Descripcion = codigo + " - " + descripcion, .Precio = precio})
         End While
         leerArchivo.Close()
 
@@ -175,7 +186,7 @@ Public Class frmABMProductos
     End Sub
     Private Sub Agregar()
         Dim mensaje As String = ""
-        If _CamposVacios(mensaje) Then
+        If _CamposVaciosABMProductos(mensaje) Then
             MsgBox(mensaje, vbCritical, "Error")
             Exit Sub
         End If

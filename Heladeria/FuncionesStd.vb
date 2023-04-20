@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.IO
+Imports System.Text.RegularExpressions
 
 Module FuncionesStd
     Friend Function SuperaMaxLength(sender As Object, e As KeyPressEventArgs, length As Integer) As Boolean
@@ -88,5 +89,10 @@ Module FuncionesStd
         End If
         Return bool
     End Function
+
+    Friend Sub Crear(archivo As String)
+        Dim crearArchivo As FileStream = File.Create(archivo)
+        crearArchivo.Close()
+    End Sub
 
 End Module

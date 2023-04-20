@@ -1,5 +1,5 @@
 ﻿Module FuncionesFriend
-    Friend Function _CamposVacios(ByRef mensaje As String) As Boolean
+    Friend Function _CamposVaciosABMProductos(ByRef mensaje As String) As Boolean
         mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
         Dim tamMensaje As Integer = mensaje.Length
 
@@ -14,6 +14,25 @@
         If frmABMProductos.txtPrecio.Text = "" Then
             mensaje += "Precio" + vbCrLf
             frmABMProductos.txtPrecio.BackColor = Color.LightPink
+        End If
+
+        If mensaje.Length > tamMensaje Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Friend Function _CamposVaciosABMVentas(ByRef mensaje As String) As Boolean
+        mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
+        Dim tamMensaje As Integer = mensaje.Length
+
+        If frmABMVentas.lblPrecio.Text = "" Then
+            mensaje += "Producto: Debe seleccionar un item válido" + vbCrLf
+            frmABMVentas.cmbProductos.BackColor = Color.LightPink
+        End If
+        If frmABMVentas.txtCantidad.Text = "" Then
+            mensaje += "Cantidad" + vbCrLf
+            frmABMProductos.txtDescripcion.BackColor = Color.LightPink
         End If
 
         If mensaje.Length > tamMensaje Then
