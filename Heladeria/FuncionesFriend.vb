@@ -32,7 +32,7 @@
         End If
         If frmABMVentas.txtCantidad.Text = "" Then
             mensaje += "Cantidad" + vbCrLf
-            frmABMProductos.txtDescripcion.BackColor = Color.LightPink
+            frmABMVentas.txtCantidad.BackColor = Color.LightPink
         End If
 
         If mensaje.Length > tamMensaje Then
@@ -61,7 +61,7 @@
         Return bool
     End Function
 
-    Friend Function _HayCamposSinPersistir() As Boolean
+    Friend Function _HayCamposSinPersistirABMProductos() As Boolean
         Dim bool = False
         If frmABMProductos.txtCodigo.Text <> "" Or frmABMProductos.txtDescripcion.Text <> "" Or frmABMProductos.txtPrecio.Text <> "" Then
             'frmABMProductos.txtCodigo.Focus()
@@ -70,8 +70,17 @@
         Return bool
     End Function
 
+    Friend Function _HayCamposSinPersistirABMVentas() As Boolean
+        Dim bool = False
+        If frmABMVentas.cmbProductos.SelectedIndex() <> 0 Or frmABMVentas.txtCantidad.Text <> "" Then
+            bool = True
+        End If
+        Return bool
+    End Function
+
+
     Friend Sub _DeshabilitarSiHayCamposSinPersistir()
-        If _HayCamposSinPersistir() Then
+        If _HayCamposSinPersistirABMProductos() Then
             frmABMProductos.btnEliminar.Enabled = False
             frmABMProductos.btnModificar.Enabled = False
         Else
