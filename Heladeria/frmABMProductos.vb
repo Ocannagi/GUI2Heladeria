@@ -18,6 +18,13 @@ Public Class frmABMProductos
         Public Property Codigo As String
         Public Property Descripcion As String
         Public Property Precio As String
+
+        Public Sub New(codigo As String, descripcion As String, precio As String)
+            Me.Codigo = codigo
+            Me.Descripcion = descripcion
+            Me.Precio = precio
+        End Sub
+
     End Class
 
     Friend Function GetArchivo() As String
@@ -43,7 +50,7 @@ Public Class frmABMProductos
     End Sub
 
     Friend Sub Leer(archivo As String)
-        If _HayCamposSinPersistir() Then
+        If _HayCamposSinPersistirABMProductos() Then
             MsgBox("Tiene un registro sin agregar al Catálogo de Productos. Agrégelo o borre los campos de entrada antes de continuar", vbCritical, "Error")
             Exit Sub
         End If
@@ -64,7 +71,7 @@ Public Class frmABMProductos
 
             Me.lstProductos.Items.Add(registro)
             DistribuirRegistro(registro, codigo, descripcion, precio)
-            Me.productos.Add(New Producto With {.Codigo = codigo, .Descripcion = codigo + " - " + descripcion, .Precio = precio})
+            Me.productos.Add(New Producto(codigo, codigo + " - " + descripcion, precio))
         End While
         leerArchivo.Close()
 

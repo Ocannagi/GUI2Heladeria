@@ -27,6 +27,7 @@ Partial Class frmMenuPrincipal
         Me.AltasYActualizacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblTotalVentas = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -62,14 +63,24 @@ Partial Class frmMenuPrincipal
         'GeneraciónToolStripMenuItem
         '
         Me.GeneraciónToolStripMenuItem.Name = "GeneraciónToolStripMenuItem"
-        Me.GeneraciónToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GeneraciónToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.GeneraciónToolStripMenuItem.Text = "&Generación"
+        '
+        'lblTotalVentas
+        '
+        Me.lblTotalVentas.AutoSize = True
+        Me.lblTotalVentas.Location = New System.Drawing.Point(691, 387)
+        Me.lblTotalVentas.Name = "lblTotalVentas"
+        Me.lblTotalVentas.Size = New System.Drawing.Size(13, 13)
+        Me.lblTotalVentas.TabIndex = 1
+        Me.lblTotalVentas.Text = "0"
         '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblTotalVentas)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMenuPrincipal"
@@ -86,4 +97,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents AltasYActualizacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GeneraciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblTotalVentas As Label
 End Class
