@@ -1,19 +1,21 @@
 ﻿Imports System.IO
-Imports System.Net.Http.Headers
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Heladeria.frmABMProductos
-Imports Microsoft.Win32
 
 Public Class frmABMVentas
     Const nomArchivo As String = "Ventas.txt" 'Nombre físico del archivo
     Const ubicacion As String = "C:\Intel\" ' Ubicación dosnde se va a guardar
+    Friend Function GetArchivo() As String
+        Return ubicacion & nomArchivo
+    End Function
 
-    Const espaciosCodigo As Integer = frmABMProductos.espaciosCodigo
-    Const espaciosDescripcion As Integer = frmABMProductos.espaciosDescripcion
-    Const espaciosPrecio As Integer = frmABMProductos.espaciosPrecio
-    Const minEspaciosBlanco As Integer = frmABMProductos.minEspaciosBlanco
-    Const espaciosProducto As Integer = espaciosCodigo + espaciosDescripcion + 3 ' 3 = " - "
-    Const espaciosCantidad As Integer = 5
+    Friend Const espaciosCodigo As Integer = frmABMProductos.espaciosCodigo
+    Friend Const espaciosDescripcion As Integer = frmABMProductos.espaciosDescripcion
+    Friend Const espaciosPrecio As Integer = frmABMProductos.espaciosPrecio
+    Friend Const minEspaciosBlanco As Integer = frmABMProductos.minEspaciosBlanco
+    Friend Const espaciosProducto As Integer = espaciosCodigo + espaciosDescripcion + 3 ' 3 = " - "
+    Friend Const espaciosCantidad As Integer = 5
+    Dim maxEnterosCantidad As Integer = 2
+    Dim maxDecimalesCantidad As Integer = 2
     Dim hayCambios As Boolean = False
     Friend listaRegistroVta As New List(Of RegistroVta)
     Friend TotalVentas As Double = 0
@@ -44,30 +46,66 @@ Public Class frmABMVentas
         End If
     End Sub
 
-    Friend Function GetArchivo() As String
-        Return ubicacion & nomArchivo
-    End Function
+    Private Sub frmABMVentas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If _HayCamposSinPersistirABMVentas() Then
+            Dim opc = MsgBox("Hay una venta sin persistir. ¿Desea cerrar el formulario de Ventas de todos modos?", vbYesNo + vbCritical)
+            If opc = vbNo Then
+                e.Cancel = True
+                Exit Sub
+            End If
+        End If
+
+        If hayCambios Then
+            Dim opc = MsgBox("¿Desea guardar los cambios en " + nomArchivo + "?", vbYesNo + vbCritical)
+            If opc = vbYes Then
+                Me.Guardar(ubicacion & nomArchivo)
+            End If
+        End If
+    End Sub
+
+#Region "BOTONES"
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Agregar()
+    End Sub
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        Limpiar()
+    End Sub
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+        Guardar(ubicacion & nomArchivo)
+    End Sub
+#End Region
+
+#Region "VALIDACIONES"
+
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        CambiarComa(sender, e)
+
+        If SuperaMaxLength(sender, e, espaciosCantidad) Or HayDoblePunto(sender, e) Or Not EsCaracterNumeroPunto(sender, e) Or SuperaCantEnteros(sender, e, maxEnterosCantidad) Or SuperaCantDecimales(sender, e, maxDecimalesCantidad) Then
+            e.Handled = True
+        End If
+
+    End Sub
+
+    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
+        AgregarCeroPrePunto(sender)
+    End Sub
+
+#End Region
+
+
+
+#Region "SUBRUTINAS LECTOESCRITURA Y COMBO"
+
+
 
     Private Sub cmbProductos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbProductos.SelectedValueChanged
         If frmABMProductos.productos.Count > 0 Then
             Dim producto As frmABMProductos.Producto = Me.cmbProductos.SelectedValue
-            'Dim productoSeleccionado = frmABMProductos.productos.Find(Function(produ) produ.Codigo = Me.cmbProductos.SelectedValue.ToString)
             Me.lblPrecio.Text = producto.Precio
         End If
     End Sub
 
-    Private Sub CargarCombo()
-        If File.Exists(frmABMProductos.GetArchivo()) Then
-            frmABMProductos.Leer(frmABMProductos.GetArchivo())
-            If frmABMProductos.productos.Count > 0 Then
-                Dim listaProductosCopy As New List(Of frmABMProductos.Producto)
-                listaProductosCopy.AddRange(frmABMProductos.productos.ToArray)
-                listaProductosCopy.Insert(0, New Producto("", "Seleccione un Item", ""))
-                Me.cmbProductos.DataSource = listaProductosCopy
-                Me.cmbProductos.DisplayMember = "Descripcion"
-            End If
-        End If
-    End Sub
+
 
     Private Sub Agregar()
         Dim mensaje As String = ""
@@ -114,13 +152,7 @@ Public Class frmABMVentas
         Me.hayCambios = False
     End Sub
 
-    Private Function CalcularTotalVentas() As Double
-        Dim totalVta As Double = 0
-        For Each registro As RegistroVta In listaRegistroVta
-            totalVta += (Val(registro.Producto.Precio) * registro.Cantidad)
-        Next
-        Return Math.Round(totalVta, 2)
-    End Function
+
 
     Private Sub Guardar(archivo As String)
         If _HayCamposSinPersistirABMVentas() Then
@@ -149,17 +181,8 @@ Public Class frmABMVentas
 
     End Sub
 
+#End Region
 
-    Private Sub DistribuirRegistroVta(registro As String, ByRef codigo As String, ByRef codigoGuionDescripcion As String, ByRef precio As String, ByRef cantidad As String, ByRef nroVta As String)
-
-        codigo = Mid(registro, 1, espaciosCodigo).Trim
-        codigoGuionDescripcion = Mid(registro, 1, espaciosProducto).Trim
-        precio = Mid(registro, espaciosProducto + minEspaciosBlanco + 1, espaciosPrecio).Trim
-        cantidad = Mid(registro, espaciosProducto + minEspaciosBlanco + espaciosPrecio + minEspaciosBlanco + 1, espaciosCantidad).Trim
-        If nroVta = "" Then
-            nroVta = Mid(registro, espaciosProducto + minEspaciosBlanco + espaciosPrecio + minEspaciosBlanco + espaciosCantidad + minEspaciosBlanco + 1).Trim
-        End If
-    End Sub
 
 #Region "SUBRUTINAS COLORES CAMPOS"
 
@@ -178,18 +201,12 @@ Public Class frmABMVentas
     Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
         sender.BackColor = Color.White
     End Sub
+
+
+
+
 #End Region
 
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Agregar()
-    End Sub
 
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        Limpiar()
-    End Sub
-
-    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        Guardar(ubicacion & nomArchivo)
-    End Sub
 End Class
 

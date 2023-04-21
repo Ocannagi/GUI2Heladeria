@@ -97,7 +97,7 @@ Partial Class frmABMVentas
         Me.cmbProductos.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbProductos.FormattingEnabled = True
         Me.cmbProductos.Location = New System.Drawing.Point(9, 61)
-        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbProductos.Name = "cmbProductos"
         Me.cmbProductos.Size = New System.Drawing.Size(236, 21)
         Me.cmbProductos.TabIndex = 5
@@ -110,7 +110,7 @@ Partial Class frmABMVentas
         Me.lstVentas.FormattingEnabled = True
         Me.lstVentas.ItemHeight = 12
         Me.lstVentas.Location = New System.Drawing.Point(16, 107)
-        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2)
         Me.lstVentas.Name = "lstVentas"
         Me.lstVentas.Size = New System.Drawing.Size(428, 196)
         Me.lstVentas.TabIndex = 6
@@ -118,7 +118,7 @@ Partial Class frmABMVentas
         'btnAgregar
         '
         Me.btnAgregar.Location = New System.Drawing.Point(36, 325)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(104, 32)
         Me.btnAgregar.TabIndex = 7
@@ -128,7 +128,7 @@ Partial Class frmABMVentas
         'btnLimpiar
         '
         Me.btnLimpiar.Location = New System.Drawing.Point(301, 325)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(104, 32)
         Me.btnLimpiar.TabIndex = 8
@@ -147,7 +147,7 @@ Partial Class frmABMVentas
         'txtCantidad
         '
         Me.txtCantidad.Location = New System.Drawing.Point(378, 63)
-        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(66, 20)
         Me.txtCantidad.TabIndex = 10
@@ -171,7 +171,7 @@ Partial Class frmABMVentas
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
         'frmABMVentas

@@ -41,6 +41,26 @@ Public Class frmABMProductos
         _HabilitarBtn_SegCant()
     End Sub
 
+    Private Sub frmABMProductos_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+        If _HayCamposSinPersistirABMProductos() Then
+            Dim opc = MsgBox("Hay un producto sin persistir. ¿Desea cerrar el formulario de Productos de todos modos?", vbYesNo + vbCritical)
+            If opc = vbNo Then
+                e.Cancel = True
+                Exit Sub
+            End If
+        End If
+
+        If hayCambios Then
+            Dim opc = MsgBox("¿Desea guardar los cambios en " + nomArchivo + "?", vbYesNo + vbCritical)
+            If opc = vbYes Then
+                Me.Guardar(ubicacion & nomArchivo)
+            End If
+        End If
+
+
+    End Sub
+
 #Region "SUBRUTINAS LECTOESCRITURA ARCHIVO"
 
 
@@ -51,7 +71,7 @@ Public Class frmABMProductos
 
     Friend Sub Leer(archivo As String)
         If _HayCamposSinPersistirABMProductos() Then
-            MsgBox("Tiene un registro sin agregar al Catálogo de Productos. Agrégelo o borre los campos de entrada antes de continuar", vbCritical, "Error")
+            MsgBox("Tiene un registro sin agregar al Formulario de Productos. Agrégelo o borre los campos de entrada antes de continuar", vbCritical, "Error")
             Exit Sub
         End If
 
@@ -70,7 +90,7 @@ Public Class frmABMProductos
             Dim codigo = "", descripcion = "", precio = ""
 
             Me.lstProductos.Items.Add(registro)
-            DistribuirRegistro(registro, codigo, descripcion, precio)
+            DistribuirRegistroProducto(registro, codigo, descripcion, precio)
             Me.productos.Add(New Producto(codigo, codigo + " - " + descripcion, precio))
         End While
         leerArchivo.Close()
@@ -88,7 +108,7 @@ Public Class frmABMProductos
         Dim grabarArchivo As New StreamWriter(archivo)
 
         If Val(lblCantidad.Text) <= 0 Then
-            Dim opc = MsgBox("¿Desea guardar el catálogo de Productos vacío?" + vbCrLf + "Si elege ""SÍ"", perderá todos los registros previos que pudiera tener guardados", vbYesNo + vbCritical)
+            Dim opc = MsgBox("¿Desea guardar el Formulario de Productos vacío?" + vbCrLf + "Si elege ""SÍ"", perderá todos los registros previos que pudiera tener guardados", vbYesNo + vbCritical)
             If opc = vbYes Then
 
                 For i = 0 To lstProductos.Items.Count() - 1
@@ -235,19 +255,12 @@ Public Class frmABMProductos
         Dim descripcion As String = ""
         Dim precio As String = ""
 
-        DistribuirRegistro(lstProductos.SelectedItem.ToString(), codigo, descripcion, precio)
+        DistribuirRegistroProducto(lstProductos.SelectedItem.ToString(), codigo, descripcion, precio)
 
         txtCodigo.Text = codigo
         txtDescripcion.Text = descripcion
         txtPrecio.Text = precio
         Eliminar()
     End Sub
-
-    Friend Sub DistribuirRegistro(registro As String, ByRef codigo As String, ByRef descripcion As String, ByRef precio As String)
-        codigo = Mid(registro, 1, espaciosCodigo).Trim
-        descripcion = Mid(registro, espaciosCodigo + minEspaciosBlanco + 1, espaciosDescripcion).Trim
-        precio = Mid(registro, espaciosCodigo + minEspaciosBlanco + espaciosDescripcion + minEspaciosBlanco + 1).Trim
-    End Sub
-
 
 End Class
