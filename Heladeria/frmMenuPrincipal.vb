@@ -8,10 +8,16 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub AltasYActualizacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltasYActualizacionesToolStripMenuItem.Click
-        frmABMProductos.Show()
+        frmABMProductos.ShowDialog()
     End Sub
 
     Private Sub GeneraciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneraciónToolStripMenuItem.Click
-        frmABMVentas.Show()
+        frmABMVentas.ShowDialog()
+    End Sub
+
+    Private Sub frmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MsgBox("¿Está seguro de cerrar la aplicación?", vbYesNo) = vbNo Then
+            e.Cancel = True
+        End If
     End Sub
 End Class

@@ -1,4 +1,8 @@
-﻿Module FuncionesFriend
+﻿Imports System.IO
+Imports Heladeria.frmABMProductos
+Imports Heladeria.frmABMVentas
+
+Module FuncionesFriend
     Friend Function _CamposVaciosABMProductos(ByRef mensaje As String) As Boolean
         mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
         Dim tamMensaje As Integer = mensaje.Length
@@ -87,5 +91,43 @@
             _HabilitarBtn_SegCant()
         End If
     End Sub
+
+    Friend Sub DistribuirRegistroProducto(registro As String, ByRef codigo As String, ByRef descripcion As String, ByRef precio As String)
+        codigo = Mid(registro, 1, frmABMProductos.espaciosCodigo).Trim
+        descripcion = Mid(registro, frmABMProductos.espaciosCodigo + frmABMProductos.minEspaciosBlanco + 1, frmABMProductos.espaciosDescripcion).Trim
+        precio = Mid(registro, frmABMProductos.espaciosCodigo + frmABMProductos.minEspaciosBlanco + frmABMProductos.espaciosDescripcion + frmABMProductos.minEspaciosBlanco + 1).Trim
+    End Sub
+
+    Friend Sub DistribuirRegistroVta(registro As String, ByRef codigo As String, ByRef codigoGuionDescripcion As String, ByRef precio As String, ByRef cantidad As String, ByRef nroVta As String)
+
+        codigo = Mid(registro, 1, frmABMVentas.espaciosCodigo).Trim
+        codigoGuionDescripcion = Mid(registro, 1, frmABMVentas.espaciosProducto).Trim
+        precio = Mid(registro, frmABMVentas.espaciosProducto + frmABMVentas.minEspaciosBlanco + 1, frmABMVentas.espaciosPrecio).Trim
+        cantidad = Mid(registro, frmABMVentas.espaciosProducto + frmABMVentas.minEspaciosBlanco + frmABMVentas.espaciosPrecio + frmABMVentas.minEspaciosBlanco + 1, frmABMVentas.espaciosCantidad).Trim
+        If nroVta = "" Then
+            nroVta = Mid(registro, frmABMVentas.espaciosProducto + frmABMVentas.minEspaciosBlanco + frmABMVentas.espaciosPrecio + frmABMVentas.minEspaciosBlanco + frmABMVentas.espaciosCantidad + frmABMVentas.minEspaciosBlanco + 1).Trim
+        End If
+    End Sub
+
+    Friend Sub CargarCombo()
+        If File.Exists(frmABMProductos.GetArchivo()) Then
+            frmABMProductos.Leer(frmABMProductos.GetArchivo())
+            If frmABMProductos.productos.Count > 0 Then
+                Dim listaProductosCopy As New List(Of Producto)
+                listaProductosCopy.AddRange(frmABMProductos.productos.ToArray)
+                listaProductosCopy.Insert(0, New Producto("", "Seleccione un Item", ""))
+                frmABMVentas.cmbProductos.DataSource = listaProductosCopy
+                frmABMVentas.cmbProductos.DisplayMember = "Descripcion"
+            End If
+        End If
+    End Sub
+
+    Friend Function CalcularTotalVentas() As Double
+        Dim totalVta As Double = 0
+        For Each registro As RegistroVta In frmABMVentas.listaRegistroVta
+            totalVta += (Val(registro.Producto.Precio) * registro.Cantidad)
+        Next
+        Return Math.Round(totalVta, 2)
+    End Function
 
 End Module
