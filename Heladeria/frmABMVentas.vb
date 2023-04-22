@@ -53,6 +53,7 @@ Public Class frmABMVentas
                 e.Cancel = True
                 Exit Sub
             End If
+            Limpiar()
         End If
 
         If hayCambios Then
@@ -99,7 +100,7 @@ Public Class frmABMVentas
 
 
     Private Sub cmbProductos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbProductos.SelectedValueChanged
-        If frmABMProductos.productos.Count > 0 Then
+        If frmABMProductos.objListaproductos.Count > 0 And Me.cmbProductos.SelectedValue IsNot Nothing Then
             Dim producto As frmABMProductos.Producto = Me.cmbProductos.SelectedValue
             Me.lblPrecio.Text = producto.Precio
         End If
@@ -114,6 +115,8 @@ Public Class frmABMVentas
             Exit Sub
         End If
 
+        txtCantidad.Text = AgregarDerechaCeroSiTieneUnSoloDecimal(txtCantidad.Text.Trim)
+
         Dim registro As String = ArmarTxtRegisro(Me.cmbProductos.SelectedValue.Descripcion, Me.cmbProductos.SelectedValue.Precio, txtCantidad.Text)
 
         Me.lstVentas.Items.Add(registro)
@@ -123,7 +126,7 @@ Public Class frmABMVentas
     End Sub
 
     Private Function ArmarTxtRegisro(codigoGuionDescripcion As String, precio As String, cantidad As String) As String
-        Dim registro As String = codigoGuionDescripcion + Space((espaciosProducto + minEspaciosBlanco) - codigoGuionDescripcion.Length) + precio + Space((espaciosPrecio + minEspaciosBlanco) - precio.Length) + cantidad.Trim + Space((espaciosCantidad + minEspaciosBlanco) - cantidad.Trim.Length)
+        Dim registro As String = codigoGuionDescripcion + Space((espaciosProducto + minEspaciosBlanco) - codigoGuionDescripcion.Length) + Space(espaciosPrecio - precio.Length) + precio + Space(minEspaciosBlanco) + Space(espaciosCantidad - cantidad.Length) + cantidad.Trim + Space(minEspaciosBlanco)
         Return registro
     End Function
 

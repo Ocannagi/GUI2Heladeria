@@ -76,7 +76,7 @@ Module FuncionesFriend
 
     Friend Function _HayCamposSinPersistirABMVentas() As Boolean
         Dim bool = False
-        If frmABMVentas.cmbProductos.SelectedIndex() <> 0 Or frmABMVentas.txtCantidad.Text <> "" Then
+        If frmABMVentas.cmbProductos.SelectedIndex() > 0 Or frmABMVentas.txtCantidad.Text <> "" Then
             bool = True
         End If
         Return bool
@@ -112,9 +112,9 @@ Module FuncionesFriend
     Friend Sub CargarCombo()
         If File.Exists(frmABMProductos.GetArchivo()) Then
             frmABMProductos.Leer(frmABMProductos.GetArchivo())
-            If frmABMProductos.productos.Count > 0 Then
+            If frmABMProductos.objListaproductos.Count > 0 Then
                 Dim listaProductosCopy As New List(Of Producto)
-                listaProductosCopy.AddRange(frmABMProductos.productos.ToArray)
+                listaProductosCopy.AddRange(frmABMProductos.objListaproductos.ToArray)
                 listaProductosCopy.Insert(0, New Producto("", "Seleccione un Item", ""))
                 frmABMVentas.cmbProductos.DataSource = listaProductosCopy
                 frmABMVentas.cmbProductos.DisplayMember = "Descripcion"
