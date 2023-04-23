@@ -11,7 +11,7 @@ Public Class frmABMProductos
     Const nomArchivo As String = "Productos.txt" 'Nombre físico del archivo
     Const ubicacion As String = "C:\Intel\" ' Ubicación dosnde se va a guardar
     Dim hayCambios As Boolean = False
-    Friend productos As New List(Of Producto)
+    Friend objListaproductos As New List(Of Producto)
 
 
     Friend Class Producto
@@ -48,6 +48,8 @@ Public Class frmABMProductos
             If opc = vbNo Then
                 e.Cancel = True
                 Exit Sub
+            Else
+                Limpiar()
             End If
         End If
 
@@ -83,7 +85,7 @@ Public Class frmABMProductos
         End If
 
         Me.lstProductos.Items.Clear()
-        Me.productos.Clear()
+        Me.objListaproductos.Clear()
         Dim leerArchivo = My.Computer.FileSystem.OpenTextFileReader(archivo)
         While Not leerArchivo.EndOfStream
             Dim registro = leerArchivo.ReadLine
@@ -91,7 +93,7 @@ Public Class frmABMProductos
 
             Me.lstProductos.Items.Add(registro)
             DistribuirRegistroProducto(registro, codigo, descripcion, precio)
-            Me.productos.Add(New Producto(codigo, codigo + " - " + descripcion, precio))
+            Me.objListaproductos.Add(New Producto(codigo, codigo + " - " + descripcion, precio))
         End While
         leerArchivo.Close()
 
@@ -218,7 +220,9 @@ Public Class frmABMProductos
             Exit Sub
         End If
 
-        Dim registro As String = Format(Val(txtCodigo.Text.Trim), "000") + Space(minEspaciosBlanco) + txtDescripcion.Text.Trim + Space((espaciosDescripcion + minEspaciosBlanco) - txtDescripcion.Text.Trim.Length) + txtPrecio.Text.Trim
+        txtPrecio.Text = AgregarDerechaCeroSiTieneUnSoloDecimal(txtPrecio.Text.Trim)
+
+        Dim registro As String = Format(Val(txtCodigo.Text.Trim), "000") + Space(minEspaciosBlanco) + txtDescripcion.Text.Trim + Space((espaciosDescripcion + minEspaciosBlanco) - txtDescripcion.Text.Trim.Length) + Space(espaciosPrecio - txtPrecio.Text.Trim.Length) + txtPrecio.Text.Trim
 
         Me.lstProductos.Items.Add(registro)
         hayCambios = True

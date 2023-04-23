@@ -47,7 +47,8 @@ Partial Class frmABMProductos
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1067, 28)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -55,28 +56,29 @@ Partial Class frmABMProductos
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem, Me.LeerToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(145, 26)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'LeerToolStripMenuItem
         '
         Me.LeerToolStripMenuItem.Name = "LeerToolStripMenuItem"
-        Me.LeerToolStripMenuItem.Size = New System.Drawing.Size(145, 26)
+        Me.LeerToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.LeerToolStripMenuItem.Text = "&Leer"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(40, 64)
+        Me.Label1.Location = New System.Drawing.Point(30, 52)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 22)
+        Me.Label1.Size = New System.Drawing.Size(56, 18)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Código"
         '
@@ -84,9 +86,10 @@ Partial Class frmABMProductos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!)
-        Me.Label2.Location = New System.Drawing.Point(177, 64)
+        Me.Label2.Location = New System.Drawing.Point(133, 52)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 22)
+        Me.Label2.Size = New System.Drawing.Size(87, 18)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Descripción"
         '
@@ -94,75 +97,87 @@ Partial Class frmABMProductos
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!)
-        Me.Label3.Location = New System.Drawing.Point(431, 64)
+        Me.Label3.Location = New System.Drawing.Point(323, 52)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 22)
+        Me.Label3.Size = New System.Drawing.Size(51, 18)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Precio"
         '
         'txtCodigo
         '
-        Me.txtCodigo.Location = New System.Drawing.Point(44, 89)
+        Me.txtCodigo.Font = New System.Drawing.Font("Consolas", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.Location = New System.Drawing.Point(33, 72)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(91, 22)
+        Me.txtCodigo.Size = New System.Drawing.Size(69, 20)
         Me.txtCodigo.TabIndex = 4
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(181, 89)
+        Me.txtDescripcion.Font = New System.Drawing.Font("Consolas", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescripcion.Location = New System.Drawing.Point(136, 72)
+        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(218, 22)
+        Me.txtDescripcion.Size = New System.Drawing.Size(164, 20)
         Me.txtDescripcion.TabIndex = 5
         '
         'txtPrecio
         '
-        Me.txtPrecio.Location = New System.Drawing.Point(435, 89)
+        Me.txtPrecio.Font = New System.Drawing.Font("Consolas", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecio.Location = New System.Drawing.Point(326, 72)
+        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.Size = New System.Drawing.Size(91, 22)
+        Me.txtPrecio.Size = New System.Drawing.Size(69, 20)
         Me.txtPrecio.TabIndex = 6
         '
         'lstProductos
         '
         Me.lstProductos.Font = New System.Drawing.Font("Consolas", 9.5!)
         Me.lstProductos.FormattingEnabled = True
-        Me.lstProductos.ItemHeight = 19
-        Me.lstProductos.Location = New System.Drawing.Point(44, 125)
+        Me.lstProductos.ItemHeight = 15
+        Me.lstProductos.Location = New System.Drawing.Point(33, 102)
+        Me.lstProductos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.lstProductos.Name = "lstProductos"
-        Me.lstProductos.Size = New System.Drawing.Size(646, 194)
+        Me.lstProductos.Size = New System.Drawing.Size(486, 154)
         Me.lstProductos.TabIndex = 7
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.Location = New System.Drawing.Point(44, 381)
+        Me.btnLimpiar.Location = New System.Drawing.Point(33, 310)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(99, 36)
+        Me.btnLimpiar.Size = New System.Drawing.Size(74, 29)
         Me.btnLimpiar.TabIndex = 8
         Me.btnLimpiar.Text = "Limpiar"
         Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(210, 381)
+        Me.btnAgregar.Location = New System.Drawing.Point(158, 310)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(99, 36)
+        Me.btnAgregar.Size = New System.Drawing.Size(74, 29)
         Me.btnAgregar.TabIndex = 9
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(393, 381)
+        Me.btnEliminar.Location = New System.Drawing.Point(295, 310)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(99, 36)
+        Me.btnEliminar.Size = New System.Drawing.Size(74, 29)
         Me.btnEliminar.TabIndex = 10
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(591, 381)
+        Me.btnModificar.Location = New System.Drawing.Point(443, 310)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(99, 36)
+        Me.btnModificar.Size = New System.Drawing.Size(74, 29)
         Me.btnModificar.TabIndex = 11
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -170,18 +185,19 @@ Partial Class frmABMProductos
         'lblCantidad
         '
         Me.lblCantidad.AutoSize = True
-        Me.lblCantidad.Location = New System.Drawing.Point(676, 340)
+        Me.lblCantidad.Location = New System.Drawing.Point(507, 276)
+        Me.lblCantidad.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCantidad.Name = "lblCantidad"
-        Me.lblCantidad.Size = New System.Drawing.Size(14, 16)
+        Me.lblCantidad.Size = New System.Drawing.Size(13, 13)
         Me.lblCantidad.TabIndex = 12
         Me.lblCantidad.Text = "0"
         Me.lblCantidad.Visible = False
         '
         'frmABMProductos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.lblCantidad)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnEliminar)
@@ -196,7 +212,6 @@ Partial Class frmABMProductos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmABMProductos"
         Me.Text = "Altas y Actualizaciones de Productos"
         Me.MenuStrip1.ResumeLayout(False)

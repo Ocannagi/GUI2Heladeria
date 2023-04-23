@@ -93,15 +93,15 @@ Partial Class frmABMVentas
         '
         'cmbProductos
         '
-        Me.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmbProductos.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Me.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbProductos.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbProductos.FormattingEnabled = True
         Me.cmbProductos.Location = New System.Drawing.Point(9, 61)
-        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmbProductos.Name = "cmbProductos"
         Me.cmbProductos.Size = New System.Drawing.Size(236, 21)
         Me.cmbProductos.TabIndex = 5
-        Me.cmbProductos.Text = "Seleccione un Item"
         Me.cmbProductos.UseWaitCursor = True
         '
         'lstVentas
@@ -110,15 +110,15 @@ Partial Class frmABMVentas
         Me.lstVentas.FormattingEnabled = True
         Me.lstVentas.ItemHeight = 12
         Me.lstVentas.Location = New System.Drawing.Point(16, 107)
-        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2)
+        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.lstVentas.Name = "lstVentas"
-        Me.lstVentas.Size = New System.Drawing.Size(428, 196)
+        Me.lstVentas.Size = New System.Drawing.Size(428, 184)
         Me.lstVentas.TabIndex = 6
         '
         'btnAgregar
         '
         Me.btnAgregar.Location = New System.Drawing.Point(36, 325)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(104, 32)
         Me.btnAgregar.TabIndex = 7
@@ -128,7 +128,7 @@ Partial Class frmABMVentas
         'btnLimpiar
         '
         Me.btnLimpiar.Location = New System.Drawing.Point(301, 325)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(104, 32)
         Me.btnLimpiar.TabIndex = 8
@@ -137,7 +137,8 @@ Partial Class frmABMVentas
         '
         'lblPrecio
         '
-        Me.lblPrecio.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblPrecio.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.lblPrecio.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrecio.Location = New System.Drawing.Point(275, 61)
         Me.lblPrecio.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPrecio.Name = "lblPrecio"
@@ -146,17 +147,20 @@ Partial Class frmABMVentas
         '
         'txtCantidad
         '
+        Me.txtCantidad.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.Location = New System.Drawing.Point(378, 63)
-        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(66, 20)
         Me.txtCantidad.TabIndex = 10
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 11
         Me.MenuStrip1.Text = "MenuStrip1"

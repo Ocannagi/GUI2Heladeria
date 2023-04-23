@@ -95,4 +95,14 @@ Module FuncionesStd
         crearArchivo.Close()
     End Sub
 
+    Friend Function AgregarDerechaCeroSiTieneUnSoloDecimal(numDecimalStr As String) As String
+        If numDecimalStr.Contains(".") Then
+            Dim inicio As Integer = numDecimalStr.IndexOf(".")
+            If Mid(numDecimalStr, inicio + 2).Length = 1 Then
+                Return numDecimalStr + "0"
+            End If
+        End If
+        Return numDecimalStr
+    End Function
+
 End Module
