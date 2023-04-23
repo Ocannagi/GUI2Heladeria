@@ -22,6 +22,7 @@ Partial Class frmABMVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmABMVentas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblNroComprobanteVta = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -36,27 +37,32 @@ Partial Class frmABMVentas
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(340, 23)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label1.Location = New System.Drawing.Point(540, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(19, 13)
+        Me.Label1.Size = New System.Drawing.Size(27, 19)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "N°"
         '
         'lblNroComprobanteVta
         '
-        Me.lblNroComprobanteVta.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblNroComprobanteVta.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNroComprobanteVta.Location = New System.Drawing.Point(368, 20)
+        Me.lblNroComprobanteVta.BackColor = System.Drawing.SystemColors.Window
+        Me.lblNroComprobanteVta.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNroComprobanteVta.Location = New System.Drawing.Point(571, 9)
         Me.lblNroComprobanteVta.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNroComprobanteVta.Name = "lblNroComprobanteVta"
-        Me.lblNroComprobanteVta.Size = New System.Drawing.Size(75, 19)
+        Me.lblNroComprobanteVta.Size = New System.Drawing.Size(101, 23)
         Me.lblNroComprobanteVta.TabIndex = 1
         Me.lblNroComprobanteVta.Text = "1"
         Me.lblNroComprobanteVta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -64,95 +70,114 @@ Partial Class frmABMVentas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 46)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label3.Location = New System.Drawing.Point(12, 48)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.Size = New System.Drawing.Size(81, 19)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Producto"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(298, 46)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label4.Location = New System.Drawing.Point(481, 50)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.Size = New System.Drawing.Size(63, 19)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Precio"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(397, 46)
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label5.Location = New System.Drawing.Point(588, 50)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 13)
+        Me.Label5.Size = New System.Drawing.Size(81, 19)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Cantidad"
         '
         'cmbProductos
         '
+        Me.cmbProductos.BackColor = System.Drawing.SystemColors.Window
         Me.cmbProductos.Cursor = System.Windows.Forms.Cursors.WaitCursor
         Me.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbProductos.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbProductos.Location = New System.Drawing.Point(9, 61)
-        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cmbProductos.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbProductos.Location = New System.Drawing.Point(16, 69)
+        Me.cmbProductos.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbProductos.Name = "cmbProductos"
-        Me.cmbProductos.Size = New System.Drawing.Size(236, 21)
+        Me.cmbProductos.Size = New System.Drawing.Size(374, 23)
         Me.cmbProductos.TabIndex = 5
         Me.cmbProductos.UseWaitCursor = True
         '
         'lstVentas
         '
-        Me.lstVentas.Font = New System.Drawing.Font("Consolas", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstVentas.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstVentas.FormattingEnabled = True
-        Me.lstVentas.ItemHeight = 12
-        Me.lstVentas.Location = New System.Drawing.Point(16, 107)
-        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstVentas.ItemHeight = 15
+        Me.lstVentas.Location = New System.Drawing.Point(16, 115)
+        Me.lstVentas.Margin = New System.Windows.Forms.Padding(2)
         Me.lstVentas.Name = "lstVentas"
-        Me.lstVentas.Size = New System.Drawing.Size(428, 184)
+        Me.lstVentas.Size = New System.Drawing.Size(653, 214)
         Me.lstVentas.TabIndex = 6
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(36, 325)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAgregar.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnAgregar.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.Location = New System.Drawing.Point(114, 343)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(104, 32)
+        Me.btnAgregar.Size = New System.Drawing.Size(138, 39)
         Me.btnAgregar.TabIndex = 7
         Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.Location = New System.Drawing.Point(301, 325)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLimpiar.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnLimpiar.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Location = New System.Drawing.Point(406, 343)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(104, 32)
+        Me.btnLimpiar.Size = New System.Drawing.Size(138, 39)
         Me.btnLimpiar.TabIndex = 8
         Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.UseVisualStyleBackColor = True
+        Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'lblPrecio
         '
-        Me.lblPrecio.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.lblPrecio.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.Location = New System.Drawing.Point(275, 61)
+        Me.lblPrecio.BackColor = System.Drawing.SystemColors.Window
+        Me.lblPrecio.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblPrecio.Location = New System.Drawing.Point(447, 71)
         Me.lblPrecio.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(73, 20)
+        Me.lblPrecio.Size = New System.Drawing.Size(97, 21)
         Me.lblPrecio.TabIndex = 9
+        Me.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtCantidad
         '
-        Me.txtCantidad.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantidad.Location = New System.Drawing.Point(378, 63)
-        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCantidad.BackColor = System.Drawing.SystemColors.Window
+        Me.txtCantidad.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCantidad.Location = New System.Drawing.Point(573, 71)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(66, 20)
+        Me.txtCantidad.Size = New System.Drawing.Size(95, 23)
         Me.txtCantidad.TabIndex = 10
+        Me.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'MenuStrip1
         '
@@ -160,47 +185,64 @@ Partial Class frmABMVentas
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(763, 24)
         Me.MenuStrip1.TabIndex = 11
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'ArchivoToolStripMenuItem
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
         'GuardarToolStripMenuItem
         '
+        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox1.Controls.Add(Me.btnLimpiar)
+        Me.GroupBox1.Controls.Add(Me.txtCantidad)
+        Me.GroupBox1.Controls.Add(Me.btnAgregar)
+        Me.GroupBox1.Controls.Add(Me.lblPrecio)
+        Me.GroupBox1.Controls.Add(Me.lstVentas)
+        Me.GroupBox1.Controls.Add(Me.cmbProductos)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.lblNroComprobanteVta)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Location = New System.Drawing.Point(42, 52)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(688, 387)
+        Me.GroupBox1.TabIndex = 12
+        Me.GroupBox1.TabStop = False
         '
         'frmABMVentas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.txtCantidad)
-        Me.Controls.Add(Me.lblPrecio)
-        Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.lstVentas)
-        Me.Controls.Add(Me.cmbProductos)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lblNroComprobanteVta)
-        Me.Controls.Add(Me.Label1)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(763, 506)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Name = "frmABMVentas"
         Me.RightToLeftLayout = True
         Me.Text = "Ventas"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -220,4 +262,5 @@ Partial Class frmABMVentas
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

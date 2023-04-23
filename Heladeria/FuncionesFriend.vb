@@ -118,7 +118,13 @@ Module FuncionesFriend
                 listaProductosCopy.Insert(0, New Producto("", "Seleccione un Item", ""))
                 frmABMVentas.cmbProductos.DataSource = listaProductosCopy
                 frmABMVentas.cmbProductos.DisplayMember = "Descripcion"
+            Else
+                MsgBox("No hay Productos cargados en el Formulario de Productos. Cargue los productos necesarios antes de querer realizar una venta", vbCritical, "Error")
+                frmABMVentas.Close()
             End If
+        Else
+            MsgBox("Aún no se ha creado el Formulario de Productos. Cargue los productos necesarios antes de querer realizar una venta", vbCritical, "Error")
+            frmABMVentas.Close()
         End If
     End Sub
 

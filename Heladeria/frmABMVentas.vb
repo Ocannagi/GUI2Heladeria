@@ -20,7 +20,6 @@ Public Class frmABMVentas
     Friend listaRegistroVta As New List(Of RegistroVta)
     Friend TotalVentas As Double = 0
 
-    'TODO: Antes de cerrar la ventana, si hay cambios sin persistir, avisar.
 
     Friend Class RegistroVta
         Public Property Producto As Producto
@@ -60,6 +59,8 @@ Public Class frmABMVentas
             Dim opc = MsgBox("¿Desea guardar los cambios en " + nomArchivo + "?", vbYesNo + vbCritical)
             If opc = vbYes Then
                 Me.Guardar(ubicacion & nomArchivo)
+            Else
+                lstVentas.Items.Clear()
             End If
         End If
     End Sub
@@ -103,6 +104,7 @@ Public Class frmABMVentas
         If frmABMProductos.objListaproductos.Count > 0 And Me.cmbProductos.SelectedValue IsNot Nothing Then
             Dim producto As frmABMProductos.Producto = Me.cmbProductos.SelectedValue
             Me.lblPrecio.Text = producto.Precio
+            txtCantidad.Focus()
         End If
     End Sub
 
@@ -150,7 +152,7 @@ Public Class frmABMVentas
         If listaRegistroVta.Count > 0 Then
             lblNroComprobanteVta.Text = (listaRegistroVta.Item(listaRegistroVta.Count - 1).NroVta + 1).ToString
             TotalVentas = CalcularTotalVentas()
-            frmMenuPrincipal.lblTotalVentas.Text = TotalVentas.ToString
+            frmMenuPrincipal.lblTotalVentas.Text = FormatCurrency(TotalVentas.ToString, 2)
         End If
         Me.hayCambios = False
     End Sub
@@ -204,9 +206,6 @@ Public Class frmABMVentas
     Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
         sender.BackColor = Color.White
     End Sub
-
-
-
 
 #End Region
 
