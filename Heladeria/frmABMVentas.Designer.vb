@@ -110,7 +110,7 @@ Partial Class frmABMVentas
         'cmbProductos
         '
         Me.cmbProductos.BackColor = System.Drawing.SystemColors.Window
-        Me.cmbProductos.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Me.cmbProductos.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmbProductos.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -119,7 +119,6 @@ Partial Class frmABMVentas
         Me.cmbProductos.Name = "cmbProductos"
         Me.cmbProductos.Size = New System.Drawing.Size(374, 23)
         Me.cmbProductos.TabIndex = 5
-        Me.cmbProductos.UseWaitCursor = True
         '
         'lstVentas
         '
@@ -201,7 +200,7 @@ Partial Class frmABMVentas
         '
         Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
         'GroupBox1

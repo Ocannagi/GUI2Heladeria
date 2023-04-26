@@ -123,21 +123,21 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="GuardarToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

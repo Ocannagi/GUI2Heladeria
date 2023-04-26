@@ -174,7 +174,9 @@ Public Class frmABMVentas
             Me.listaRegistroVta.Add(New RegistroVta(codigo, codigoGuionDescripcion, precio, cantidad, nroVta))
         Next
         For Each registro As RegistroVta In listaRegistroVta
-            grabarArchivo.WriteLine(ArmarTxtRegisro(registro.Producto.Descripcion, registro.Producto.Precio, registro.Cantidad.ToString) + registro.NroVta.ToString)
+            'Dim prueba = registro.Cantidad
+            'Dim prueba2 = registro.Cantidad.ToString.Replace(",", ".")
+            grabarArchivo.WriteLine(ArmarTxtRegisro(registro.Producto.Descripcion, registro.Producto.Precio, registro.Cantidad.ToString.Replace(",", ".")) + registro.NroVta.ToString)
         Next
 
         grabarArchivo.Close()

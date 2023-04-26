@@ -133,7 +133,10 @@ Module FuncionesFriend
         For Each registro As RegistroVta In frmABMVentas.listaRegistroVta
             totalVta += (Val(registro.Producto.Precio) * registro.Cantidad)
         Next
-        Return Math.Round(totalVta, 2)
+
+        Dim total = Math.Round(totalVta, 2)
+
+        Return total
     End Function
 
 End Module

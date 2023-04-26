@@ -68,14 +68,14 @@ Partial Class frmABMProductos
         '
         Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'LeerToolStripMenuItem
         '
         Me.LeerToolStripMenuItem.Image = CType(resources.GetObject("LeerToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LeerToolStripMenuItem.Name = "LeerToolStripMenuItem"
-        Me.LeerToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
+        Me.LeerToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.LeerToolStripMenuItem.Text = "&Leer"
         '
         'Label1
@@ -137,6 +137,7 @@ Partial Class frmABMProductos
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(69, 20)
         Me.txtPrecio.TabIndex = 3
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lstProductos
         '
