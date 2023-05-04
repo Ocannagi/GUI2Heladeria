@@ -1,0 +1,12 @@
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\bin\Debug\frmConeccion.exe.config
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\bin\Debug\frmConeccion.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\bin\Debug\frmConeccion.pdb
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\bin\Debug\frmConeccion.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.vbproj.AssemblyReference.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.frmConeccion.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.Resources.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.vbproj.GenerateResource.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.vbproj.CoreCompileInputs.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioConeccion\frmConeccion\frmConeccion\obj\Debug\frmConeccion.pdb

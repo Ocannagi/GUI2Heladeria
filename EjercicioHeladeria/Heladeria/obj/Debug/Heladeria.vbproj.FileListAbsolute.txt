@@ -1,0 +1,101 @@
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.frmProductos.resources
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.frmVentas.resources
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Hogar\Desktop\GUI 2\Heladeria-20230414T172918Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nueva carpeta\Heladeria-20230418T214112Z-001\Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Hogar\Desktop\GUI 2\Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.SuggestedBindingRedirects.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\Heladeria\obj\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\bin\Debug\Heladeria.exe.config
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\bin\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\bin\Debug\Heladeria.pdb
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\bin\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.vbproj.AssemblyReference.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.frmMenuPrincipal.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.frmABMProductos.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.frmABMVentas.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.Resources.resources
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.vbproj.GenerateResource.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.vbproj.CoreCompileInputs.cache
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.exe
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.xml
+C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioHeladeria\Heladeria\obj\Debug\Heladeria.pdb
