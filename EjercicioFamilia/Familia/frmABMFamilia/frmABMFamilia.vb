@@ -137,18 +137,41 @@ Errores:
                 Me.txtDescripcion.Text = Rs(1)
             End While
             Rs.Close()
-            Me.EliminarMenuItem.Enabled = True
-            Me.ModificarMenuItem.Enabled = True
-            Me.NuevoMenuItem.Enabled = True
-            Me.GrabarMenuItem.Enabled = False
-            Me.ToolStripButton2.Enabled = True ' Boton Eliminar
-            Me.ToolStripButton4.Enabled = True ' Boton Modificar
-            Me.ToolStripButton1.Enabled = False ' Boton Agregar
+            Me.btnEliminar.Enabled = True
+            Me.btnModificar.Enabled = True
+            Me.btnLimpiar.Enabled = True
+            Me.btnAgregar.Enabled = False
+            Me.LimpiarToolStripMenuItem.Enabled = True
+            Me.EliminarToolStripMenuItem.Enabled = True ' Boton Eliminar
+            Me.ModificarToolStripMenuItem.Enabled = True ' Boton Modificar
+            Me.AgregarToolStripMenuItem.Enabled = False ' Boton Agregar
         Else
             MsgBox("No se seleccionó ningun item", vbCritical, "Verifique")
             Me.lstListado.Focus()
         End If
     End Sub
 
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        Me.BotonLimpiar()
+    End Sub
 
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Me.BotonAgregar()
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Me.BotonEliminar()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Me.botonModificar()
+    End Sub
+
+    Private Sub lblCodigo_Click(sender As Object, e As EventArgs) Handles lblCodigo.Click
+        Me.BotonMostrar(0)
+    End Sub
+
+    Private Sub lblDescripcion_Click(sender As Object, e As EventArgs) Handles lblDescripcion.Click
+        Me.BotonMostrar(1)
+    End Sub
 End Class

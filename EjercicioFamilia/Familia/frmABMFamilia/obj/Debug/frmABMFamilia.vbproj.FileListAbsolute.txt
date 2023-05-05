@@ -10,3 +10,16 @@ C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioFamilia\Familia\frmABM
 C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.exe
 C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.xml
 C:\Users\Presentacion\Desktop\Nico\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.pdb
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.vbproj.AssemblyReference.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.vbproj.SuggestedBindingRedirects.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.frmABMFamilia.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.Resources.resources
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.vbproj.GenerateResource.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.vbproj.CoreCompileInputs.cache
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.exe
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.xml
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\obj\Debug\frmABMFamilia.pdb
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\bin\Debug\frmABMFamilia.exe.config
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\bin\Debug\frmABMFamilia.exe
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\bin\Debug\frmABMFamilia.pdb
+C:\Users\nicoi\OneDrive\Escritorio\GUI2\GUI2Heladeria\EjercicioFamilia\Familia\frmABMFamilia\bin\Debug\frmABMFamilia.xml
