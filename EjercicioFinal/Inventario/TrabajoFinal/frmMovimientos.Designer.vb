@@ -28,9 +28,9 @@ Partial Class frmMovimientos
         Me.txtTipoMov = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.dtpFechaMovimiento = New System.Windows.Forms.DateTimePicker()
         Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
         Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.dtpFechaMovimiento = New System.Windows.Forms.DateTimePicker()
         Me.cmbArticulo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -92,20 +92,6 @@ Partial Class frmMovimientos
         Me.ToolStrip1.TabIndex = 6
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'dtpFechaMovimiento
-        '
-        Me.dtpFechaMovimiento.CalendarFont = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaMovimiento.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaMovimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaMovimiento.Location = New System.Drawing.Point(22, 67)
-        Me.dtpFechaMovimiento.MaxDate = New Date(3000, 1, 1, 0, 0, 0, 0)
-        Me.dtpFechaMovimiento.MinDate = New Date(1990, 1, 1, 0, 0, 0, 0)
-        Me.dtpFechaMovimiento.Name = "dtpFechaMovimiento"
-        Me.dtpFechaMovimiento.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.dtpFechaMovimiento.Size = New System.Drawing.Size(112, 26)
-        Me.dtpFechaMovimiento.TabIndex = 7
-        Me.dtpFechaMovimiento.Value = New Date(2023, 5, 9, 0, 0, 0, 0)
-        '
         'tsLimpiar
         '
         Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -123,6 +109,20 @@ Partial Class frmMovimientos
         Me.tsGuardar.Name = "tsGuardar"
         Me.tsGuardar.Size = New System.Drawing.Size(43, 20)
         Me.tsGuardar.Text = "ToolStripButton2"
+        '
+        'dtpFechaMovimiento
+        '
+        Me.dtpFechaMovimiento.CalendarFont = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaMovimiento.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaMovimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaMovimiento.Location = New System.Drawing.Point(22, 67)
+        Me.dtpFechaMovimiento.MaxDate = New Date(3000, 1, 1, 0, 0, 0, 0)
+        Me.dtpFechaMovimiento.MinDate = New Date(1990, 1, 1, 0, 0, 0, 0)
+        Me.dtpFechaMovimiento.Name = "dtpFechaMovimiento"
+        Me.dtpFechaMovimiento.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.dtpFechaMovimiento.Size = New System.Drawing.Size(112, 26)
+        Me.dtpFechaMovimiento.TabIndex = 7
+        Me.dtpFechaMovimiento.Value = New Date(2023, 5, 9, 0, 0, 0, 0)
         '
         'cmbArticulo
         '
@@ -198,7 +198,7 @@ Partial Class frmMovimientos
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem, Me.LimpiarToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
