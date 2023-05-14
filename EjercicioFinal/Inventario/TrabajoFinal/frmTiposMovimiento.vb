@@ -1,8 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmTiposMovimiento
+
+    Private idTipoMovSeleccionado As Integer = 0
+    Friend espaciosNombreTipoMov As Integer = 50
+    Friend espaciosCodTipoMov As Integer = 1
+
     Private Sub frmTiposMovimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Conectar a Base de Datos
         TipoMov_ConectarBase()
         Me.Limpiar()
     End Sub
@@ -18,6 +22,26 @@ Public Class frmTiposMovimiento
     Private Sub tsEliminar_Click(sender As Object, e As EventArgs) Handles tsEliminar.Click
         Eliminar()
     End Sub
+
+    Private Sub tsModificar_Click(sender As Object, e As EventArgs) Handles tsModificar.Click
+        Modificar()
+    End Sub
+
+#Region "VALIDACIÓN CAMPOS"
+    Private Sub txtCodTipoMov_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodTipoMov.KeyPress
+        If SuperaMaxLength(sender, e, espaciosCodTipoMov) Or Not EsCaracterLetraSimple(sender, e) Then
+            e.Handled = True
+        End If
+        e.KeyChar = UCase(e.KeyChar)
+    End Sub
+
+    Private Sub txtNomTipoMov_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNomTipoMov.KeyPress
+        If SuperaMaxLength(sender, e, espaciosNombreTipoMov) Or Not EsCaracterLetraEspacio(sender, e) Then
+            e.Handled = True
+        End If
+    End Sub
+
+#End Region
 
 
 #Region "RUTINAS BOTONES"
@@ -35,9 +59,8 @@ Public Class frmTiposMovimiento
         Me.GuardarToolStripMenuItem.Enabled = True
         Me.tsGuardar.Enabled = True
 
-
-        Me.txtCodTipoMov.Text = ""
-        Me.txtNomTipoMov.Text = ""
+        LimpiarCampos(Me.Controls)
+        Me.idTipoMovSeleccionado = 0
         Me.txtCodTipoMov.Focus()
         MostrarTipoMov(0)
     End Sub
@@ -47,14 +70,14 @@ Public Class frmTiposMovimiento
         Me.lstTipoMovimiento.Items.Clear()
         Select Case Orden
             Case 0
-                Sql = "select * from tipomovi with (nolock) WHERE substring([nom tipomovi],1,3)='ngi' ORDER BY [tip tipomovi]"
+                Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [tip tipomovi]"
             Case 1
-                Sql = "select * from tipomovi with (nolock) WHERE substring([nom tipomovi],1,3)='ngi' ORDER BY [nom tipomovi]"
+                Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [nom tipomovi]"
         End Select
         Instruccion = New SqlCommand(Sql, DaoTipoMov)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
-            Me.lstTipoMovimiento.Items.Add($"{Rs(0)} {Rs(2)} {Rs(1)}")
+            Me.lstTipoMovimiento.Items.Add($"{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}")
         End While
         Rs.Close()
     End Sub
@@ -115,10 +138,10 @@ Errores:
             Me.txtNomTipoMov.Focus()
             Exit Sub
         End If
-        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]=" & Val(Me.txtCodigo.Text) & ""
-        Instruccion = New SqlCommand(Sql, DaoCon)
+        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]= {idTipoMovSeleccionado}"
+        Instruccion = New SqlCommand(Sql, DaoTipoMov)
         Instruccion.ExecuteNonQuery()
-        Me.BotonLimpiar()
+        Me.Limpiar()
         Exit Sub
 Errores:
         Select Case Err.Number
@@ -127,22 +150,7 @@ Errores:
                 Exit Sub
         End Select
     End Sub
-    Sub BotonMostrar(Orden As Integer)
-        Dim Rs As SqlDataReader
-        Me.lstListado.Items.Clear()
-        Select Case Orden
-            Case 0
-                Sql = "select * from familia ORDER BY [ID familia]"
-            Case 1
-                Sql = "select * from familia ORDER BY [nom familia]"
-        End Select
-        Instruccion = New SqlCommand(Sql, DaoCon)
-        Rs = Instruccion.ExecuteReader()
-        While Rs.Read
-            Me.lstListado.Items.Add(Format(Rs(0), "00000") & " " & Rs(1))
-        End While
-        Rs.Close()
-    End Sub
+
 
     Private Sub lstTipoMovimiento_DoubleClick(sender As Object, e As EventArgs) Handles lstTipoMovimiento.DoubleClick
         If Me.lstTipoMovimiento.SelectedItem <> "" Then
@@ -151,8 +159,9 @@ Errores:
             Instruccion = New SqlCommand(Sql, DaoTipoMov)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
-                Me.txtCodTipoMov.Text = Rs(2)
-                Me.txtNomTipoMov.Text = Rs(1)
+                Me.idTipoMovSeleccionado = Rs(Rs.GetOrdinal("id tipomovi"))
+                Me.txtCodTipoMov.Text = Rs(Rs.GetOrdinal("tip tipomovi"))
+                Me.txtNomTipoMov.Text = Rs(Rs.GetOrdinal("nom tipomovi"))
             End While
             Rs.Close()
             tsEliminar.Enabled = True
@@ -175,9 +184,6 @@ Errores:
 
 
 
-
-
-
-
 #End Region
+
 End Class

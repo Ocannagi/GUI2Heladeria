@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncionesStd.vb" />
     <Compile Include="ModDaoTipoMov.vb" />
     <Compile Include="frmAgrupacion.Designer.vb">
       <DependentUpon>frmAgrupacion.vb</DependentUpon>

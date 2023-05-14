@@ -24,14 +24,6 @@ Partial Class frmTiposMovimiento
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTiposMovimiento))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtNomTipoMov = New System.Windows.Forms.TextBox()
-        Me.txtCodTipoMov = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblDescripcion = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
-        Me.lstTipoMovimiento = New System.Windows.Forms.ListBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
         Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
@@ -43,18 +35,26 @@ Partial Class frmTiposMovimiento
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtNomTipoMov = New System.Windows.Forms.TextBox()
+        Me.txtCodTipoMov = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblDescripcion = New System.Windows.Forms.Label()
+        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lstTipoMovimiento = New System.Windows.Forms.ListBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,6 +79,105 @@ Partial Class frmTiposMovimiento
         Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
         Me.SplitContainer1.SplitterDistance = 204
         Me.SplitContainer1.TabIndex = 4
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
+        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 180)
+        Me.ToolStrip1.TabIndex = 5
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'tsLimpiar
+        '
+        Me.tsLimpiar.AutoSize = False
+        Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsLimpiar.Image = CType(resources.GetObject("tsLimpiar.Image"), System.Drawing.Image)
+        Me.tsLimpiar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsLimpiar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsLimpiar.Name = "tsLimpiar"
+        Me.tsLimpiar.Size = New System.Drawing.Size(35, 35)
+        Me.tsLimpiar.Text = "Limpiar"
+        '
+        'tsGuardar
+        '
+        Me.tsGuardar.AutoSize = False
+        Me.tsGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsGuardar.Image = CType(resources.GetObject("tsGuardar.Image"), System.Drawing.Image)
+        Me.tsGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsGuardar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsGuardar.Name = "tsGuardar"
+        Me.tsGuardar.Size = New System.Drawing.Size(35, 35)
+        Me.tsGuardar.Text = "Guardar"
+        '
+        'tsEliminar
+        '
+        Me.tsEliminar.AutoSize = False
+        Me.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsEliminar.Image = CType(resources.GetObject("tsEliminar.Image"), System.Drawing.Image)
+        Me.tsEliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsEliminar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsEliminar.Name = "tsEliminar"
+        Me.tsEliminar.Size = New System.Drawing.Size(35, 35)
+        Me.tsEliminar.Text = "Eliminar"
+        '
+        'tsModificar
+        '
+        Me.tsModificar.AutoSize = False
+        Me.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsModificar.Image = CType(resources.GetObject("tsModificar.Image"), System.Drawing.Image)
+        Me.tsModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsModificar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsModificar.Name = "tsModificar"
+        Me.tsModificar.Size = New System.Drawing.Size(35, 35)
+        Me.tsModificar.Text = "Modificar"
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.TabIndex = 6
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ArchivoToolStripMenuItem
+        '
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.ModificarToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Text = "&Archivo"
+        '
+        'LimpiarToolStripMenuItem
+        '
+        Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.GuardarToolStripMenuItem.Text = "&Guardar"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.EliminarToolStripMenuItem.Text = "&Eliminar"
+        '
+        'ModificarToolStripMenuItem
+        '
+        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.ModificarToolStripMenuItem.Text = "&Modificar"
         '
         'GroupBox1
         '
@@ -112,7 +211,7 @@ Partial Class frmTiposMovimiento
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 85)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(91, 16)
+        Me.Label2.Size = New System.Drawing.Size(90, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Descripción"
         '
@@ -122,9 +221,42 @@ Partial Class frmTiposMovimiento
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 16)
+        Me.Label1.Size = New System.Drawing.Size(96, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CódTipoMov"
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 281)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
+        Me.StatusStrip1.TabIndex = 3
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "Conección:"
+        '
+        'statusCon
+        '
+        Me.statusCon.Name = "statusCon"
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Text = "xxxxxx"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Text = "Base"
+        '
+        'statusBase
+        '
+        Me.statusBase.Name = "statusBase"
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Text = "xxxxxxxx"
         '
         'lblDescripcion
         '
@@ -162,125 +294,6 @@ Partial Class frmTiposMovimiento
         Me.lstTipoMovimiento.Size = New System.Drawing.Size(508, 214)
         Me.lstTipoMovimiento.TabIndex = 0
         '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(881, 24)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(24, 180)
-        Me.ToolStrip1.TabIndex = 5
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'tsLimpiar
-        '
-        Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsLimpiar.Image = CType(resources.GetObject("tsLimpiar.Image"), System.Drawing.Image)
-        Me.tsLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsLimpiar.Name = "tsLimpiar"
-        Me.tsLimpiar.Size = New System.Drawing.Size(21, 20)
-        Me.tsLimpiar.Text = "Limpiar"
-        '
-        'tsGuardar
-        '
-        Me.tsGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsGuardar.Image = CType(resources.GetObject("tsGuardar.Image"), System.Drawing.Image)
-        Me.tsGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsGuardar.Name = "tsGuardar"
-        Me.tsGuardar.Size = New System.Drawing.Size(21, 20)
-        Me.tsGuardar.Text = "Guardar"
-        '
-        'tsEliminar
-        '
-        Me.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsEliminar.Image = CType(resources.GetObject("tsEliminar.Image"), System.Drawing.Image)
-        Me.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsEliminar.Name = "tsEliminar"
-        Me.tsEliminar.Size = New System.Drawing.Size(29, 20)
-        Me.tsEliminar.Text = "Eliminar"
-        '
-        'tsModificar
-        '
-        Me.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsModificar.Image = CType(resources.GetObject("tsModificar.Image"), System.Drawing.Image)
-        Me.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsModificar.Name = "tsModificar"
-        Me.tsModificar.Size = New System.Drawing.Size(21, 20)
-        Me.tsModificar.Text = "Modificar"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
-        Me.MenuStrip1.TabIndex = 6
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'ArchivoToolStripMenuItem
-        '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.ModificarToolStripMenuItem})
-        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
-        Me.ArchivoToolStripMenuItem.Text = "&Archivo"
-        '
-        'LimpiarToolStripMenuItem
-        '
-        Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GuardarToolStripMenuItem.Text = "&Guardar"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EliminarToolStripMenuItem.Text = "&Eliminar"
-        '
-        'ModificarToolStripMenuItem
-        '
-        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ModificarToolStripMenuItem.Text = "&Modificar"
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 281)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
-        Me.StatusStrip1.TabIndex = 3
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
-        Me.ToolStripStatusLabel1.Text = "Conección:"
-        '
-        'statusCon
-        '
-        Me.statusCon.Name = "statusCon"
-        Me.statusCon.Size = New System.Drawing.Size(43, 17)
-        Me.statusCon.Text = "xxxxxx"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
-        Me.ToolStripStatusLabel2.Text = "Base"
-        '
-        'statusBase
-        '
-        Me.statusBase.Name = "statusBase"
-        Me.statusBase.Size = New System.Drawing.Size(55, 17)
-        Me.statusBase.Text = "xxxxxxxx"
-        '
         'frmTiposMovimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -295,12 +308,12 @@ Partial Class frmTiposMovimiento
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
