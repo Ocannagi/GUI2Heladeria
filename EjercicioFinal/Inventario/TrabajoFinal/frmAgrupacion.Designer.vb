@@ -28,42 +28,42 @@ Partial Class frmAgrupacion
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
-        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
-        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblCodigo = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.lstAgrupacion = New System.Windows.Forms.ListBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
+        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
+        Me.txtNombreAgrupacion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtDescripcion = New System.Windows.Forms.TextBox()
-        Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ModificarToolStripMenuItem
         '
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.ModificarToolStripMenuItem.Text = "&Modificar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'ArchivoToolStripMenuItem
@@ -76,54 +76,8 @@ Partial Class frmAgrupacion
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
-        '
-        'tsModificar
-        '
-        Me.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsModificar.Image = CType(resources.GetObject("tsModificar.Image"), System.Drawing.Image)
-        Me.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsModificar.Name = "tsModificar"
-        Me.tsModificar.Size = New System.Drawing.Size(21, 20)
-        Me.tsModificar.Text = "Modificar"
-        '
-        'tsEliminar
-        '
-        Me.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsEliminar.Image = CType(resources.GetObject("tsEliminar.Image"), System.Drawing.Image)
-        Me.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsEliminar.Name = "tsEliminar"
-        Me.tsEliminar.Size = New System.Drawing.Size(21, 20)
-        Me.tsEliminar.Text = "Eliminar"
-        '
-        'tsGuardar
-        '
-        Me.tsGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsGuardar.Image = CType(resources.GetObject("tsGuardar.Image"), System.Drawing.Image)
-        Me.tsGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsGuardar.Name = "tsGuardar"
-        Me.tsGuardar.Size = New System.Drawing.Size(21, 20)
-        Me.tsGuardar.Text = "Guardar"
-        '
-        'tsLimpiar
-        '
-        Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsLimpiar.Image = CType(resources.GetObject("tsLimpiar.Image"), System.Drawing.Image)
-        Me.tsLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsLimpiar.Name = "tsLimpiar"
-        Me.tsLimpiar.Size = New System.Drawing.Size(21, 20)
-        Me.tsLimpiar.Text = "Limpiar"
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(881, 24)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(24, 180)
-        Me.ToolStrip1.TabIndex = 5
-        Me.ToolStrip1.Text = "ToolStrip1"
         '
         'lblDescripcion
         '
@@ -178,9 +132,9 @@ Partial Class frmAgrupacion
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.txtDescripcion)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ToolStrip1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.txtNombreAgrupacion)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.MenuStrip1)
         '
         'SplitContainer1.Panel2
@@ -192,6 +146,72 @@ Partial Class frmAgrupacion
         Me.SplitContainer1.SplitterDistance = 204
         Me.SplitContainer1.TabIndex = 5
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
+        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 180)
+        Me.ToolStrip1.TabIndex = 7
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'tsLimpiar
+        '
+        Me.tsLimpiar.AutoSize = False
+        Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsLimpiar.Image = CType(resources.GetObject("tsLimpiar.Image"), System.Drawing.Image)
+        Me.tsLimpiar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsLimpiar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsLimpiar.Name = "tsLimpiar"
+        Me.tsLimpiar.Size = New System.Drawing.Size(35, 35)
+        Me.tsLimpiar.Text = "Limpiar"
+        '
+        'tsGuardar
+        '
+        Me.tsGuardar.AutoSize = False
+        Me.tsGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsGuardar.Image = CType(resources.GetObject("tsGuardar.Image"), System.Drawing.Image)
+        Me.tsGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsGuardar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsGuardar.Name = "tsGuardar"
+        Me.tsGuardar.Size = New System.Drawing.Size(35, 35)
+        Me.tsGuardar.Text = "Guardar"
+        '
+        'tsEliminar
+        '
+        Me.tsEliminar.AutoSize = False
+        Me.tsEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsEliminar.Image = CType(resources.GetObject("tsEliminar.Image"), System.Drawing.Image)
+        Me.tsEliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsEliminar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsEliminar.Name = "tsEliminar"
+        Me.tsEliminar.Size = New System.Drawing.Size(35, 35)
+        Me.tsEliminar.Text = "Eliminar"
+        '
+        'tsModificar
+        '
+        Me.tsModificar.AutoSize = False
+        Me.tsModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsModificar.Image = CType(resources.GetObject("tsModificar.Image"), System.Drawing.Image)
+        Me.tsModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tsModificar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsModificar.Margin = New System.Windows.Forms.Padding(0, 1, 0, 3)
+        Me.tsModificar.Name = "tsModificar"
+        Me.tsModificar.Size = New System.Drawing.Size(35, 35)
+        Me.tsModificar.Text = "Modificar"
+        '
+        'txtNombreAgrupacion
+        '
+        Me.txtNombreAgrupacion.Location = New System.Drawing.Point(126, 101)
+        Me.txtNombreAgrupacion.Name = "txtNombreAgrupacion"
+        Me.txtNombreAgrupacion.Size = New System.Drawing.Size(231, 20)
+        Me.txtNombreAgrupacion.TabIndex = 3
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -202,13 +222,6 @@ Partial Class frmAgrupacion
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Agrupación"
         '
-        'txtDescripcion
-        '
-        Me.txtDescripcion.Location = New System.Drawing.Point(126, 101)
-        Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(231, 20)
-        Me.txtDescripcion.TabIndex = 3
-        '
         'frmAgrupacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,8 +230,6 @@ Partial Class frmAgrupacion
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "frmAgrupacion"
         Me.Text = "frmAgrupacion"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -226,6 +237,8 @@ Partial Class frmAgrupacion
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -235,16 +248,16 @@ Partial Class frmAgrupacion
     Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tsModificar As ToolStripButton
-    Friend WithEvents tsEliminar As ToolStripButton
-    Friend WithEvents tsGuardar As ToolStripButton
-    Friend WithEvents tsLimpiar As ToolStripButton
-    Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents lblDescripcion As Label
     Friend WithEvents lblCodigo As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents lstAgrupacion As ListBox
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents txtDescripcion As TextBox
+    Friend WithEvents txtNombreAgrupacion As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents tsLimpiar As ToolStripButton
+    Friend WithEvents tsGuardar As ToolStripButton
+    Friend WithEvents tsEliminar As ToolStripButton
+    Friend WithEvents tsModificar As ToolStripButton
 End Class

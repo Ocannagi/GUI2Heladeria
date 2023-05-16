@@ -7,9 +7,14 @@ Public Class frmTiposMovimiento
     Friend espaciosCodTipoMov As Integer = 1
 
     Private Sub frmTiposMovimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TipoMov_ConectarBase()
+        Dao_ConectarBase()
         Me.Limpiar()
     End Sub
+
+    Private Sub frmTiposMovimiento_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Dao_CerrarBase()
+    End Sub
+
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
         Limpiar()
@@ -47,18 +52,7 @@ Public Class frmTiposMovimiento
 #Region "RUTINAS BOTONES"
 
     Private Sub Limpiar()
-        Me.tsEliminar.Enabled = False
-        Me.EliminarToolStripMenuItem.Enabled = False
-
-        Me.ModificarToolStripMenuItem.Enabled = False
-        Me.tsModificar.Enabled = False
-
-        Me.LimpiarToolStripMenuItem.Enabled = True
-        Me.tsLimpiar.Enabled = True
-
-        Me.GuardarToolStripMenuItem.Enabled = True
-        Me.tsGuardar.Enabled = True
-
+        SetearHabilitacionBotonesABMLimpiar(Me)
         LimpiarCampos(Me.Controls)
         Me.idTipoMovSeleccionado = 0
         Me.txtCodTipoMov.Focus()
@@ -74,7 +68,7 @@ Public Class frmTiposMovimiento
             Case 1
                 Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [nom tipomovi]"
         End Select
-        Instruccion = New SqlCommand(Sql, DaoTipoMov)
+        Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
             Me.lstTipoMovimiento.Items.Add($"{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}")
@@ -95,7 +89,7 @@ Public Class frmTiposMovimiento
             Exit Sub
         End If
         Sql = $"INSERT INTO tipomovi ([nom tipomovi],[tip tipomovi]) VALUES('ngi'+'{txtNomTipoMov.Text}','{txtCodTipoMov.Text}')"
-        Instruccion = New SqlCommand(Sql, DaoTipoMov)
+        Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
         Exit Sub
@@ -113,7 +107,7 @@ Errores:
         OpC = MsgBox("¿Desea eliminar este Registo?", vbYesNo, "Verifique")
         If OpC = vbYes Then
             Sql = $"DELETE FROM tipomovi WHERE [nom tipomovi]= '{txtNomTipoMov.Text}'"
-            Instruccion = New SqlCommand(Sql, DaoTipoMov)
+            Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()
         End If
         Limpiar()
@@ -139,7 +133,7 @@ Errores:
             Exit Sub
         End If
         Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]= {idTipoMovSeleccionado}"
-        Instruccion = New SqlCommand(Sql, DaoTipoMov)
+        Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
         Exit Sub
@@ -156,7 +150,7 @@ Errores:
         If Me.lstTipoMovimiento.SelectedItem <> "" Then
             Dim Rs As SqlDataReader
             Sql = $"select * from tipomovi WHERE [id tipomovi]= {Val(Mid(Me.lstTipoMovimiento.SelectedItem, 1, Me.lstTipoMovimiento.SelectedItem.ToString.IndexOf(" ") + 1))}"
-            Instruccion = New SqlCommand(Sql, DaoTipoMov)
+            Instruccion = New SqlCommand(Sql, Dao)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
                 Me.idTipoMovSeleccionado = Rs(Rs.GetOrdinal("id tipomovi"))
@@ -177,12 +171,6 @@ Errores:
             Me.lstTipoMovimiento.Focus()
         End If
     End Sub
-
-
-
-
-
-
 
 #End Region
 

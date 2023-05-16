@@ -1,16 +1,16 @@
 ﻿Imports System.Data.SqlClient
 
-Module ModDaoTipoMov
-    Public DaoTipoMov As SqlConnection
+Module ModDao
+    Public Dao As SqlConnection
     Public Sql As String ' Cadena de SQL SERVER
     Public Instruccion As SqlCommand '
-    Sub TipoMov_ConectarBase()
+    Sub Dao_ConectarBase()
         On Error GoTo Errores
         Dim Servidor As String = "estack.ddns.net"
         Dim Base As String = "UCES04"
-        DaoTipoMov = New SqlConnection("server=" & Servidor & ";database=" &
+        Dao = New SqlConnection("server=" & Servidor & ";database=" &
        Base & ";User ID=sa;Password=Ita1821!")
-        DaoTipoMov.Open()
+        Dao.Open()
         frmTiposMovimiento.statusCon.Text = "Establecida"
         frmTiposMovimiento.statusBase.Text = Base
         Exit Sub
@@ -28,5 +28,12 @@ Errores:
                "00000)"))
                 Exit Sub
         End Select
+    End Sub
+
+    Friend Sub Dao_CerrarBase()
+        If Dao.State <> 0 Then
+            Dao.Close()
+            MsgBox("Conexión Cerrada", vbInformation)
+        End If
     End Sub
 End Module
