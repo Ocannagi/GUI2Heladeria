@@ -15,8 +15,13 @@ Public Class frmTiposMovimiento
         Dao_CerrarBase()
     End Sub
 
+#Region "BOTONES"
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
+        Limpiar()
+    End Sub
+
+    Private Sub LimpiarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarToolStripMenuItem.Click
         Limpiar()
     End Sub
 
@@ -24,13 +29,27 @@ Public Class frmTiposMovimiento
         Guardar()
     End Sub
 
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+        Guardar()
+    End Sub
+
     Private Sub tsEliminar_Click(sender As Object, e As EventArgs) Handles tsEliminar.Click
+        Eliminar()
+    End Sub
+
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
         Eliminar()
     End Sub
 
     Private Sub tsModificar_Click(sender As Object, e As EventArgs) Handles tsModificar.Click
         Modificar()
     End Sub
+
+    Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
+        Modificar()
+    End Sub
+
+#End Region
 
 #Region "VALIDACIÓN CAMPOS"
     Private Sub txtCodTipoMov_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodTipoMov.KeyPress
@@ -88,7 +107,7 @@ Public Class frmTiposMovimiento
             Me.txtNomTipoMov.Focus()
             Exit Sub
         End If
-        Sql = $"INSERT INTO tipomovi ([nom tipomovi],[tip tipomovi]) VALUES('ngi'+'{txtNomTipoMov.Text}','{txtCodTipoMov.Text}')"
+        Sql = $"INSERT INTO tipomovi ([nom tipomovi],[tip tipomovi]) VALUES('ngi'+'{txtNomTipoMov.Text.Trim}','{txtCodTipoMov.Text}')"
         Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
@@ -106,7 +125,7 @@ Errores:
         On Error GoTo Errores
         OpC = MsgBox("¿Desea eliminar este Registo?", vbYesNo, "Verifique")
         If OpC = vbYes Then
-            Sql = $"DELETE FROM tipomovi WHERE [nom tipomovi]= '{txtNomTipoMov.Text}'"
+            Sql = $"DELETE FROM tipomovi WHERE [id tipomovi]= {idTipoMovSeleccionado}"
             Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()
         End If
@@ -132,7 +151,7 @@ Errores:
             Me.txtNomTipoMov.Focus()
             Exit Sub
         End If
-        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]= {idTipoMovSeleccionado}"
+        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text.Trim}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]= {idTipoMovSeleccionado}"
         Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
