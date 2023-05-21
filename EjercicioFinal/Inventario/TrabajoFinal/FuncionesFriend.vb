@@ -31,6 +31,21 @@ Module FuncionesFriend
         formulario.tsGuardar.Enabled = True
     End Sub
 
+    Friend Sub SetearHabilitacionBotonesABMLimpiar(formulario As frmArticulos)
+
+        formulario.tsEliminar.Enabled = False
+        formulario.EliminarToolStripMenuItem.Enabled = False
+
+        formulario.ModificarToolStripMenuItem.Enabled = False
+        formulario.tsModificar.Enabled = False
+
+        formulario.LimpiarToolStripMenuItem.Enabled = True
+        formulario.tsLimpiar.Enabled = True
+
+        formulario.GuardarToolStripMenuItem.Enabled = True
+        formulario.tsGuardar.Enabled = True
+    End Sub
+
     Friend Sub SetearHabilitacionBotonesABMSeleccionar(formulario As frmAgrupacion)
         formulario.tsEliminar.Enabled = True
         formulario.tsModificar.Enabled = True
