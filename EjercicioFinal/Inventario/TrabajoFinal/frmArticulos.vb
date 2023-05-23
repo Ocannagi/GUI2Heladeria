@@ -68,7 +68,7 @@ Public Class frmArticulos
         End If
     End Sub
 
-    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs)
         CambiarComa(sender, e)
 
         If SuperaMaxLength(sender, e, espaciosEnteros + espaciosDecimales + 1) Or HayDoblePunto(sender, e) Or Not EsCaracterNumeroPunto(sender, e) Or SuperaCantEnteros(sender, e, espaciosEnteros) Or SuperaCantDecimales(sender, e, espaciosDecimales) Then
@@ -76,7 +76,7 @@ Public Class frmArticulos
         End If
     End Sub
 
-    Private Sub txtPrecio_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
+    Private Sub txtPrecio_TextChanged(sender As Object, e As EventArgs)
         AgregarCeroPrePunto(sender)
     End Sub
 
@@ -156,7 +156,7 @@ Public Class frmArticulos
         End If
         If Me.cmbAgrupacion.SelectedIndex() = 0 Or Me.cmbAgrupacion.SelectedIndex() = -1 Then
             MsgBox("El Tipo de Agrupación es requerido", vbCritical)
-            Me.txtPrecio.Focus()
+            Me.cmbAgrupacion.Focus()
             Exit Sub
         End If
         Dim idAgrup As Integer = cmbAgrupacion.SelectedItem(0)
@@ -210,7 +210,7 @@ Errores:
         End If
         If Me.cmbAgrupacion.SelectedIndex() = 0 Or Me.cmbAgrupacion.SelectedIndex() = -1 Then
             MsgBox("El Tipo de Agrupación es requerido", vbCritical)
-            Me.txtPrecio.Focus()
+            Me.cmbAgrupacion.Focus()
             Exit Sub
         End If
 
