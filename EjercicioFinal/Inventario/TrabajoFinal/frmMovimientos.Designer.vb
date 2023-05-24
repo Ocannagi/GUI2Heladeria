@@ -23,15 +23,10 @@ Partial Class frmMovimientos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMovimientos))
-        Me.txtCantidad = New System.Windows.Forms.TextBox()
-        Me.txtCodArt = New System.Windows.Forms.TextBox()
-        Me.txtTipoMov = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtObs = New System.Windows.Forms.TextBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
         Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.dtpFechaMovimiento = New System.Windows.Forms.DateTimePicker()
-        Me.cmbArticulo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -40,46 +35,27 @@ Partial Class frmMovimientos
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lstMovimientos = New System.Windows.Forms.ListBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.txtCodArt = New System.Windows.Forms.TextBox()
+        Me.cmbArticulo = New System.Windows.Forms.ComboBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.cmbTipoMov = New System.Windows.Forms.ComboBox()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'txtCantidad
+        'txtObs
         '
-        Me.txtCantidad.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantidad.Location = New System.Drawing.Point(528, 68)
-        Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(106, 26)
-        Me.txtCantidad.TabIndex = 0
-        '
-        'txtCodArt
-        '
-        Me.txtCodArt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodArt.Location = New System.Drawing.Point(152, 67)
-        Me.txtCodArt.Name = "txtCodArt"
-        Me.txtCodArt.Size = New System.Drawing.Size(85, 26)
-        Me.txtCodArt.TabIndex = 1
-        '
-        'txtTipoMov
-        '
-        Me.txtTipoMov.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTipoMov.Location = New System.Drawing.Point(660, 68)
-        Me.txtTipoMov.Name = "txtTipoMov"
-        Me.txtTipoMov.Size = New System.Drawing.Size(75, 26)
-        Me.txtTipoMov.TabIndex = 4
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(22, 133)
-        Me.TextBox5.Multiline = True
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(366, 72)
-        Me.TextBox5.TabIndex = 5
+        Me.txtObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtObs.Location = New System.Drawing.Point(29, 133)
+        Me.txtObs.Multiline = True
+        Me.txtObs.Name = "txtObs"
+        Me.txtObs.Size = New System.Drawing.Size(366, 72)
+        Me.txtObs.TabIndex = 5
         '
         'ToolStrip1
         '
@@ -96,42 +72,21 @@ Partial Class frmMovimientos
         '
         Me.tsLimpiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.tsLimpiar.Image = CType(resources.GetObject("tsLimpiar.Image"), System.Drawing.Image)
+        Me.tsLimpiar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tsLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsLimpiar.Name = "tsLimpiar"
-        Me.tsLimpiar.Size = New System.Drawing.Size(43, 20)
+        Me.tsLimpiar.Size = New System.Drawing.Size(43, 34)
         Me.tsLimpiar.Text = "ToolStripButton1"
         '
         'tsGuardar
         '
         Me.tsGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.tsGuardar.Image = CType(resources.GetObject("tsGuardar.Image"), System.Drawing.Image)
+        Me.tsGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tsGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsGuardar.Name = "tsGuardar"
-        Me.tsGuardar.Size = New System.Drawing.Size(43, 20)
+        Me.tsGuardar.Size = New System.Drawing.Size(43, 34)
         Me.tsGuardar.Text = "ToolStripButton2"
-        '
-        'dtpFechaMovimiento
-        '
-        Me.dtpFechaMovimiento.CalendarFont = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaMovimiento.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaMovimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaMovimiento.Location = New System.Drawing.Point(22, 67)
-        Me.dtpFechaMovimiento.MaxDate = New Date(3000, 1, 1, 0, 0, 0, 0)
-        Me.dtpFechaMovimiento.MinDate = New Date(1990, 1, 1, 0, 0, 0, 0)
-        Me.dtpFechaMovimiento.Name = "dtpFechaMovimiento"
-        Me.dtpFechaMovimiento.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.dtpFechaMovimiento.Size = New System.Drawing.Size(112, 26)
-        Me.dtpFechaMovimiento.TabIndex = 7
-        Me.dtpFechaMovimiento.Value = New Date(2023, 5, 9, 0, 0, 0, 0)
-        '
-        'cmbArticulo
-        '
-        Me.cmbArticulo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbArticulo.FormattingEnabled = True
-        Me.cmbArticulo.Location = New System.Drawing.Point(257, 68)
-        Me.cmbArticulo.Name = "cmbArticulo"
-        Me.cmbArticulo.Size = New System.Drawing.Size(247, 26)
-        Me.cmbArticulo.TabIndex = 8
         '
         'Label1
         '
@@ -203,23 +158,24 @@ Partial Class frmMovimientos
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GuardarToolStripMenuItem.Text = "&Guardar"
-        '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'lstMovimientos
         '
         Me.lstMovimientos.FormattingEnabled = True
         Me.lstMovimientos.Location = New System.Drawing.Point(32, 287)
         Me.lstMovimientos.Name = "lstMovimientos"
+        Me.lstMovimientos.ScrollAlwaysVisible = True
         Me.lstMovimientos.Size = New System.Drawing.Size(736, 160)
         Me.lstMovimientos.TabIndex = 16
         '
@@ -232,11 +188,57 @@ Partial Class frmMovimientos
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Movimientos"
         '
+        'dtpFecha
+        '
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecha.Location = New System.Drawing.Point(29, 67)
+        Me.dtpFecha.MaxDate = New Date(3000, 12, 31, 0, 0, 0, 0)
+        Me.dtpFecha.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(90, 20)
+        Me.dtpFecha.TabIndex = 18
+        '
+        'txtCodArt
+        '
+        Me.txtCodArt.Location = New System.Drawing.Point(149, 67)
+        Me.txtCodArt.Name = "txtCodArt"
+        Me.txtCodArt.ReadOnly = True
+        Me.txtCodArt.Size = New System.Drawing.Size(74, 20)
+        Me.txtCodArt.TabIndex = 19
+        '
+        'cmbArticulo
+        '
+        Me.cmbArticulo.FormattingEnabled = True
+        Me.cmbArticulo.Location = New System.Drawing.Point(254, 67)
+        Me.cmbArticulo.Name = "cmbArticulo"
+        Me.cmbArticulo.Size = New System.Drawing.Size(230, 21)
+        Me.cmbArticulo.TabIndex = 20
+        '
+        'txtCantidad
+        '
+        Me.txtCantidad.Location = New System.Drawing.Point(525, 67)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(74, 20)
+        Me.txtCantidad.TabIndex = 21
+        '
+        'cmbTipoMov
+        '
+        Me.cmbTipoMov.FormattingEnabled = True
+        Me.cmbTipoMov.Location = New System.Drawing.Point(660, 67)
+        Me.cmbTipoMov.Name = "cmbTipoMov"
+        Me.cmbTipoMov.Size = New System.Drawing.Size(82, 21)
+        Me.cmbTipoMov.TabIndex = 22
+        '
         'frmMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.Controls.Add(Me.cmbTipoMov)
+        Me.Controls.Add(Me.txtCantidad)
+        Me.Controls.Add(Me.cmbArticulo)
+        Me.Controls.Add(Me.txtCodArt)
+        Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.lstMovimientos)
         Me.Controls.Add(Me.Label6)
@@ -245,14 +247,9 @@ Partial Class frmMovimientos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cmbArticulo)
-        Me.Controls.Add(Me.dtpFechaMovimiento)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.txtTipoMov)
-        Me.Controls.Add(Me.txtCodArt)
-        Me.Controls.Add(Me.txtCantidad)
+        Me.Controls.Add(Me.txtObs)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMovimientos"
         Me.Text = "frmMovimientos"
@@ -264,16 +261,10 @@ Partial Class frmMovimientos
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txtCantidad As TextBox
-    Friend WithEvents txtCodArt As TextBox
-    Friend WithEvents txtTipoMov As TextBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtObs As TextBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents tsLimpiar As ToolStripButton
     Friend WithEvents tsGuardar As ToolStripButton
-    Friend WithEvents dtpFechaMovimiento As DateTimePicker
-    Friend WithEvents cmbArticulo As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -286,4 +277,9 @@ Partial Class frmMovimientos
     Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lstMovimientos As ListBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents dtpFecha As DateTimePicker
+    Friend WithEvents txtCodArt As TextBox
+    Friend WithEvents cmbArticulo As ComboBox
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents cmbTipoMov As ComboBox
 End Class

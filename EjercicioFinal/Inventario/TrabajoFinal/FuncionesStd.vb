@@ -15,6 +15,8 @@ Module FuncionesStd
                 CType(control, CheckBox).Checked = False
             ElseIf TypeOf control Is RadioButton Then
                 CType(control, RadioButton).Checked = False
+            ElseIf TypeOf control Is DateTimePicker Then
+                CType(control, DateTimePicker).Value = DateTime.Now
             ElseIf control.HasChildren Then
                 LimpiarCampos(control.Controls)
             End If
