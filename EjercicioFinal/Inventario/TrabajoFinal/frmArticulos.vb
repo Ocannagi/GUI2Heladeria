@@ -113,7 +113,13 @@ Public Class frmArticulos
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         Rs.Read()
-        Dim espaciosIDmax As Integer = Rs(0).ToString().Length
+        Dim espaciosIDmax As Integer
+        If Rs.HasRows Then
+            espaciosIDmax = Rs(0).ToString().Length
+        Else
+            espaciosIDmax = 1
+        End If
+
         Rs.Close()
 
         Select Case Orden

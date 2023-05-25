@@ -6,14 +6,18 @@ Public Class frmMovimientos
         CargarComboArticulo()
         CargarComboTipoMovimiento()
         Limpiar()
+        dtpFecha.Format = DateTimePickerFormat.Custom
+        dtpFecha.CustomFormat = "dd/MM/yyyy"
         Me.dtpFecha.Focus()
     End Sub
 
 
+    Friend espaciosTipoMovi As Integer = frmTiposMovimiento.espaciosCodTipoMov
     Friend espaciosFecha As Integer = 10
-    Friend espaciosArticulo As Integer = frmArticulos.espaciosNomAgrupacion
+    Friend espaciosArticulo As Integer = frmArticulos.espaciosNomArticulo
     Friend espaciosCantidad As Integer = 9
-    Friend espaciosTipoCant As Integer = frmTiposMovimiento.espaciosCodTipoMov
+    Friend espaciosPrecioMov As Integer = frmArticulos.espaciosEnteros + frmArticulos.espaciosDecimales + 1
+    Friend espaciosObs As Integer = 250
 
     Private Sub CargarComboArticulo()
         Sql = "select * from Articulo with (nolock) WHERE [nom articulo] like 'ngi%' ORDER BY [nom articulo]"
@@ -56,38 +60,102 @@ Public Class frmMovimientos
     Private Sub MostrarMovimiento(Orden As Integer)
         Dim Rs As SqlDataReader
         Me.lstMovimientos.Items.Clear()
-        Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [id articulo] desc"
+        Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [id movimiento] desc"
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         Rs.Read()
-        Dim espaciosIDmax As Integer = Rs(0).ToString().Length
+
+        Dim espaciosIDmax As Integer
+        If Rs.HasRows Then
+            espaciosIDmax = Rs(0).ToString().Length
+        Else
+            espaciosIDmax = 1
+        End If
+
         Rs.Close()
 
         Select Case Orden
             Case 0
-                Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [id articulo]"
+                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [id movimiento]"
             Case 1
-                Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [nom articulo]"
+                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [Fec movimiento]"
         End Select
 
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
-            Dim idArt = Rs(Rs.GetOrdinal("id articulo"))
-            Dim espPosIDArt = Space(espaciosIDmax - Rs(0).ToString.Length + 1)
+            Dim idMov = Rs(Rs.GetOrdinal("id movimiento"))
+            Dim espPosIDMov = Space(espaciosIDmax - Rs(0).ToString.Length + 1)
+            Dim codTipoMovi = Rs(Rs.GetOrdinal("tip tipomovi"))
+            Dim espPosCodTipoMovi = Space(espaciosTipoMovi - Rs(Rs.GetOrdinal("tip tipomovi")).ToString.Length + 1)
             Dim nomArt = Rs(Rs.GetOrdinal("nom articulo"))
-            Dim espPosNomArt = Space(espaciosNomArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
-            Dim nomAgr = Rs(Rs.GetOrdinal("nom agrupacion"))
-            Dim espPosNomAgr = Space(espaciosNomAgrupacion - Rs(Rs.GetOrdinal("nom agrupacion")).ToString.Length + 1)
-            Dim prec = Rs(Rs.GetOrdinal("pco articulo")).ToString.Replace(",", ".")
+            Dim espPosNomArt = Space(espaciosArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
+            Dim fechaMov = Rs(Rs.GetOrdinal("Fec movimiento"))
+            Dim espPosFecMov = Space(1)
+            Dim cantMov = Rs(Rs.GetOrdinal("can movimiento"))
+            Dim espPosCantMov = Space(espaciosCantidad - Rs(Rs.GetOrdinal("can movimiento")).ToString.Length + 1)
+            Dim precMov = Rs(Rs.GetOrdinal("pre movimiento")).ToString.Replace(",", ".")
+            Dim espPosMov = Space(espaciosPrecioMov - Rs(Rs.GetOrdinal("pre movimiento")).ToString.Length + 1)
+            Dim obsmov = Rs(Rs.GetOrdinal("obs movimiento"))
 
-
-
-            Me.lstArticulos.Items.Add($"{idArt}{espPosIDArt}{nomArt}{espPosNomArt}{nomAgr}{espPosNomAgr}{prec}")
+            Me.lstMovimientos.Items.Add($"{idMov}{espPosIDMov}{codTipoMovi}{espPosCodTipoMovi}{nomArt}{espPosNomArt}{fechaMov}{espPosFecMov}{cantMov}{espPosCantMov}{precMov}{espPosMov}{obsmov}")
         End While
         Rs.Close()
-        Me.txtNomArticulo.Focus()
+        Me.dtpFecha.Focus()
     End Sub
 
+    Private Sub Guardar()
+        On Error GoTo Errores
+        If Me.txtCodArt.Text = "" Then
+            MsgBox("El Nombre de Articulo es requerido", vbCritical)
+            Me.cmbArticulo.Focus()
+            Exit Sub
+        End If
+        If Me.cmbArticulo.SelectedIndex() = 0 Or cmbArticulo.SelectedIndex() = -1 Then
+            MsgBox("El Nombre del Artículo es requerido", vbCritical)
+            Me.cmbArticulo.Focus()
+            Exit Sub
+        End If
+        If txtCantidad.Text = "" Then
+            MsgBox("La Cantidad de Articulos es requerida", vbCritical)
+            Me.txtCantidad.Focus()
+            Exit Sub
+        End If
+        If Me.cmbTipoMov.SelectedIndex() = 0 Or Me.cmbTipoMov.SelectedIndex() = -1 Then
+            MsgBox("El Tipo de Movimiento es requerido", vbCritical)
+            Me.cmbTipoMov.Focus()
+            Exit Sub
+        End If
+        If txtObs.Text = "" Or txtObs.Text.Length < 4 Then
+            MsgBox("Completar la observación es requerido (al menos 4 caracteres)", vbCritical)
+            Me.txtObs.Focus()
+            Exit Sub
+        End If
 
+        Dim idTipoMovi As Integer = cmbTipoMov.SelectedItem(0)
+        Dim idArt As Integer = cmbArticulo.SelectedItem(0)
+        Dim fechaString = String.Format(dtpFecha.Value, "dd/MM/yyyy")
+
+
+        'Sql = $"INSERT INTO articulo ([id tipomovi],[id articulo],[fec movimiento],[can movimiento],[pre movimiento],[obs movimiento]) VALUES('{ngi & txtNomArticulo.Text.Trim}',{idAgrup},{precio})"
+
+        Instruccion = New SqlCommand(Sql, Dao)
+        Instruccion.ExecuteNonQuery()
+        Me.Limpiar()
+        Exit Sub
+Errores:
+        Select Case Err.Number
+            Case Else
+                MsgBox(Err.Description & " (" & Format(Err.Number, "00000)"))
+                Exit Sub
+        End Select
+    End Sub
+
+    Private Sub cmbArticulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbArticulo.SelectedIndexChanged
+        txtCodArt.Text = CType(sender, ComboBox).SelectedItem(0)
+    End Sub
+
+    Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
+        Limpiar()
+    End Sub
 End Class

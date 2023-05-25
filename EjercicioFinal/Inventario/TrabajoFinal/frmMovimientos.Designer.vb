@@ -226,7 +226,7 @@ Partial Class frmMovimientos
         Me.cmbTipoMov.FormattingEnabled = True
         Me.cmbTipoMov.Location = New System.Drawing.Point(660, 67)
         Me.cmbTipoMov.Name = "cmbTipoMov"
-        Me.cmbTipoMov.Size = New System.Drawing.Size(82, 21)
+        Me.cmbTipoMov.Size = New System.Drawing.Size(97, 21)
         Me.cmbTipoMov.TabIndex = 22
         '
         'frmMovimientos
