@@ -2,9 +2,10 @@
 
 Public Class frmAgrupacion
     Friend espaciosNombreAgrupacion As Integer = 50
-    Friend idTipoAgrupacionSeleccionada = 0
+    Friend idTipoAgrupacionSeleccionada As Integer = 0
 
     Private Sub frmAgrupacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtNombreAgrupacion.MaxLength = espaciosNombreAgrupacion
         Dao_ConectarBase()
         Me.Limpiar()
     End Sub
@@ -103,6 +104,11 @@ Errores:
         On Error GoTo Errores
         OpC = MsgBox("¿Desea eliminar este Registo?", vbYesNo, "Verifique")
         If OpC = vbYes Then
+            If IdTipoAgrupEnUso(idTipoAgrupacionSeleccionada, Dao) Then
+                MsgBox("El ID del registro seleccionado se encuentra en uso, no se puede eliminar, solo modificar", vbCritical, "Verifique")
+                lstAgrupacion.Focus()
+                Exit Sub
+            End If
             Sql = $"DELETE FROM Agrupacion WHERE [id agrupacion]= {idTipoAgrupacionSeleccionada}"
             Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()

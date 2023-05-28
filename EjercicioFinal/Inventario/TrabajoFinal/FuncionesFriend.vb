@@ -1,4 +1,5 @@
-﻿Imports TrabajoFinal.frmTiposMovimiento
+﻿Imports System.Data.SqlClient
+Imports TrabajoFinal.frmTiposMovimiento
 Module FuncionesFriend
 
     Friend Sub SetearHabilitacionBotonesABMLimpiar(formulario As frmTiposMovimiento)
@@ -65,5 +66,17 @@ Module FuncionesFriend
         formulario.ModificarToolStripMenuItem.Enabled = True ' Boton Modificar
         formulario.GuardarToolStripMenuItem.Enabled = False ' Boton Agregar
     End Sub
+
+    Friend Function IdTipoMovEnUso(id As Integer, Dao As SqlConnection) As Boolean
+        Dim query = $"SELECT COUNT(1) FROM Movimiento WHERE [id tipomovi] = {id}"
+        Dim consulta = New SqlCommand(query, Dao)
+        Return Val(consulta.ExecuteScalar()) = 1
+    End Function
+
+    Friend Function IdTipoAgrupEnUso(id As Integer, Dao As SqlConnection) As Boolean
+        Dim query = $"SELECT COUNT(1) FROM Articulo WHERE [id agrupacion] = {id}"
+        Dim consulta = New SqlCommand(query, Dao)
+        Return Val(consulta.ExecuteScalar()) = 1
+    End Function
 
 End Module

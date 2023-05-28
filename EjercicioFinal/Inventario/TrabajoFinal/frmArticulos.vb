@@ -12,6 +12,8 @@ Public Class frmArticulos
 
 
     Private Sub frmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtNomArticulo.MaxLength = espaciosNomArticulo
+        txtPrecio.MaxLength = espaciosEnteros + espaciosDecimales + 1
         Dao_ConectarBase()
         CargarComboAgrupacion()
         Limpiar()

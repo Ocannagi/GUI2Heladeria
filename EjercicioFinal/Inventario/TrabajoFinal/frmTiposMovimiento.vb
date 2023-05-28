@@ -7,6 +7,8 @@ Public Class frmTiposMovimiento
     Friend espaciosCodTipoMov As Integer = 1
 
     Private Sub frmTiposMovimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtCodTipoMov.MaxLength = espaciosCodTipoMov
+        txtNomTipoMov.MaxLength = espaciosNombreTipoMov
         Dao_ConectarBase()
         Me.Limpiar()
     End Sub
@@ -123,8 +125,15 @@ Errores:
     Private Sub Eliminar()
         Dim OpC As Integer
         On Error GoTo Errores
+
         OpC = MsgBox("¿Desea eliminar este Registo?", vbYesNo, "Verifique")
         If OpC = vbYes Then
+            If IdTipoMovEnUso(idTipoMovSeleccionado, Dao) Then
+                MsgBox("El ID del registro seleccionado se encuentra en uso, no se puede eliminar, solo modificar", vbCritical, "Verifique")
+                lstTipoMovimiento.Focus()
+                Exit Sub
+            End If
+
             Sql = $"DELETE FROM tipomovi WHERE [id tipomovi]= {idTipoMovSeleccionado}"
             Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()

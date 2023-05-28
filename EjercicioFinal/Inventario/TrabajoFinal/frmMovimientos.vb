@@ -90,7 +90,7 @@ Public Class frmMovimientos
             Dim espPosCodTipoMovi = Space(espaciosTipoMovi - Rs(Rs.GetOrdinal("tip tipomovi")).ToString.Length + 1)
             Dim nomArt = Rs(Rs.GetOrdinal("nom articulo"))
             Dim espPosNomArt = Space(espaciosArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
-            Dim fechaMov = Rs(Rs.GetOrdinal("Fec movimiento"))
+            Dim fechaMov = CType(Rs(Rs.GetOrdinal("Fec movimiento")), Date).ToShortDateString
             Dim espPosFecMov = Space(1)
             Dim cantMov = Rs(Rs.GetOrdinal("can movimiento"))
             Dim espPosCantMov = Space(espaciosCantidad - Rs(Rs.GetOrdinal("can movimiento")).ToString.Length + 1)
@@ -134,10 +134,14 @@ Public Class frmMovimientos
 
         Dim idTipoMovi As Integer = cmbTipoMov.SelectedItem(0)
         Dim idArt As Integer = cmbArticulo.SelectedItem(0)
-        Dim fechaString = String.Format(dtpFecha.Value, "dd/MM/yyyy")
+        Dim fechaString = String.Format(dtpFecha.Value.ToShortDateString(), "dd/MM/yyyy")
+        Dim precio As String = cmbArticulo.SelectedItem(3).ToString().Replace(",", ".")
+
+        Dim cantidad = Val(txtCantidad.Text)
+        Dim obs = txtObs.Text
 
 
-        'Sql = $"INSERT INTO articulo ([id tipomovi],[id articulo],[fec movimiento],[can movimiento],[pre movimiento],[obs movimiento]) VALUES('{ngi & txtNomArticulo.Text.Trim}',{idAgrup},{precio})"
+        Sql = $"INSERT INTO movimiento ([id tipomovi],[id articulo],[fec movimiento],[can movimiento],[pre movimiento],[obs movimiento]) VALUES({idTipoMovi},{idArt},'{fechaString}',{cantidad},{precio},'{obs}')"
 
         Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
@@ -157,5 +161,9 @@ Errores:
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
         Limpiar()
+    End Sub
+
+    Private Sub tsGuardar_Click(sender As Object, e As EventArgs) Handles tsGuardar.Click
+        Guardar()
     End Sub
 End Class

@@ -61,6 +61,7 @@ Partial Class frmTiposMovimiento
         'SplitContainer1
         '
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -76,18 +77,20 @@ Partial Class frmTiposMovimiento
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstTipoMovimiento)
-        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
-        Me.SplitContainer1.SplitterDistance = 204
+        Me.SplitContainer1.Size = New System.Drawing.Size(1207, 629)
+        Me.SplitContainer1.SplitterDistance = 251
+        Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 4
         '
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(1171, 28)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 180)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 223)
         Me.ToolStrip1.TabIndex = 5
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -141,10 +144,11 @@ Partial Class frmTiposMovimiento
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 28)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -152,31 +156,31 @@ Partial Class frmTiposMovimiento
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.ModificarToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
         '
         'ModificarToolStripMenuItem
         '
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.ModificarToolStripMenuItem.Text = "&Modificar"
         '
         'GroupBox1
@@ -185,33 +189,39 @@ Partial Class frmTiposMovimiento
         Me.GroupBox1.Controls.Add(Me.txtCodTipoMov)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 54)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 66)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(349, 127)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(465, 156)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         '
         'txtNomTipoMov
         '
-        Me.txtNomTipoMov.Location = New System.Drawing.Point(109, 85)
+        Me.txtNomTipoMov.Location = New System.Drawing.Point(145, 105)
+        Me.txtNomTipoMov.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNomTipoMov.Name = "txtNomTipoMov"
-        Me.txtNomTipoMov.Size = New System.Drawing.Size(231, 20)
+        Me.txtNomTipoMov.Size = New System.Drawing.Size(307, 22)
         Me.txtNomTipoMov.TabIndex = 3
         '
         'txtCodTipoMov
         '
-        Me.txtCodTipoMov.Location = New System.Drawing.Point(109, 19)
+        Me.txtCodTipoMov.Location = New System.Drawing.Point(145, 23)
+        Me.txtCodTipoMov.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodTipoMov.MaxLength = 1
         Me.txtCodTipoMov.Name = "txtCodTipoMov"
-        Me.txtCodTipoMov.Size = New System.Drawing.Size(92, 20)
+        Me.txtCodTipoMov.Size = New System.Drawing.Size(121, 22)
         Me.txtCodTipoMov.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 85)
+        Me.Label2.Location = New System.Drawing.Point(16, 105)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(91, 16)
+        Me.Label2.Size = New System.Drawing.Size(110, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Descripción"
         '
@@ -219,43 +229,46 @@ Partial Class frmTiposMovimiento
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 19)
+        Me.Label1.Location = New System.Drawing.Point(16, 23)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 16)
+        Me.Label1.Size = New System.Drawing.Size(112, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CódTipoMov"
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 281)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 347)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
+        Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1207, 26)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 20)
         Me.ToolStripStatusLabel1.Text = "Conección:"
         '
         'statusCon
         '
         Me.statusCon.Name = "statusCon"
-        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Size = New System.Drawing.Size(51, 20)
         Me.statusCon.Text = "xxxxxx"
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(40, 20)
         Me.ToolStripStatusLabel2.Text = "Base"
         '
         'statusBase
         '
         Me.statusBase.Name = "statusBase"
-        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Size = New System.Drawing.Size(65, 20)
         Me.statusBase.Text = "xxxxxxxx"
         '
         'lblDescripcion
@@ -264,9 +277,10 @@ Partial Class frmTiposMovimiento
         Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(123, 27)
+        Me.lblDescripcion.Location = New System.Drawing.Point(164, 33)
+        Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(403, 20)
+        Me.lblDescripcion.Size = New System.Drawing.Size(537, 25)
         Me.lblDescripcion.TabIndex = 2
         Me.lblDescripcion.Text = "Descripción"
         Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -277,9 +291,10 @@ Partial Class frmTiposMovimiento
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
+        Me.lblCodigo.Location = New System.Drawing.Point(24, 33)
+        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(99, 20)
+        Me.lblCodigo.Size = New System.Drawing.Size(132, 25)
         Me.lblCodigo.TabIndex = 1
         Me.lblCodigo.Text = "Código"
         Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -288,18 +303,20 @@ Partial Class frmTiposMovimiento
         '
         Me.lstTipoMovimiento.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstTipoMovimiento.FormattingEnabled = True
-        Me.lstTipoMovimiento.ItemHeight = 15
-        Me.lstTipoMovimiento.Location = New System.Drawing.Point(18, 50)
+        Me.lstTipoMovimiento.ItemHeight = 19
+        Me.lstTipoMovimiento.Location = New System.Drawing.Point(24, 62)
+        Me.lstTipoMovimiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lstTipoMovimiento.Name = "lstTipoMovimiento"
-        Me.lstTipoMovimiento.Size = New System.Drawing.Size(508, 214)
+        Me.lstTipoMovimiento.Size = New System.Drawing.Size(676, 251)
         Me.lstTipoMovimiento.TabIndex = 0
         '
         'frmTiposMovimiento
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.ClientSize = New System.Drawing.Size(1207, 629)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmTiposMovimiento"
         Me.Text = "frmTiposMovimiento"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
