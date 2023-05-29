@@ -52,7 +52,7 @@ Partial Class frmMovimientos
         '
         Me.txtObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObs.Location = New System.Drawing.Point(39, 164)
-        Me.txtObs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtObs.Margin = New System.Windows.Forms.Padding(4)
         Me.txtObs.Multiline = True
         Me.txtObs.Name = "txtObs"
         Me.txtObs.Size = New System.Drawing.Size(487, 88)
@@ -64,9 +64,9 @@ Partial Class frmMovimientos
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1147, 28)
+        Me.ToolStrip1.Location = New System.Drawing.Point(1147, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(60, 601)
+        Me.ToolStrip1.Size = New System.Drawing.Size(60, 605)
         Me.ToolStrip1.TabIndex = 6
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -156,7 +156,7 @@ Partial Class frmMovimientos
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 24)
         Me.MenuStrip1.TabIndex = 15
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -164,30 +164,31 @@ Partial Class frmMovimientos
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(145, 26)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(145, 26)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'lstMovimientos
         '
+        Me.lstMovimientos.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstMovimientos.FormattingEnabled = True
-        Me.lstMovimientos.ItemHeight = 16
+        Me.lstMovimientos.ItemHeight = 15
         Me.lstMovimientos.Location = New System.Drawing.Point(43, 353)
-        Me.lstMovimientos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstMovimientos.Margin = New System.Windows.Forms.Padding(4)
         Me.lstMovimientos.Name = "lstMovimientos"
         Me.lstMovimientos.ScrollAlwaysVisible = True
-        Me.lstMovimientos.Size = New System.Drawing.Size(980, 196)
+        Me.lstMovimientos.Size = New System.Drawing.Size(980, 184)
         Me.lstMovimientos.TabIndex = 16
         '
         'Label7
@@ -204,7 +205,7 @@ Partial Class frmMovimientos
         '
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecha.Location = New System.Drawing.Point(39, 82)
-        Me.dtpFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.dtpFecha.MaxDate = New Date(3000, 12, 31, 0, 0, 0, 0)
         Me.dtpFecha.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
         Me.dtpFecha.Name = "dtpFecha"
@@ -214,7 +215,7 @@ Partial Class frmMovimientos
         'txtCodArt
         '
         Me.txtCodArt.Location = New System.Drawing.Point(199, 82)
-        Me.txtCodArt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodArt.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodArt.Name = "txtCodArt"
         Me.txtCodArt.ReadOnly = True
         Me.txtCodArt.Size = New System.Drawing.Size(97, 22)
@@ -224,7 +225,7 @@ Partial Class frmMovimientos
         '
         Me.cmbArticulo.FormattingEnabled = True
         Me.cmbArticulo.Location = New System.Drawing.Point(339, 82)
-        Me.cmbArticulo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbArticulo.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbArticulo.Name = "cmbArticulo"
         Me.cmbArticulo.Size = New System.Drawing.Size(305, 24)
         Me.cmbArticulo.TabIndex = 20
@@ -232,7 +233,7 @@ Partial Class frmMovimientos
         'txtCantidad
         '
         Me.txtCantidad.Location = New System.Drawing.Point(700, 82)
-        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(97, 22)
         Me.txtCantidad.TabIndex = 21
@@ -241,7 +242,7 @@ Partial Class frmMovimientos
         '
         Me.cmbTipoMov.FormattingEnabled = True
         Me.cmbTipoMov.Location = New System.Drawing.Point(880, 82)
-        Me.cmbTipoMov.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbTipoMov.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbTipoMov.Name = "cmbTipoMov"
         Me.cmbTipoMov.Size = New System.Drawing.Size(128, 24)
         Me.cmbTipoMov.TabIndex = 22
@@ -268,7 +269,7 @@ Partial Class frmMovimientos
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.txtObs)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmMovimientos"
         Me.Text = "frmMovimientos"
         Me.ToolStrip1.ResumeLayout(False)

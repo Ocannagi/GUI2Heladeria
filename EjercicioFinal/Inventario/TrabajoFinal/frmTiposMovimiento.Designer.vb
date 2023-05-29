@@ -48,6 +48,7 @@ Partial Class frmTiposMovimiento
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblCodigo = New System.Windows.Forms.Label()
         Me.lstTipoMovimiento = New System.Windows.Forms.ListBox()
+        Me.cckEsPositivo = New System.Windows.Forms.CheckBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -61,7 +62,7 @@ Partial Class frmTiposMovimiento
         'SplitContainer1
         '
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -88,9 +89,9 @@ Partial Class frmTiposMovimiento
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1171, 28)
+        Me.ToolStrip1.Location = New System.Drawing.Point(1171, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 223)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 227)
         Me.ToolStrip1.TabIndex = 5
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -148,7 +149,7 @@ Partial Class frmTiposMovimiento
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -156,51 +157,52 @@ Partial Class frmTiposMovimiento
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.ModificarToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(73, 24)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
         '
         'ModificarToolStripMenuItem
         '
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.ModificarToolStripMenuItem.Text = "&Modificar"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cckEsPositivo)
         Me.GroupBox1.Controls.Add(Me.txtNomTipoMov)
         Me.GroupBox1.Controls.Add(Me.txtCodTipoMov)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(24, 66)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(465, 156)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         '
         'txtNomTipoMov
         '
-        Me.txtNomTipoMov.Location = New System.Drawing.Point(145, 105)
-        Me.txtNomTipoMov.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNomTipoMov.Location = New System.Drawing.Point(145, 71)
+        Me.txtNomTipoMov.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNomTipoMov.Name = "txtNomTipoMov"
         Me.txtNomTipoMov.Size = New System.Drawing.Size(307, 22)
         Me.txtNomTipoMov.TabIndex = 3
@@ -208,7 +210,7 @@ Partial Class frmTiposMovimiento
         'txtCodTipoMov
         '
         Me.txtCodTipoMov.Location = New System.Drawing.Point(145, 23)
-        Me.txtCodTipoMov.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodTipoMov.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodTipoMov.MaxLength = 1
         Me.txtCodTipoMov.Name = "txtCodTipoMov"
         Me.txtCodTipoMov.Size = New System.Drawing.Size(121, 22)
@@ -218,10 +220,10 @@ Partial Class frmTiposMovimiento
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 105)
+        Me.Label2.Location = New System.Drawing.Point(16, 71)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(110, 20)
+        Me.Label2.Size = New System.Drawing.Size(90, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Descripción"
         '
@@ -232,7 +234,7 @@ Partial Class frmTiposMovimiento
         Me.Label1.Location = New System.Drawing.Point(16, 23)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(112, 20)
+        Me.Label1.Size = New System.Drawing.Size(96, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CódTipoMov"
         '
@@ -240,35 +242,35 @@ Partial Class frmTiposMovimiento
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 347)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 351)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(1207, 26)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1207, 22)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 20)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
         Me.ToolStripStatusLabel1.Text = "Conección:"
         '
         'statusCon
         '
         Me.statusCon.Name = "statusCon"
-        Me.statusCon.Size = New System.Drawing.Size(51, 20)
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
         Me.statusCon.Text = "xxxxxx"
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(40, 20)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel2.Text = "Base"
         '
         'statusBase
         '
         Me.statusBase.Name = "statusBase"
-        Me.statusBase.Size = New System.Drawing.Size(65, 20)
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
         Me.statusBase.Text = "xxxxxxxx"
         '
         'lblDescripcion
@@ -303,12 +305,26 @@ Partial Class frmTiposMovimiento
         '
         Me.lstTipoMovimiento.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstTipoMovimiento.FormattingEnabled = True
-        Me.lstTipoMovimiento.ItemHeight = 19
+        Me.lstTipoMovimiento.ItemHeight = 15
         Me.lstTipoMovimiento.Location = New System.Drawing.Point(24, 62)
-        Me.lstTipoMovimiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstTipoMovimiento.Margin = New System.Windows.Forms.Padding(4)
         Me.lstTipoMovimiento.Name = "lstTipoMovimiento"
-        Me.lstTipoMovimiento.Size = New System.Drawing.Size(676, 251)
+        Me.lstTipoMovimiento.Size = New System.Drawing.Size(676, 244)
         Me.lstTipoMovimiento.TabIndex = 0
+        '
+        'cckEsPositivo
+        '
+        Me.cckEsPositivo.AutoSize = True
+        Me.cckEsPositivo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cckEsPositivo.Checked = True
+        Me.cckEsPositivo.CheckState = System.Windows.Forms.CheckState.Indeterminate
+        Me.cckEsPositivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cckEsPositivo.Location = New System.Drawing.Point(16, 112)
+        Me.cckEsPositivo.Name = "cckEsPositivo"
+        Me.cckEsPositivo.Size = New System.Drawing.Size(104, 20)
+        Me.cckEsPositivo.TabIndex = 4
+        Me.cckEsPositivo.Text = "Es Positivo"
+        Me.cckEsPositivo.UseVisualStyleBackColor = True
         '
         'frmTiposMovimiento
         '
@@ -316,7 +332,7 @@ Partial Class frmTiposMovimiento
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1207, 629)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmTiposMovimiento"
         Me.Text = "frmTiposMovimiento"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -362,4 +378,5 @@ Partial Class frmTiposMovimiento
     Friend WithEvents statusCon As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents statusBase As ToolStripStatusLabel
+    Friend WithEvents cckEsPositivo As CheckBox
 End Class

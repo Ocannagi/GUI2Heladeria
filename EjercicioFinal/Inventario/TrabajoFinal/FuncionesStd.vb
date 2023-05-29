@@ -12,7 +12,7 @@ Module FuncionesStd
             ElseIf TypeOf control Is NumericUpDown Then
                 CType(control, NumericUpDown).Value = 0
             ElseIf TypeOf control Is CheckBox Then
-                CType(control, CheckBox).Checked = False
+                CType(control, CheckBox).CheckState = CheckState.Indeterminate
             ElseIf TypeOf control Is RadioButton Then
                 CType(control, RadioButton).Checked = False
             ElseIf TypeOf control Is DateTimePicker Then

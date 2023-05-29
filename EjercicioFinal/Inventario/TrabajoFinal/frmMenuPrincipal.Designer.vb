@@ -24,9 +24,9 @@ Partial Class frmMenuPrincipal
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArticulosABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AgrupacionABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimientosABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TipoMovimientoABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lstBalance = New System.Windows.Forms.ListBox()
@@ -38,7 +38,8 @@ Partial Class frmMenuPrincipal
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArtículosToolStripMenuItem, Me.MovimientosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1067, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -49,24 +50,24 @@ Partial Class frmMenuPrincipal
         Me.ArtículosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ArtículosToolStripMenuItem.Text = "&Artículos"
         '
+        'ArticulosABMToolStripMenuItem
+        '
+        Me.ArticulosABMToolStripMenuItem.Name = "ArticulosABMToolStripMenuItem"
+        Me.ArticulosABMToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.ArticulosABMToolStripMenuItem.Text = "&Articulos ABM"
+        '
+        'AgrupacionABMToolStripMenuItem
+        '
+        Me.AgrupacionABMToolStripMenuItem.Name = "AgrupacionABMToolStripMenuItem"
+        Me.AgrupacionABMToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.AgrupacionABMToolStripMenuItem.Text = "A&grupacion ABM"
+        '
         'MovimientosToolStripMenuItem
         '
         Me.MovimientosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MovimientosABMToolStripMenuItem, Me.TipoMovimientoABMToolStripMenuItem})
         Me.MovimientosToolStripMenuItem.Name = "MovimientosToolStripMenuItem"
         Me.MovimientosToolStripMenuItem.Size = New System.Drawing.Size(89, 20)
         Me.MovimientosToolStripMenuItem.Text = "&Movimientos"
-        '
-        'ArticulosABMToolStripMenuItem
-        '
-        Me.ArticulosABMToolStripMenuItem.Name = "ArticulosABMToolStripMenuItem"
-        Me.ArticulosABMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ArticulosABMToolStripMenuItem.Text = "&Articulos ABM"
-        '
-        'AgrupacionABMToolStripMenuItem
-        '
-        Me.AgrupacionABMToolStripMenuItem.Name = "AgrupacionABMToolStripMenuItem"
-        Me.AgrupacionABMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AgrupacionABMToolStripMenuItem.Text = "A&grupacion ABM"
         '
         'MovimientosABMToolStripMenuItem
         '
@@ -85,19 +86,21 @@ Partial Class frmMenuPrincipal
         Me.lstBalance.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstBalance.FormattingEnabled = True
         Me.lstBalance.ItemHeight = 14
-        Me.lstBalance.Location = New System.Drawing.Point(87, 100)
+        Me.lstBalance.Location = New System.Drawing.Point(116, 123)
+        Me.lstBalance.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lstBalance.Name = "lstBalance"
-        Me.lstBalance.Size = New System.Drawing.Size(601, 242)
+        Me.lstBalance.Size = New System.Drawing.Size(800, 284)
         Me.lstBalance.TabIndex = 1
         '
         'frmMenuPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.lstBalance)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "Menú Principal"
         Me.MenuStrip1.ResumeLayout(False)

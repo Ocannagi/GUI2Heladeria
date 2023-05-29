@@ -9,12 +9,8 @@ Public Class frmTiposMovimiento
     Private Sub frmTiposMovimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtCodTipoMov.MaxLength = espaciosCodTipoMov
         txtNomTipoMov.MaxLength = espaciosNombreTipoMov
-        Dao_ConectarBase()
+        'Dao_ConectarBase()
         Me.Limpiar()
-    End Sub
-
-    Private Sub frmTiposMovimiento_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        Dao_CerrarBase()
     End Sub
 
 #Region "BOTONES"
@@ -92,7 +88,7 @@ Public Class frmTiposMovimiento
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
-            Me.lstTipoMovimiento.Items.Add($"{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}")
+            Me.lstTipoMovimiento.Items.Add($"{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}{Space(espaciosNombreTipoMov - Rs(Rs.GetOrdinal("nom tipomovi")).ToString.Length + 1)}{Rs(Rs.GetOrdinal("esPositivo"))}")
         End While
         Rs.Close()
     End Sub
@@ -109,7 +105,23 @@ Public Class frmTiposMovimiento
             Me.txtNomTipoMov.Focus()
             Exit Sub
         End If
-        Sql = $"INSERT INTO tipomovi ([nom tipomovi],[tip tipomovi]) VALUES('ngi'+'{txtNomTipoMov.Text.Trim}','{txtCodTipoMov.Text}')"
+        If Me.cckEsPositivo.CheckState = CheckState.Indeterminate Then
+            MsgBox("Definir el estado del Tipo de Movimiento es requerido", vbCritical)
+            Me.cckEsPositivo.Focus()
+            Exit Sub
+        End If
+
+        Dim esPositivo As Integer
+        Select Case cckEsPositivo.CheckState
+            Case CheckState.Checked
+                esPositivo = 1
+            Case CheckState.Unchecked
+                esPositivo = 0
+            Case Else
+                esPositivo = 0
+        End Select
+
+        Sql = $"INSERT INTO tipomovi ([nom tipomovi],[tip tipomovi], esPositivo) VALUES('ngi'+'{txtNomTipoMov.Text.Trim}','{txtCodTipoMov.Text}',{esPositivo})"
         Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
@@ -160,7 +172,22 @@ Errores:
             Me.txtNomTipoMov.Focus()
             Exit Sub
         End If
-        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text.Trim}', [tip tipomovi]='{txtCodTipoMov.Text}' WHERE [id tipomovi]= {idTipoMovSeleccionado}"
+        If Me.cckEsPositivo.CheckState = CheckState.Indeterminate Then
+            MsgBox("Definir el estado del Tipo de Movimiento es requerido", vbCritical)
+            Me.cckEsPositivo.Focus()
+        End If
+
+        Dim esPositivo As Integer
+        Select Case cckEsPositivo.CheckState
+            Case CheckState.Checked
+                esPositivo = 1
+            Case CheckState.Unchecked
+                esPositivo = 0
+            Case Else
+                esPositivo = 0
+        End Select
+
+        Sql = $"UPDATE tipomovi SET [nom tipomovi]='{txtNomTipoMov.Text.Trim}', [tip tipomovi]='{txtCodTipoMov.Text}', esPositivo = {esPositivo} WHERE [id tipomovi]= {idTipoMovSeleccionado}"
         Instruccion = New SqlCommand(Sql, Dao)
         Instruccion.ExecuteNonQuery()
         Me.Limpiar()
@@ -184,6 +211,15 @@ Errores:
                 Me.idTipoMovSeleccionado = Rs(Rs.GetOrdinal("id tipomovi"))
                 Me.txtCodTipoMov.Text = Rs(Rs.GetOrdinal("tip tipomovi"))
                 Me.txtNomTipoMov.Text = Rs(Rs.GetOrdinal("nom tipomovi"))
+
+                If Rs(Rs.GetOrdinal("esPositivo")) Is DBNull.Value Then
+                    cckEsPositivo.CheckState = CheckState.Indeterminate
+                ElseIf Rs(Rs.GetOrdinal("esPositivo")) = 0 Then
+                    cckEsPositivo.CheckState = CheckState.Unchecked
+                Else
+                    cckEsPositivo.CheckState = CheckState.Checked
+                End If
+
             End While
             Rs.Close()
             tsEliminar.Enabled = True
@@ -198,6 +234,10 @@ Errores:
             MsgBox("No se seleccionó ningun item", vbCritical, "Verifique")
             Me.lstTipoMovimiento.Focus()
         End If
+    End Sub
+
+    Private Sub frmTiposMovimiento_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.Show()
     End Sub
 
 #End Region

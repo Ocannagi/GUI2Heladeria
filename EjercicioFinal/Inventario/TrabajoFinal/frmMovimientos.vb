@@ -2,7 +2,7 @@
 
 Public Class frmMovimientos
     Private Sub frmMovimientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dao_ConectarBase()
+        'Dao_ConectarBase()
         CargarComboArticulo()
         CargarComboTipoMovimiento()
         Limpiar()
@@ -165,5 +165,10 @@ Errores:
 
     Private Sub tsGuardar_Click(sender As Object, e As EventArgs) Handles tsGuardar.Click
         Guardar()
+    End Sub
+
+    Private Sub frmMovimientos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.CargarListaMenuPrincipal()
+        frmMenuPrincipal.Show()
     End Sub
 End Class

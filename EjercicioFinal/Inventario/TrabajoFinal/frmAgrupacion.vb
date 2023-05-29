@@ -6,7 +6,7 @@ Public Class frmAgrupacion
 
     Private Sub frmAgrupacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNombreAgrupacion.MaxLength = espaciosNombreAgrupacion
-        Dao_ConectarBase()
+        'Dao_ConectarBase()
         Me.Limpiar()
     End Sub
 
@@ -160,6 +160,10 @@ Errores:
             MsgBox("No se seleccionó ningun item", vbCritical, "Verifique")
             Me.lstAgrupacion.Focus()
         End If
+    End Sub
+
+    Private Sub frmAgrupacion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.Show()
     End Sub
 
 #End Region

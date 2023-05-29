@@ -51,19 +51,19 @@ Partial Class frmAgrupacion
         'ModificarToolStripMenuItem
         '
         Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ModificarToolStripMenuItem.Text = "&Modificar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'ArchivoToolStripMenuItem
@@ -76,7 +76,7 @@ Partial Class frmAgrupacion
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
         '
         'lblDescripcion
@@ -85,9 +85,10 @@ Partial Class frmAgrupacion
         Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(123, 27)
+        Me.lblDescripcion.Location = New System.Drawing.Point(164, 33)
+        Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(403, 20)
+        Me.lblDescripcion.Size = New System.Drawing.Size(537, 25)
         Me.lblDescripcion.TabIndex = 2
         Me.lblDescripcion.Text = "Descripción"
         Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -98,9 +99,10 @@ Partial Class frmAgrupacion
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
+        Me.lblCodigo.Location = New System.Drawing.Point(24, 33)
+        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(99, 20)
+        Me.lblCodigo.Size = New System.Drawing.Size(132, 25)
         Me.lblCodigo.TabIndex = 1
         Me.lblCodigo.Text = "Código"
         Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -110,7 +112,8 @@ Partial Class frmAgrupacion
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -119,14 +122,16 @@ Partial Class frmAgrupacion
         Me.lstAgrupacion.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstAgrupacion.FormattingEnabled = True
         Me.lstAgrupacion.ItemHeight = 15
-        Me.lstAgrupacion.Location = New System.Drawing.Point(18, 50)
+        Me.lstAgrupacion.Location = New System.Drawing.Point(24, 62)
+        Me.lstAgrupacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lstAgrupacion.Name = "lstAgrupacion"
-        Me.lstAgrupacion.Size = New System.Drawing.Size(508, 214)
+        Me.lstAgrupacion.Size = New System.Drawing.Size(676, 259)
         Me.lstAgrupacion.TabIndex = 0
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Location = New System.Drawing.Point(1, 1)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -142,8 +147,9 @@ Partial Class frmAgrupacion
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstAgrupacion)
-        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
-        Me.SplitContainer1.SplitterDistance = 204
+        Me.SplitContainer1.Size = New System.Drawing.Size(1207, 629)
+        Me.SplitContainer1.SplitterDistance = 251
+        Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 5
         '
         'ToolStrip1
@@ -151,9 +157,9 @@ Partial Class frmAgrupacion
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(1171, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 180)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 227)
         Me.ToolStrip1.TabIndex = 7
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -207,27 +213,30 @@ Partial Class frmAgrupacion
         '
         'txtNombreAgrupacion
         '
-        Me.txtNombreAgrupacion.Location = New System.Drawing.Point(126, 101)
+        Me.txtNombreAgrupacion.Location = New System.Drawing.Point(168, 124)
+        Me.txtNombreAgrupacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNombreAgrupacion.Name = "txtNombreAgrupacion"
-        Me.txtNombreAgrupacion.Size = New System.Drawing.Size(231, 20)
+        Me.txtNombreAgrupacion.Size = New System.Drawing.Size(307, 22)
         Me.txtNombreAgrupacion.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(29, 101)
+        Me.Label2.Location = New System.Drawing.Point(39, 124)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(87, 16)
+        Me.Label2.Size = New System.Drawing.Size(86, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Agrupación"
         '
         'frmAgrupacion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.ClientSize = New System.Drawing.Size(1207, 629)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmAgrupacion"
         Me.Text = "frmAgrupacion"
         Me.MenuStrip1.ResumeLayout(False)

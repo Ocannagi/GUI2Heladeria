@@ -14,18 +14,12 @@ Public Class frmArticulos
     Private Sub frmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNomArticulo.MaxLength = espaciosNomArticulo
         txtPrecio.MaxLength = espaciosEnteros + espaciosDecimales + 1
-        Dao_ConectarBase()
+        'Dao_ConectarBase()
         CargarComboAgrupacion()
         Limpiar()
         Me.txtNomArticulo.Focus()
 
     End Sub
-
-    Private Sub frmArticulos_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        Dao_CerrarBase()
-    End Sub
-
-
 
 #Region "BOTONES"
 
@@ -263,5 +257,7 @@ Errores:
         End If
     End Sub
 
-
+    Private Sub frmArticulos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.Show()
+    End Sub
 End Class
