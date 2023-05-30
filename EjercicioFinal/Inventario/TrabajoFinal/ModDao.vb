@@ -4,6 +4,10 @@ Module ModDao
     Public Dao As SqlConnection
     Public Sql As String ' Cadena de SQL SERVER
     Public Instruccion As SqlCommand '
+
+    Friend statusCon As String = "Desconectada"
+    Friend Base As String = ""
+
     Sub Dao_ConectarBase()
         On Error GoTo Errores
         Dim Servidor As String = "estack.ddns.net"
@@ -11,8 +15,8 @@ Module ModDao
         Dao = New SqlConnection("server=" & Servidor & ";database=" &
        Base & ";User ID=sa;Password=Ita1821!")
         Dao.Open()
-        frmTiposMovimiento.statusCon.Text = "Establecida"
-        frmTiposMovimiento.statusBase.Text = Base
+        statusCon = "Establecida"
+        ModDao.Base = Base
         Exit Sub
 Errores:
         Select Case Err.Number
@@ -32,6 +36,8 @@ Errores:
 
     Friend Sub Dao_CerrarBase()
         If Dao.State <> 0 Then
+            statusCon = "Desconectada"
+            Base = ""
             Dao.Close()
             MsgBox("Conexión Cerrada", vbInformation)
         End If

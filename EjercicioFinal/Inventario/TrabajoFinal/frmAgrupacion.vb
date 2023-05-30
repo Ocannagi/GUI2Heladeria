@@ -6,6 +6,8 @@ Public Class frmAgrupacion
 
     Private Sub frmAgrupacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNombreAgrupacion.MaxLength = espaciosNombreAgrupacion
+        Me.statusCon.Text = ModDao.statusCon
+        Me.statusBase.Text = Base
         'Dao_ConectarBase()
         Me.Limpiar()
     End Sub
@@ -48,6 +50,18 @@ Public Class frmAgrupacion
     Private Sub MostrarAgrupacion(Orden As Integer)
         Dim Rs As SqlDataReader
         Me.lstAgrupacion.Items.Clear()
+        Sql = "select * from Agrupacion with (nolock) WHERE [nom agrupacion] like 'ngi%' ORDER BY [id agrupacion] desc"
+        Instruccion = New SqlCommand(Sql, Dao)
+        Rs = Instruccion.ExecuteReader()
+        Rs.Read()
+
+        Dim espaciosIDmax As Integer
+        If Rs.HasRows Then
+            espaciosIDmax = Rs(0).ToString().Length
+        Else
+            espaciosIDmax = 1
+        End If
+        Rs.Close()
         Sql = "select * from Agrupacion with (nolock) WHERE [nom agrupacion] like 'ngi%' ORDER BY [nom agrupacion]"
 
         Select Case Orden
@@ -61,7 +75,7 @@ Public Class frmAgrupacion
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
-            Me.lstAgrupacion.Items.Add($"{Rs(Rs.GetOrdinal("id agrupacion"))} {Rs(Rs.GetOrdinal("nom agrupacion"))}")
+            Me.lstAgrupacion.Items.Add($"{Space(espaciosIDmax - Rs(Rs.GetOrdinal("id agrupacion")).ToString.Length)}{Rs(Rs.GetOrdinal("id agrupacion"))} {Rs(Rs.GetOrdinal("nom agrupacion"))}")
         End While
         Rs.Close()
     End Sub
@@ -164,6 +178,14 @@ Errores:
 
     Private Sub frmAgrupacion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub lblCodigo_Click(sender As Object, e As EventArgs) Handles lblCodigo.Click
+        MostrarAgrupacion(1)
+    End Sub
+
+    Private Sub lblDescripcion_Click(sender As Object, e As EventArgs) Handles lblDescripcion.Click
+        MostrarAgrupacion(0)
     End Sub
 
 #End Region

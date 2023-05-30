@@ -14,6 +14,8 @@ Public Class frmArticulos
     Private Sub frmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNomArticulo.MaxLength = espaciosNomArticulo
         txtPrecio.MaxLength = espaciosEnteros + espaciosDecimales + 1
+        Me.statusBase.Text = Base
+        Me.statusCon.Text = ModDao.statusCon
         'Dao_ConectarBase()
         CargarComboAgrupacion()
         Limpiar()
@@ -64,7 +66,7 @@ Public Class frmArticulos
         End If
     End Sub
 
-    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
         CambiarComa(sender, e)
 
         If SuperaMaxLength(sender, e, espaciosEnteros + espaciosDecimales + 1) Or HayDoblePunto(sender, e) Or Not EsCaracterNumeroPunto(sender, e) Or SuperaCantEnteros(sender, e, espaciosEnteros) Or SuperaCantDecimales(sender, e, espaciosDecimales) Then
@@ -72,7 +74,7 @@ Public Class frmArticulos
         End If
     End Sub
 
-    Private Sub txtPrecio_TextChanged(sender As Object, e As EventArgs)
+    Private Sub txtPrecio_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
         AgregarCeroPrePunto(sender)
     End Sub
 
@@ -134,11 +136,12 @@ Public Class frmArticulos
             Dim espPosNomArt = Space(espaciosNomArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
             Dim nomAgr = Rs(Rs.GetOrdinal("nom agrupacion"))
             Dim espPosNomAgr = Space(espaciosNomAgrupacion - Rs(Rs.GetOrdinal("nom agrupacion")).ToString.Length + 1)
-            Dim prec = Rs(Rs.GetOrdinal("pco articulo")).ToString.Replace(",", ".")
+            Dim prec = FormatCurrency(Rs(Rs.GetOrdinal("pco articulo"))).Replace(",", ".")
+            Dim espPrevPrecio = Space(espaciosEnteros + espaciosDecimales + 2 + 2 - prec.Length)
 
 
 
-            Me.lstArticulos.Items.Add($"{idArt}{espPosIDArt}{nomArt}{espPosNomArt}{nomAgr}{espPosNomAgr}{prec}")
+            Me.lstArticulos.Items.Add($"{idArt}{espPosIDArt}{nomArt}{espPosNomArt}{nomAgr}{espPosNomAgr}{espPrevPrecio}{prec}")
         End While
         Rs.Close()
         Me.txtNomArticulo.Focus()
@@ -260,4 +263,6 @@ Errores:
     Private Sub frmArticulos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenuPrincipal.Show()
     End Sub
+
+
 End Class

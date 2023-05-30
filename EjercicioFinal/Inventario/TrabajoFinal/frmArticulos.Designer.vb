@@ -45,6 +45,11 @@ Partial Class frmArticulos
         Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
         Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
         Me.tsModificar = New System.Windows.Forms.ToolStripButton()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,6 +57,7 @@ Partial Class frmArticulos
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ModificarToolStripMenuItem
@@ -91,10 +97,9 @@ Partial Class frmArticulos
         Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(164, 33)
-        Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDescripcion.Location = New System.Drawing.Point(123, 27)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(849, 25)
+        Me.lblDescripcion.Size = New System.Drawing.Size(637, 20)
         Me.lblDescripcion.TabIndex = 2
         Me.lblDescripcion.Text = "Descripción"
         Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -105,10 +110,9 @@ Partial Class frmArticulos
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(24, 33)
-        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
         Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(132, 25)
+        Me.lblCodigo.Size = New System.Drawing.Size(99, 20)
         Me.lblCodigo.TabIndex = 1
         Me.lblCodigo.Text = "Código"
         Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -117,8 +121,7 @@ Partial Class frmArticulos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 34)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(11, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 16)
         Me.Label2.TabIndex = 1
@@ -128,8 +131,7 @@ Partial Class frmArticulos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 81)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(12, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 16)
         Me.Label1.TabIndex = 0
@@ -141,17 +143,16 @@ Partial Class frmArticulos
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1207, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'txtNomArticulo
         '
-        Me.txtNomArticulo.Location = New System.Drawing.Point(144, 34)
-        Me.txtNomArticulo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNomArticulo.Location = New System.Drawing.Point(108, 28)
         Me.txtNomArticulo.Name = "txtNomArticulo"
-        Me.txtNomArticulo.Size = New System.Drawing.Size(307, 22)
+        Me.txtNomArticulo.Size = New System.Drawing.Size(231, 20)
         Me.txtNomArticulo.TabIndex = 3
         '
         'GroupBox1
@@ -162,38 +163,34 @@ Partial Class frmArticulos
         Me.GroupBox1.Controls.Add(Me.txtNomArticulo)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(24, 66)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 54)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(465, 156)
+        Me.GroupBox1.Size = New System.Drawing.Size(349, 127)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         '
         'txtPrecio
         '
-        Me.txtPrecio.Location = New System.Drawing.Point(144, 81)
-        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPrecio.Location = New System.Drawing.Point(108, 66)
         Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.Size = New System.Drawing.Size(172, 22)
+        Me.txtPrecio.Size = New System.Drawing.Size(130, 20)
         Me.txtPrecio.TabIndex = 6
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmbAgrupacion
         '
         Me.cmbAgrupacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAgrupacion.FormattingEnabled = True
-        Me.cmbAgrupacion.Location = New System.Drawing.Point(144, 122)
-        Me.cmbAgrupacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbAgrupacion.Location = New System.Drawing.Point(108, 99)
         Me.cmbAgrupacion.Name = "cmbAgrupacion"
-        Me.cmbAgrupacion.Size = New System.Drawing.Size(307, 24)
+        Me.cmbAgrupacion.Size = New System.Drawing.Size(231, 21)
         Me.cmbAgrupacion.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(15, 122)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(11, 99)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(86, 16)
         Me.Label3.TabIndex = 4
@@ -204,16 +201,14 @@ Partial Class frmArticulos
         Me.lstArticulos.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstArticulos.FormattingEnabled = True
         Me.lstArticulos.ItemHeight = 15
-        Me.lstArticulos.Location = New System.Drawing.Point(24, 62)
-        Me.lstArticulos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstArticulos.Location = New System.Drawing.Point(18, 50)
         Me.lstArticulos.Name = "lstArticulos"
-        Me.lstArticulos.Size = New System.Drawing.Size(989, 244)
+        Me.lstArticulos.Size = New System.Drawing.Size(743, 199)
         Me.lstArticulos.TabIndex = 0
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 1)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -228,9 +223,8 @@ Partial Class frmArticulos
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstArticulos)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1207, 629)
-        Me.SplitContainer1.SplitterDistance = 249
-        Me.SplitContainer1.SplitterWidth = 5
+        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
+        Me.SplitContainer1.SplitterDistance = 202
         Me.SplitContainer1.TabIndex = 5
         '
         'ToolStrip1
@@ -239,9 +233,9 @@ Partial Class frmArticulos
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1171, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 225)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 178)
         Me.ToolStrip1.TabIndex = 8
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -293,13 +287,47 @@ Partial Class frmArticulos
         Me.tsModificar.Size = New System.Drawing.Size(35, 35)
         Me.tsModificar.Text = "Modificar"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 489)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
+        Me.StatusStrip1.TabIndex = 6
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "Conección:"
+        '
+        'statusCon
+        '
+        Me.statusCon.Name = "statusCon"
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Text = "xxxxxx"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Text = "Base"
+        '
+        'statusBase
+        '
+        Me.statusBase.Name = "statusBase"
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Text = "xxxxxxxx"
+        '
         'frmArticulos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1207, 629)
+        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmArticulos"
         Me.Text = "frmArticulos"
         Me.MenuStrip1.ResumeLayout(False)
@@ -313,7 +341,10 @@ Partial Class frmArticulos
         Me.SplitContainer1.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -339,4 +370,9 @@ Partial Class frmArticulos
     Friend WithEvents tsEliminar As ToolStripButton
     Friend WithEvents tsModificar As ToolStripButton
     Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents statusCon As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents statusBase As ToolStripStatusLabel
 End Class

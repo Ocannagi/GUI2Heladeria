@@ -30,7 +30,16 @@ Partial Class frmMenuPrincipal
         Me.MovimientosABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TipoMovimientoABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lstBalance = New System.Windows.Forms.ListBox()
+        Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCantidad = New System.Windows.Forms.Label()
+        Me.lblAgrupacion = New System.Windows.Forms.Label()
+        Me.lblResultado = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -38,8 +47,7 @@ Partial Class frmMenuPrincipal
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArtículosToolStripMenuItem, Me.MovimientosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1067, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -86,25 +94,102 @@ Partial Class frmMenuPrincipal
         Me.lstBalance.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstBalance.FormattingEnabled = True
         Me.lstBalance.ItemHeight = 14
-        Me.lstBalance.Location = New System.Drawing.Point(116, 123)
-        Me.lstBalance.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstBalance.Location = New System.Drawing.Point(52, 100)
         Me.lstBalance.Name = "lstBalance"
-        Me.lstBalance.Size = New System.Drawing.Size(800, 284)
+        Me.lstBalance.Size = New System.Drawing.Size(699, 228)
         Me.lstBalance.TabIndex = 1
+        '
+        'statusCon
+        '
+        Me.statusCon.Name = "statusCon"
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Text = "xxxxxx"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Text = "Base"
+        '
+        'statusBase
+        '
+        Me.statusBase.Name = "statusBase"
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Text = "xxxxxxxx"
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
+        Me.StatusStrip1.TabIndex = 4
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "Conección:"
+        '
+        'lblCantidad
+        '
+        Me.lblCantidad.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCantidad.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblCantidad.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblCantidad.Location = New System.Drawing.Point(395, 77)
+        Me.lblCantidad.Name = "lblCantidad"
+        Me.lblCantidad.Size = New System.Drawing.Size(200, 20)
+        Me.lblCantidad.TabIndex = 6
+        Me.lblCantidad.Text = "Cantidad"
+        Me.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblAgrupacion
+        '
+        Me.lblAgrupacion.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblAgrupacion.Location = New System.Drawing.Point(52, 77)
+        Me.lblAgrupacion.Name = "lblAgrupacion"
+        Me.lblAgrupacion.Size = New System.Drawing.Size(337, 20)
+        Me.lblAgrupacion.TabIndex = 5
+        Me.lblAgrupacion.Text = "Agrupacion"
+        Me.lblAgrupacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblResultado
+        '
+        Me.lblResultado.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultado.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblResultado.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblResultado.Location = New System.Drawing.Point(601, 77)
+        Me.lblResultado.Name = "lblResultado"
+        Me.lblResultado.Size = New System.Drawing.Size(150, 20)
+        Me.lblResultado.TabIndex = 7
+        Me.lblResultado.Text = "Resultado"
+        Me.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmMenuPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblResultado)
+        Me.Controls.Add(Me.lblCantidad)
+        Me.Controls.Add(Me.lblAgrupacion)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.lstBalance)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "Menú Principal"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -118,4 +203,12 @@ Partial Class frmMenuPrincipal
     Friend WithEvents MovimientosABMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TipoMovimientoABMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lstBalance As ListBox
+    Friend WithEvents statusCon As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents statusBase As ToolStripStatusLabel
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents lblCantidad As Label
+    Friend WithEvents lblAgrupacion As Label
+    Friend WithEvents lblResultado As Label
 End Class

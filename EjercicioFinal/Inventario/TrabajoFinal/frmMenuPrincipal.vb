@@ -3,7 +3,7 @@
 Public Class frmMenuPrincipal
     Friend espaciosAgrupacion = frmAgrupacion.espaciosNombreAgrupacion
     Friend espaciosCantidad = frmMovimientos.espaciosCantidad + 1
-    Friend espaciosResultado = 23
+    Friend espaciosResultado = 37
 
 
     Private Sub ArticulosABMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArticulosABMToolStripMenuItem.Click
@@ -28,8 +28,10 @@ Public Class frmMenuPrincipal
 
     Private Sub frmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dao_ConectarBase()
+        Me.statusCon.Text = ModDao.statusCon
+        Me.statusBase.Text = Base
         AgregarColumnEsPositivo()
-        CargarListaMenuPrincipal()
+        CargarListaMenuPrincipal(0)
     End Sub
 
     Private Sub AgregarColumnEsPositivo()
@@ -53,10 +55,23 @@ Errores:
         End Select
     End Sub
 
-    Friend Sub CargarListaMenuPrincipal()
+    Friend Sub CargarListaMenuPrincipal(Orden As Integer)
         lstBalance.Items.Clear()
+
+        Dim ordenSql As String = ""
+
+        Select Case Orden
+            Case 0
+                ordenSql = "agrupacion"
+            Case 1
+                ordenSql = "cantidad"
+            Case Else
+                ordenSql = "resultado"
+        End Select
+
+
         On Error GoTo Errores
-        Sql = "IF OBJECT_ID('tempdb..#positivos') IS NOT NULL DROP TABLE #positivos
+        Sql = $"IF OBJECT_ID('tempdb..#positivos') IS NOT NULL DROP TABLE #positivos
                 IF OBJECT_ID('tempdb..#negativos') IS NOT NULL DROP TABLE #negativos
                 CREATE TABLE #positivos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
                 INSERT INTO #positivos (agrupacion,cantidad,resultado)
@@ -85,7 +100,7 @@ Errores:
                         ISNULL(pp.resultado,0) - ISNULL(nn.resultado,0) AS resultado
                 FROM #positivos pp
                     FULL JOIN #negativos nn ON pp.agrupacion = nn.agrupacion
-                ORDER BY agrupacion
+                ORDER BY {ordenSql}
                 DROP TABLE #positivos DROP TABLE #negativos"
         Dim DataAdap As New SqlDataAdapter(Sql, Dao)
         Dim dataTable As New DataTable
@@ -93,7 +108,11 @@ Errores:
         DataAdap.Fill(dataTable)
 
         For Each row As DataRow In dataTable.Rows
-            lstBalance.Items.Add($"{row("agrupacion")}{Space(espaciosAgrupacion - row("agrupacion").ToString.Length + 1)}{Space(espaciosCantidad - row("cantidad").ToString.Length)}{row("cantidad")}{Space(espaciosResultado - row("resultado").ToString.Length)}{row("resultado")}")
+            Dim dinero As Double = Val(row("resultado").ToString.Replace(",", "."))
+            Dim dineroFormato = FormatCurrency(dinero, 2)
+
+
+            lstBalance.Items.Add($"{row("agrupacion")}{Space(espaciosAgrupacion - row("agrupacion").ToString.Length + 1)}{Space(espaciosCantidad - row("cantidad").ToString.Length)}{row("cantidad")}{Space(espaciosResultado - dineroFormato.Length)}{dineroFormato}")
         Next
         Exit Sub
 Errores:
@@ -106,5 +125,17 @@ Errores:
 
     Private Sub frmMenuPrincipal_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Dao_CerrarBase()
+    End Sub
+
+    Private Sub lblAgrupacion_Click(sender As Object, e As EventArgs) Handles lblAgrupacion.Click
+        CargarListaMenuPrincipal(0)
+    End Sub
+
+    Private Sub lblCantidad_Click(sender As Object, e As EventArgs) Handles lblCantidad.Click
+        CargarListaMenuPrincipal(1)
+    End Sub
+
+    Private Sub lblResultado_Click(sender As Object, e As EventArgs) Handles lblResultado.Click
+        CargarListaMenuPrincipal(2)
     End Sub
 End Class

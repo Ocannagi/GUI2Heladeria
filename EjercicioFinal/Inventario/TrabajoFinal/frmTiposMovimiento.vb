@@ -10,6 +10,8 @@ Public Class frmTiposMovimiento
         txtCodTipoMov.MaxLength = espaciosCodTipoMov
         txtNomTipoMov.MaxLength = espaciosNombreTipoMov
         'Dao_ConectarBase()
+        Me.statusBase.Text = Base
+        Me.statusCon.Text = ModDao.statusCon
         Me.Limpiar()
     End Sub
 

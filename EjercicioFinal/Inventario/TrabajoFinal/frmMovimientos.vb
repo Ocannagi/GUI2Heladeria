@@ -3,6 +3,8 @@
 Public Class frmMovimientos
     Private Sub frmMovimientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Dao_ConectarBase()
+        Me.statusBase.Text = Base
+        Me.statusCon.Text = ModDao.statusCon
         CargarComboArticulo()
         CargarComboTipoMovimiento()
         Limpiar()
@@ -94,11 +96,11 @@ Public Class frmMovimientos
             Dim espPosFecMov = Space(1)
             Dim cantMov = Rs(Rs.GetOrdinal("can movimiento"))
             Dim espPosCantMov = Space(espaciosCantidad - Rs(Rs.GetOrdinal("can movimiento")).ToString.Length + 1)
-            Dim precMov = Rs(Rs.GetOrdinal("pre movimiento")).ToString.Replace(",", ".")
-            Dim espPosMov = Space(espaciosPrecioMov - Rs(Rs.GetOrdinal("pre movimiento")).ToString.Length + 1)
+            Dim espPreMov = Space(espaciosPrecioMov + 6 - FormatCurrency(Rs(Rs.GetOrdinal("pre movimiento"))).Length)
+            Dim precMov = FormatCurrency(Rs(Rs.GetOrdinal("pre movimiento"))).Replace(",", ".")
             Dim obsmov = Rs(Rs.GetOrdinal("obs movimiento"))
 
-            Me.lstMovimientos.Items.Add($"{idMov}{espPosIDMov}{codTipoMovi}{espPosCodTipoMovi}{nomArt}{espPosNomArt}{fechaMov}{espPosFecMov}{cantMov}{espPosCantMov}{precMov}{espPosMov}{obsmov}")
+            Me.lstMovimientos.Items.Add($"{idMov}{espPosIDMov}{codTipoMovi}{espPosCodTipoMovi}{nomArt}{espPosNomArt}{fechaMov}{espPosFecMov}{espPosCantMov}{cantMov} {espPreMov}{precMov} {obsmov}")
         End While
         Rs.Close()
         Me.dtpFecha.Focus()
@@ -168,7 +170,8 @@ Errores:
     End Sub
 
     Private Sub frmMovimientos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        frmMenuPrincipal.CargarListaMenuPrincipal()
+        frmMenuPrincipal.CargarListaMenuPrincipal(0)
         frmMenuPrincipal.Show()
     End Sub
+
 End Class
