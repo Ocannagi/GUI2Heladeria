@@ -101,7 +101,7 @@ Partial Class frmMovimientos
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(29, 48)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 16)
+        Me.Label1.Size = New System.Drawing.Size(51, 16)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Fecha"
         '
@@ -111,7 +111,7 @@ Partial Class frmMovimientos
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(146, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 16)
+        Me.Label2.Size = New System.Drawing.Size(58, 16)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Código"
         '
@@ -121,7 +121,7 @@ Partial Class frmMovimientos
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(251, 48)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 16)
+        Me.Label3.Size = New System.Drawing.Size(60, 16)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Artículo"
         '
@@ -131,7 +131,7 @@ Partial Class frmMovimientos
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(522, 48)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 16)
+        Me.Label4.Size = New System.Drawing.Size(70, 16)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Cantidad"
         '
@@ -141,7 +141,7 @@ Partial Class frmMovimientos
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(643, 48)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(122, 16)
+        Me.Label5.Size = New System.Drawing.Size(123, 16)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Tipo Movimiento"
         '
@@ -151,7 +151,7 @@ Partial Class frmMovimientos
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(29, 114)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(112, 16)
+        Me.Label6.Size = New System.Drawing.Size(113, 16)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Observaciones"
         '
@@ -204,7 +204,7 @@ Partial Class frmMovimientos
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(29, 268)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(94, 16)
+        Me.Label7.Size = New System.Drawing.Size(95, 16)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Movimientos"
         '
@@ -222,7 +222,6 @@ Partial Class frmMovimientos
         '
         Me.txtCodArt.Location = New System.Drawing.Point(149, 67)
         Me.txtCodArt.Name = "txtCodArt"
-        Me.txtCodArt.ReadOnly = True
         Me.txtCodArt.Size = New System.Drawing.Size(74, 20)
         Me.txtCodArt.TabIndex = 19
         '

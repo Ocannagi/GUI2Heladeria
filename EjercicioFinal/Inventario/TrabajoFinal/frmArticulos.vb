@@ -187,6 +187,12 @@ Errores:
         On Error GoTo Errores
         OpC = MsgBox("¿Desea eliminar este Registo?", vbYesNo, "Verifique")
         If OpC = vbYes Then
+            If IdArticuloEnUso(idArticuloSeleccionado, Dao) Then
+                MsgBox("El ID del registro seleccionado se encuentra en uso, no se puede eliminar, solo modificar", vbCritical, "Verifique")
+                lstArticulos.Focus()
+                Exit Sub
+            End If
+
             Sql = $"DELETE FROM Articulo WHERE [id articulo]= {idArticuloSeleccionado}"
             Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()

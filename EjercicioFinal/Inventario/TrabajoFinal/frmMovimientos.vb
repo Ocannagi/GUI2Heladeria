@@ -20,6 +20,7 @@ Public Class frmMovimientos
     Friend espaciosCantidad As Integer = 9
     Friend espaciosPrecioMov As Integer = frmArticulos.espaciosEnteros + frmArticulos.espaciosDecimales + 1
     Friend espaciosObs As Integer = 250
+    Dim errorCombo As Boolean = False
 
     Private Sub CargarComboArticulo()
         Sql = "select * from Articulo with (nolock) WHERE [nom articulo] like 'ngi%' ORDER BY [nom articulo]"
@@ -108,6 +109,9 @@ Public Class frmMovimientos
 
     Private Sub Guardar()
         On Error GoTo Errores
+        If errorCombo Then
+            txtCodArt.Text = "0"
+        End If
         If Me.txtCodArt.Text = "" Then
             MsgBox("El Nombre de Articulo es requerido", vbCritical)
             Me.cmbArticulo.Focus()
@@ -158,7 +162,7 @@ Errores:
     End Sub
 
     Private Sub cmbArticulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbArticulo.SelectedIndexChanged
-        txtCodArt.Text = CType(sender, ComboBox).SelectedItem(0)
+        txtCodArt.Text = CType(sender, ComboBox).SelectedItem("id articulo")
     End Sub
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
@@ -172,6 +176,33 @@ Errores:
     Private Sub frmMovimientos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenuPrincipal.CargarListaMenuPrincipal(0)
         frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub txtCodArt_TextChanged(sender As Object, e As EventArgs) Handles txtCodArt.TextChanged
+
+        If txtCodArt.Text <> "" Then
+            For index = 0 To cmbArticulo.Items.Count() - 1
+                Dim algo As DataRowView = cmbArticulo.Items(index)
+                Dim otraCosa = algo.Row.ItemArray
+
+                If otraCosa(0).ToString() = txtCodArt.Text Then
+                    cmbArticulo.SelectedIndex() = index
+                    errorCombo = False
+                    Exit Sub
+                End If
+            Next
+        End If
+
+        errorCombo = True
+
+
+
+    End Sub
+
+    Private Sub txtCodArt_Leave(sender As Object, e As EventArgs) Handles txtCodArt.Leave
+        If errorCombo Then
+            txtCodArt.Text = "0"
+        End If
     End Sub
 
 End Class

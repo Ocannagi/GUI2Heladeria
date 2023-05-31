@@ -68,13 +68,20 @@ Module FuncionesFriend
     End Sub
 
     Friend Function IdTipoMovEnUso(id As Integer, Dao As SqlConnection) As Boolean
-        Dim query = $"SELECT COUNT(1) FROM Movimiento WHERE [id tipomovi] = {id}"
+        Dim query = $"SELECT 1 FROM Movimiento WHERE [id tipomovi] = {id}"
         Dim consulta = New SqlCommand(query, Dao)
+        Dim algo = Val(consulta.ExecuteScalar())
         Return Val(consulta.ExecuteScalar()) = 1
     End Function
 
     Friend Function IdTipoAgrupEnUso(id As Integer, Dao As SqlConnection) As Boolean
-        Dim query = $"SELECT COUNT(1) FROM Articulo WHERE [id agrupacion] = {id}"
+        Dim query = $"SELECT 1 FROM Articulo WHERE [id agrupacion] = {id}"
+        Dim consulta = New SqlCommand(query, Dao)
+        Return Val(consulta.ExecuteScalar()) = 1
+    End Function
+
+    Friend Function IdArticuloEnUso(id As Integer, Dao As SqlConnection) As Boolean
+        Dim query = $"SELECT 1 FROM Movimiento WHERE [id articulo] = {id}"
         Dim consulta = New SqlCommand(query, Dao)
         Return Val(consulta.ExecuteScalar()) = 1
     End Function
