@@ -114,6 +114,49 @@ Errores:
 
             lstBalance.Items.Add($"{row("agrupacion")}{Space(espaciosAgrupacion - row("agrupacion").ToString.Length + 1)}{Space(espaciosCantidad - row("cantidad").ToString.Length)}{row("cantidad")}{Space(espaciosResultado - dineroFormato.Length)}{dineroFormato}")
         Next
+
+        Sql = $"IF OBJECT_ID('tempdb..#positivos') IS NOT NULL DROP TABLE #positivos
+                IF OBJECT_ID('tempdb..#negativos') IS NOT NULL DROP TABLE #negativos
+                CREATE TABLE #positivos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
+                INSERT INTO #positivos (agrupacion,cantidad,resultado)
+                    SELECT  ag.[nom agrupacion],
+                            SUM(mm.[can movimiento]),
+                            SUM(mm.[can movimiento] * mm.[pre movimiento])
+                    FROM Agrupacion ag with (nolock)
+                        INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
+                        INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
+                        INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
+                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 1
+                    GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
+                CREATE TABLE #negativos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
+                INSERT INTO #negativos (agrupacion,cantidad,resultado)
+                    SELECT  ag.[nom agrupacion],
+                            SUM(mm.[can movimiento]),
+                            SUM(mm.[can movimiento] * mm.[pre movimiento])
+                    FROM Agrupacion ag with (nolock)
+                        INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
+                        INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
+                        INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
+                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 0
+                    GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
+                SELECT ISNULL(pp.resultado,0) - ISNULL(nn.resultado,0) AS resultado
+                FROM #positivos pp
+                    FULL JOIN #negativos nn ON pp.agrupacion = nn.agrupacion
+                DROP TABLE #positivos DROP TABLE #negativos"
+
+        Dim DataAdap2 As New SqlDataAdapter(Sql, Dao)
+        Dim dataTable2 As New DataTable
+
+        DataAdap2.Fill(dataTable2)
+        Dim algo = dataTable2.Rows()
+        Dim otra = algo(0)
+        lblImporteTotal.Text = otra("resultado")
+
+
+
+
+
+
         Exit Sub
 Errores:
         Select Case Err.Number

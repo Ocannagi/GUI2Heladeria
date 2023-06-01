@@ -28,8 +28,8 @@ Partial Class frmArticulos
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lblDescripcion = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lblArticulo = New System.Windows.Forms.Label()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -50,6 +50,8 @@ Partial Class frmArticulos
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblAgrupacion = New System.Windows.Forms.Label()
+        Me.lblPrecio = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,31 +93,31 @@ Partial Class frmArticulos
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
         '
-        'lblDescripcion
+        'lblArticulo
         '
-        Me.lblDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(123, 27)
-        Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(637, 20)
-        Me.lblDescripcion.TabIndex = 2
-        Me.lblDescripcion.Text = "Descripción"
-        Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblArticulo.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblArticulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblArticulo.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblArticulo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblArticulo.Location = New System.Drawing.Point(50, 27)
+        Me.lblArticulo.Name = "lblArticulo"
+        Me.lblArticulo.Size = New System.Drawing.Size(278, 20)
+        Me.lblArticulo.TabIndex = 2
+        Me.lblArticulo.Text = "Artículo"
+        Me.lblArticulo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'lblCodigo
+        'lblId
         '
-        Me.lblCodigo.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
-        Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(99, 20)
-        Me.lblCodigo.TabIndex = 1
-        Me.lblCodigo.Text = "Código"
-        Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblId.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblId.Location = New System.Drawing.Point(18, 27)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(26, 20)
+        Me.lblId.TabIndex = 1
+        Me.lblId.Text = "Id"
+        Me.lblId.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
         'Label2
         '
@@ -123,7 +125,7 @@ Partial Class frmArticulos
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(11, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 16)
+        Me.Label2.Size = New System.Drawing.Size(84, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Nombe art."
         '
@@ -133,7 +135,7 @@ Partial Class frmArticulos
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 66)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 16)
+        Me.Label1.Size = New System.Drawing.Size(53, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Precio"
         '
@@ -153,7 +155,7 @@ Partial Class frmArticulos
         Me.txtNomArticulo.Location = New System.Drawing.Point(108, 28)
         Me.txtNomArticulo.Name = "txtNomArticulo"
         Me.txtNomArticulo.Size = New System.Drawing.Size(231, 20)
-        Me.txtNomArticulo.TabIndex = 3
+        Me.txtNomArticulo.TabIndex = 0
         '
         'GroupBox1
         '
@@ -174,7 +176,7 @@ Partial Class frmArticulos
         Me.txtPrecio.Location = New System.Drawing.Point(108, 66)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(130, 20)
-        Me.txtPrecio.TabIndex = 6
+        Me.txtPrecio.TabIndex = 1
         Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmbAgrupacion
@@ -184,7 +186,7 @@ Partial Class frmArticulos
         Me.cmbAgrupacion.Location = New System.Drawing.Point(108, 99)
         Me.cmbAgrupacion.Name = "cmbAgrupacion"
         Me.cmbAgrupacion.Size = New System.Drawing.Size(231, 21)
-        Me.cmbAgrupacion.TabIndex = 5
+        Me.cmbAgrupacion.TabIndex = 2
         '
         'Label3
         '
@@ -192,7 +194,7 @@ Partial Class frmArticulos
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(11, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 16)
+        Me.Label3.Size = New System.Drawing.Size(87, 16)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Agrupación"
         '
@@ -203,8 +205,8 @@ Partial Class frmArticulos
         Me.lstArticulos.ItemHeight = 15
         Me.lstArticulos.Location = New System.Drawing.Point(18, 50)
         Me.lstArticulos.Name = "lstArticulos"
-        Me.lstArticulos.Size = New System.Drawing.Size(743, 199)
-        Me.lstArticulos.TabIndex = 0
+        Me.lstArticulos.Size = New System.Drawing.Size(657, 199)
+        Me.lstArticulos.TabIndex = 3
         '
         'SplitContainer1
         '
@@ -220,8 +222,10 @@ Partial Class frmArticulos
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblPrecio)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblAgrupacion)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblArticulo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstArticulos)
         Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
         Me.SplitContainer1.SplitterDistance = 202
@@ -321,6 +325,32 @@ Partial Class frmArticulos
         Me.statusBase.Size = New System.Drawing.Size(55, 17)
         Me.statusBase.Text = "xxxxxxxx"
         '
+        'lblAgrupacion
+        '
+        Me.lblAgrupacion.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblAgrupacion.Location = New System.Drawing.Point(334, 27)
+        Me.lblAgrupacion.Name = "lblAgrupacion"
+        Me.lblAgrupacion.Size = New System.Drawing.Size(210, 20)
+        Me.lblAgrupacion.TabIndex = 3
+        Me.lblAgrupacion.Text = "Agrupación"
+        Me.lblAgrupacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'lblPrecio
+        '
+        Me.lblPrecio.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecio.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblPrecio.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblPrecio.Location = New System.Drawing.Point(550, 27)
+        Me.lblPrecio.Name = "lblPrecio"
+        Me.lblPrecio.Size = New System.Drawing.Size(125, 20)
+        Me.lblPrecio.TabIndex = 4
+        Me.lblPrecio.Text = "Precio"
+        Me.lblPrecio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -353,8 +383,8 @@ Partial Class frmArticulos
     Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents lblDescripcion As Label
-    Friend WithEvents lblCodigo As Label
+    Friend WithEvents lblArticulo As Label
+    Friend WithEvents lblId As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -375,4 +405,6 @@ Partial Class frmArticulos
     Friend WithEvents statusCon As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents statusBase As ToolStripStatusLabel
+    Friend WithEvents lblPrecio As Label
+    Friend WithEvents lblAgrupacion As Label
 End Class

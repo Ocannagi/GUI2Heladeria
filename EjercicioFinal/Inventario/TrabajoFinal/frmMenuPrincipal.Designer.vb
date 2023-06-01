@@ -38,6 +38,7 @@ Partial Class frmMenuPrincipal
         Me.lblCantidad = New System.Windows.Forms.Label()
         Me.lblAgrupacion = New System.Windows.Forms.Label()
         Me.lblResultado = New System.Windows.Forms.Label()
+        Me.lblImporteTotal = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -172,11 +173,21 @@ Partial Class frmMenuPrincipal
         Me.lblResultado.Text = "Resultado"
         Me.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblImporteTotal
+        '
+        Me.lblImporteTotal.AutoSize = True
+        Me.lblImporteTotal.Location = New System.Drawing.Point(480, 384)
+        Me.lblImporteTotal.Name = "lblImporteTotal"
+        Me.lblImporteTotal.Size = New System.Drawing.Size(27, 13)
+        Me.lblImporteTotal.TabIndex = 8
+        Me.lblImporteTotal.Text = "xxxx"
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblImporteTotal)
         Me.Controls.Add(Me.lblResultado)
         Me.Controls.Add(Me.lblCantidad)
         Me.Controls.Add(Me.lblAgrupacion)
@@ -211,4 +222,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents lblCantidad As Label
     Friend WithEvents lblAgrupacion As Label
     Friend WithEvents lblResultado As Label
+    Friend WithEvents lblImporteTotal As Label
 End Class

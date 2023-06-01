@@ -9,6 +9,10 @@ Public Class frmArticulos
     Friend espaciosNomAgrupacion As Integer = 30
     Friend espaciosEnteros As Integer = 6
     Friend espaciosDecimales As Integer = 2
+    Dim ordenId As Boolean = False
+    Dim ordenArticulo = True
+    Dim ordenAgrupacion = True
+    Dim ordenPrecio = True
 
 
     Private Sub frmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -74,11 +78,50 @@ Public Class frmArticulos
         End If
     End Sub
 
+
     Private Sub txtPrecio_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
         AgregarCeroPrePunto(sender)
+        VerificarSiEliminoPunto(sender, espaciosEnteros)
+    End Sub
+
+    Private Sub VerificarSiEliminoPunto(sender As Object, espaciosEnteros As Integer)
+        If Not sender.Text.Contains(".") And SuperaMaxLength(sender, espaciosEnteros) Then
+            MsgBox("Supero la cantidad de enteros permitidos", vbCritical)
+            sender.Text = ""
+            sender.BackColor = Color.LightPink
+        End If
     End Sub
 
 #End Region
+
+#Region "COLORES"
+    Private Sub txtNomArticulo_Enter(sender As Object, e As EventArgs) Handles txtNomArticulo.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtNomArticulo_Leave(sender As Object, e As EventArgs) Handles txtNomArticulo.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub txtPrecio_Enter(sender As Object, e As EventArgs) Handles txtPrecio.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtPrecio_Leave(sender As Object, e As EventArgs) Handles txtPrecio.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub cmbAgrupacion_Enter(sender As Object, e As EventArgs) Handles cmbAgrupacion.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub cmbAgrupacion_Leave(sender As Object, e As EventArgs) Handles cmbAgrupacion.Leave
+        sender.BackColor = Color.Gray
+    End Sub
+
+#End Region
+
+#Region "RUTINAS"
 
     Private Sub CargarComboAgrupacion()
         Sql = "select * from Agrupacion with (nolock) WHERE [nom agrupacion] like 'ngi%' ORDER BY [nom agrupacion]"
@@ -101,10 +144,10 @@ Public Class frmArticulos
         LimpiarCampos(Me.Controls)
         Me.idArticuloSeleccionado = 0
         Me.txtNomArticulo.Focus()
-        MostrarArticulo(0)
+        MostrarArticulo("[id articulo]")
     End Sub
 
-    Private Sub MostrarArticulo(Orden As Integer)
+    Private Sub MostrarArticulo(Orden As String)
         Dim Rs As SqlDataReader
         Me.lstArticulos.Items.Clear()
         Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [id articulo] desc"
@@ -120,18 +163,15 @@ Public Class frmArticulos
 
         Rs.Close()
 
-        Select Case Orden
-            Case 0
-                Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [id articulo]"
-            Case 1
-                Sql = "select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY [nom articulo]"
-        End Select
+
+        Sql = $"select aa.[id articulo], aa.[nom articulo], ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [nom articulo] like 'ngi%' ORDER BY {Orden}"
+
 
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
             Dim idArt = Rs(Rs.GetOrdinal("id articulo"))
-            Dim espPosIDArt = Space(espaciosIDmax - Rs(0).ToString.Length + 1)
+            Dim espPreIDArt = Space(espaciosIDmax - Rs(0).ToString.Length)
             Dim nomArt = Rs(Rs.GetOrdinal("nom articulo"))
             Dim espPosNomArt = Space(espaciosNomArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
             Dim nomAgr = Rs(Rs.GetOrdinal("nom agrupacion"))
@@ -141,7 +181,7 @@ Public Class frmArticulos
 
 
 
-            Me.lstArticulos.Items.Add($"{idArt}{espPosIDArt}{nomArt}{espPosNomArt}{nomAgr}{espPosNomAgr}{espPrevPrecio}{prec}")
+            Me.lstArticulos.Items.Add($"{espPreIDArt}{idArt} {nomArt}{espPosNomArt}{nomAgr}{espPosNomAgr}{espPrevPrecio}{prec}")
         End While
         Rs.Close()
         Me.txtNomArticulo.Focus()
@@ -149,6 +189,13 @@ Public Class frmArticulos
 
     Private Sub Guardar()
         On Error GoTo Errores
+        Dim mensaje = ""
+        If _CamposVaciosArticulos(Me, mensaje) Then
+            MsgBox(mensaje, vbCritical, "Error")
+            Exit Sub
+        End If
+
+
         If Me.txtNomArticulo.Text = "" Then
             MsgBox("El Nombre de Articulo es requerido", vbCritical)
             Me.txtNomArticulo.Focus()
@@ -241,7 +288,7 @@ Errores:
     Private Sub lstArticulos_DoubleClick(sender As Object, e As EventArgs) Handles lstArticulos.DoubleClick
         If Me.lstArticulos.SelectedItem <> "" Then
             Dim Rs As SqlDataReader
-            Sql = $"select aa.[id articulo], aa.[nom articulo],ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [id articulo]= {Val(Mid(Me.lstArticulos.SelectedItem, 1, Me.lstArticulos.SelectedItem.ToString.IndexOf(" ") + 1))}"
+            Sql = $"select aa.[id articulo], aa.[nom articulo],ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [id articulo]= {Val(Mid(Me.lstArticulos.SelectedItem, 1, Me.lstArticulos.SelectedItem.ToString.IndexOf("n")))}"
             Instruccion = New SqlCommand(Sql, Dao)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
@@ -270,5 +317,46 @@ Errores:
         frmMenuPrincipal.Show()
     End Sub
 
+    Private Sub lblId_Click(sender As Object, e As EventArgs) Handles lblId.Click
+        If ordenId Then
+            MostrarArticulo("[id articulo]")
+            ordenId = Not ordenId
+        Else
+            MostrarArticulo("[id articulo] desc")
+            ordenId = Not ordenId
+        End If
+    End Sub
 
+    Private Sub lblArticulo_Click(sender As Object, e As EventArgs) Handles lblArticulo.Click
+        If ordenArticulo Then
+            MostrarArticulo("[nom articulo]")
+            ordenArticulo = Not ordenArticulo
+        Else
+            MostrarArticulo("[nom articulo] desc")
+            ordenArticulo = Not ordenArticulo
+        End If
+    End Sub
+
+    Private Sub lblAgrupacion_Click(sender As Object, e As EventArgs) Handles lblAgrupacion.Click
+        If ordenAgrupacion Then
+            MostrarArticulo("[nom agrupacion]")
+            ordenAgrupacion = Not ordenAgrupacion
+        Else
+            MostrarArticulo("[nom agrupacion] desc")
+            ordenAgrupacion = Not ordenAgrupacion
+        End If
+    End Sub
+
+    Private Sub lblPrecio_Click(sender As Object, e As EventArgs) Handles lblPrecio.Click
+        If ordenPrecio Then
+            MostrarArticulo("[pco articulo]")
+            ordenPrecio = Not ordenPrecio
+        Else
+            MostrarArticulo("[pco articulo] desc")
+            ordenPrecio = Not ordenPrecio
+        End If
+    End Sub
+
+
+#End Region
 End Class

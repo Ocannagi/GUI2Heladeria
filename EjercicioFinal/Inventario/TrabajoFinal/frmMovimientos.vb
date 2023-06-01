@@ -107,11 +107,23 @@ Public Class frmMovimientos
         Me.dtpFecha.Focus()
     End Sub
 
-    Private Sub Guardar()
-        On Error GoTo Errores
+    Private Sub AnalizarErrorCombo()
         If errorCombo Then
             txtCodArt.Text = "0"
         End If
+    End Sub
+
+    Private Sub ObsVacío()
+        If txtObs.Text = "" Then
+            txtObs.Text = "Sin Observaciones"
+        End If
+    End Sub
+
+    Private Sub Guardar()
+        On Error GoTo Errores
+        AnalizarErrorCombo()
+        ObsVacío()
+
         If Me.txtCodArt.Text = "" Then
             MsgBox("El Nombre de Articulo es requerido", vbCritical)
             Me.cmbArticulo.Focus()

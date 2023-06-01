@@ -86,4 +86,39 @@ Module FuncionesFriend
         Return Val(consulta.ExecuteScalar()) = 1
     End Function
 
+    Friend Function _CamposVaciosAgrupacion(frmAgrupacion As frmAgrupacion, ByRef mensaje As String) As Boolean
+        Dim tamMensaje = mensaje.Length
+        If frmAgrupacion.txtNombreAgrupacion.Text = "" Then
+            mensaje += "El nombre de la agrupación es requerido" + vbCrLf
+            frmAgrupacion.txtNombreAgrupacion.BackColor = Color.LightPink
+        End If
+
+        Return mensaje.Length > tamMensaje
+    End Function
+
+
+    Friend Function _CamposVaciosArticulos(frmArticulos As frmArticulos, ByRef mensaje As String) As Boolean
+        mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
+        Dim tamMensaje As Integer = mensaje.Length
+
+        If frmArticulos.txtNomArticulo.Text = "" Then
+            mensaje += "Nombre art." + vbCrLf
+            frmArticulos.txtNomArticulo.BackColor = Color.LightPink
+        End If
+        If frmArticulos.txtPrecio.Text = "" Then
+            mensaje += "Precio" + vbCrLf
+            frmArticulos.txtPrecio.BackColor = Color.LightPink
+        End If
+        If frmArticulos.cmbAgrupacion.SelectedIndex() = 0 Or frmArticulos.cmbAgrupacion.SelectedIndex() = -1 Then
+            mensaje += "Agrupacion" + vbCrLf
+            frmArticulos.cmbAgrupacion.BackColor = Color.LightPink
+        End If
+
+        If mensaje.Length > tamMensaje Then
+            Return True
+        End If
+        Return False
+    End Function
+
+
 End Module

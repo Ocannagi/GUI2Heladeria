@@ -28,8 +28,8 @@ Partial Class frmAgrupacion
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lblDescripcion = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lblAgrupacion = New System.Windows.Forms.Label()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.lstAgrupacion = New System.Windows.Forms.ListBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -85,31 +85,31 @@ Partial Class frmAgrupacion
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.EliminarToolStripMenuItem.Text = "&Eliminar"
         '
-        'lblDescripcion
+        'lblAgrupacion
         '
-        Me.lblDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(44, 27)
-        Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(482, 20)
-        Me.lblDescripcion.TabIndex = 2
-        Me.lblDescripcion.Text = "Descripción"
-        Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblAgrupacion.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblAgrupacion.Location = New System.Drawing.Point(44, 27)
+        Me.lblAgrupacion.Name = "lblAgrupacion"
+        Me.lblAgrupacion.Size = New System.Drawing.Size(482, 20)
+        Me.lblAgrupacion.TabIndex = 2
+        Me.lblAgrupacion.Text = "Descripción"
+        Me.lblAgrupacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblCodigo
+        'lblId
         '
-        Me.lblCodigo.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
-        Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(20, 20)
-        Me.lblCodigo.TabIndex = 1
-        Me.lblCodigo.Text = "Id"
-        Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblId.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblId.Location = New System.Drawing.Point(18, 27)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(20, 20)
+        Me.lblId.TabIndex = 1
+        Me.lblId.Text = "Id"
+        Me.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'MenuStrip1
         '
@@ -146,8 +146,8 @@ Partial Class frmAgrupacion
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.StatusStrip1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblAgrupacion)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstAgrupacion)
         Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
         Me.SplitContainer1.SplitterDistance = 203
@@ -225,7 +225,7 @@ Partial Class frmAgrupacion
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(29, 101)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 16)
+        Me.Label2.Size = New System.Drawing.Size(87, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Agrupación"
         '
@@ -292,8 +292,8 @@ Partial Class frmAgrupacion
     Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents lblDescripcion As Label
-    Friend WithEvents lblCodigo As Label
+    Friend WithEvents lblAgrupacion As Label
+    Friend WithEvents lblId As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents lstAgrupacion As ListBox
     Friend WithEvents SplitContainer1 As SplitContainer

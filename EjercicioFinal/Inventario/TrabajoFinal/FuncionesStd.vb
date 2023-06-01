@@ -33,6 +33,15 @@ Module FuncionesStd
         Return bool
     End Function
 
+    Friend Function SuperaMaxLength(sender As Object, length As Integer) As Boolean
+        Dim bool As Boolean = False
+        If sender.text.length > length Then
+            bool = True
+        End If
+        Return bool
+    End Function
+
+
     Friend Function EsCaracterLetraEspacio(sender As Object, e As KeyPressEventArgs) As Boolean
         Dim bool As Boolean = False
         Dim exp As String = "[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]"
@@ -120,5 +129,6 @@ Module FuncionesStd
         sender.Focus()
         sender.SelectionStart() = sender.Text.Length
     End Sub
+
 
 End Module
