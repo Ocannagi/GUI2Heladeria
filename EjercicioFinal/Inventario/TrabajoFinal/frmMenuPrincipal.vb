@@ -3,7 +3,10 @@
 Public Class frmMenuPrincipal
     Friend espaciosAgrupacion = frmAgrupacion.espaciosNombreAgrupacion
     Friend espaciosCantidad = frmMovimientos.espaciosCantidad + 1
-    Friend espaciosResultado = 37
+    Friend espaciosResultado = 25
+    Dim ordenAgrupacion As Boolean = False
+    Dim ordenCantidad As Boolean = True
+    Dim ordenResultado As Boolean = True
 
 
     Private Sub ArticulosABMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArticulosABMToolStripMenuItem.Click
@@ -31,7 +34,7 @@ Public Class frmMenuPrincipal
         Me.statusCon.Text = ModDao.statusCon
         Me.statusBase.Text = Base
         AgregarColumnEsPositivo()
-        CargarListaMenuPrincipal(0)
+        CargarListaMenuPrincipal("agrupacion")
     End Sub
 
     Private Sub AgregarColumnEsPositivo()
@@ -55,20 +58,8 @@ Errores:
         End Select
     End Sub
 
-    Friend Sub CargarListaMenuPrincipal(Orden As Integer)
+    Friend Sub CargarListaMenuPrincipal(Orden As String)
         lstBalance.Items.Clear()
-
-        Dim ordenSql As String = ""
-
-        Select Case Orden
-            Case 0
-                ordenSql = "agrupacion"
-            Case 1
-                ordenSql = "cantidad"
-            Case Else
-                ordenSql = "resultado"
-        End Select
-
 
         On Error GoTo Errores
         Sql = $"IF OBJECT_ID('tempdb..#positivos') IS NOT NULL DROP TABLE #positivos
@@ -82,7 +73,7 @@ Errores:
                         INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
                         INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
                         INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
-                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 1
+                    WHERE [nom agrupacion] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' AND tm.esPositivo = 1
                     GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
                 CREATE TABLE #negativos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
                 INSERT INTO #negativos (agrupacion,cantidad,resultado)
@@ -93,21 +84,28 @@ Errores:
                         INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
                         INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
                         INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
-                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 0
+                    WHERE [nom agrupacion] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' AND tm.esPositivo = 0
                     GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
+
+
                 SELECT  ISNULL(pp.agrupacion,nn.agrupacion) AS agrupacion,
                         ISNULL(pp.cantidad,0) - ISNULL(nn.cantidad,0) AS cantidad,
                         ISNULL(pp.resultado,0) - ISNULL(nn.resultado,0) AS resultado
                 FROM #positivos pp
                     FULL JOIN #negativos nn ON pp.agrupacion = nn.agrupacion
-                ORDER BY {ordenSql}
+                ORDER BY {Orden}
+
+                SELECT SUM(ISNULL(pp.resultado,0) - ISNULL(nn.resultado,0)) AS resultado
+                FROM #positivos pp
+                    FULL JOIN #negativos nn ON pp.agrupacion = nn.agrupacion
+
                 DROP TABLE #positivos DROP TABLE #negativos"
         Dim DataAdap As New SqlDataAdapter(Sql, Dao)
-        Dim dataTable As New DataTable
+        Dim dataTable As New DataSet
 
         DataAdap.Fill(dataTable)
 
-        For Each row As DataRow In dataTable.Rows
+        For Each row As DataRow In dataTable.Tables(0).Rows
             Dim dinero As Double = Val(row("resultado").ToString.Replace(",", "."))
             Dim dineroFormato = FormatCurrency(dinero, 2)
 
@@ -115,47 +113,7 @@ Errores:
             lstBalance.Items.Add($"{row("agrupacion")}{Space(espaciosAgrupacion - row("agrupacion").ToString.Length + 1)}{Space(espaciosCantidad - row("cantidad").ToString.Length)}{row("cantidad")}{Space(espaciosResultado - dineroFormato.Length)}{dineroFormato}")
         Next
 
-        Sql = $"IF OBJECT_ID('tempdb..#positivos') IS NOT NULL DROP TABLE #positivos
-                IF OBJECT_ID('tempdb..#negativos') IS NOT NULL DROP TABLE #negativos
-                CREATE TABLE #positivos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
-                INSERT INTO #positivos (agrupacion,cantidad,resultado)
-                    SELECT  ag.[nom agrupacion],
-                            SUM(mm.[can movimiento]),
-                            SUM(mm.[can movimiento] * mm.[pre movimiento])
-                    FROM Agrupacion ag with (nolock)
-                        INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
-                        INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
-                        INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
-                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 1
-                    GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
-                CREATE TABLE #negativos (agrupacion nvarchar(50) not null, cantidad int not null, resultado float not null)
-                INSERT INTO #negativos (agrupacion,cantidad,resultado)
-                    SELECT  ag.[nom agrupacion],
-                            SUM(mm.[can movimiento]),
-                            SUM(mm.[can movimiento] * mm.[pre movimiento])
-                    FROM Agrupacion ag with (nolock)
-                        INNER JOIN Articulo ar ON ag.[id agrupacion] = ar.[id agrupacion]
-                        INNER JOIN Movimiento mm ON mm.[id articulo] = ar.[id articulo]
-                        INNER JOIN Tipomovi tm ON mm.[id tipomovi] = tm.[id tipomovi]
-                    WHERE [nom agrupacion] like 'ngi%' AND tm.esPositivo = 0
-                    GROUP BY ag.[nom agrupacion] ORDER BY [nom agrupacion]
-                SELECT ISNULL(pp.resultado,0) - ISNULL(nn.resultado,0) AS resultado
-                FROM #positivos pp
-                    FULL JOIN #negativos nn ON pp.agrupacion = nn.agrupacion
-                DROP TABLE #positivos DROP TABLE #negativos"
-
-        Dim DataAdap2 As New SqlDataAdapter(Sql, Dao)
-        Dim dataTable2 As New DataTable
-
-        DataAdap2.Fill(dataTable2)
-        Dim algo = dataTable2.Rows()
-        Dim otra = algo(0)
-        lblImporteTotal.Text = otra("resultado")
-
-
-
-
-
+        lblImporteTotal.Text = FormatCurrency(dataTable.Tables(1).Rows(0).Item(0)).Replace(",", ".")
 
         Exit Sub
 Errores:
@@ -171,14 +129,33 @@ Errores:
     End Sub
 
     Private Sub lblAgrupacion_Click(sender As Object, e As EventArgs) Handles lblAgrupacion.Click
-        CargarListaMenuPrincipal(0)
+
+        If ordenAgrupacion Then
+            CargarListaMenuPrincipal("agrupacion")
+            ordenAgrupacion = Not ordenAgrupacion
+        Else
+            CargarListaMenuPrincipal("agrupacion desc")
+            ordenAgrupacion = Not ordenAgrupacion
+        End If
     End Sub
 
     Private Sub lblCantidad_Click(sender As Object, e As EventArgs) Handles lblCantidad.Click
-        CargarListaMenuPrincipal(1)
+        If ordenCantidad Then
+            CargarListaMenuPrincipal("cantidad")
+            ordenCantidad = Not ordenCantidad
+        Else
+            CargarListaMenuPrincipal("cantidad desc")
+            ordenCantidad = Not ordenCantidad
+        End If
     End Sub
 
     Private Sub lblResultado_Click(sender As Object, e As EventArgs) Handles lblResultado.Click
-        CargarListaMenuPrincipal(2)
+        If ordenResultado Then
+            CargarListaMenuPrincipal("resultado")
+            ordenResultado = Not ordenResultado
+        Else
+            CargarListaMenuPrincipal("resultado desc")
+            ordenResultado = Not ordenResultado
+        End If
     End Sub
 End Class

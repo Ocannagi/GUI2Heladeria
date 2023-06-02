@@ -159,5 +159,23 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Fondo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\pizarra-vacia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Fondo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Fondo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\Fondo5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

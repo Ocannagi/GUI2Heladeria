@@ -20,7 +20,6 @@ Public Class frmArticulos
         txtPrecio.MaxLength = espaciosEnteros + espaciosDecimales + 1
         Me.statusBase.Text = Base
         Me.statusCon.Text = ModDao.statusCon
-        'Dao_ConectarBase()
         CargarComboAgrupacion()
         Limpiar()
         Me.txtNomArticulo.Focus()
@@ -195,22 +194,6 @@ Public Class frmArticulos
             Exit Sub
         End If
 
-
-        If Me.txtNomArticulo.Text = "" Then
-            MsgBox("El Nombre de Articulo es requerido", vbCritical)
-            Me.txtNomArticulo.Focus()
-            Exit Sub
-        End If
-        If Me.txtPrecio.Text = "" Then
-            MsgBox("El Precio del Artículo es requerido", vbCritical)
-            Me.txtPrecio.Focus()
-            Exit Sub
-        End If
-        If Me.cmbAgrupacion.SelectedIndex() = 0 Or Me.cmbAgrupacion.SelectedIndex() = -1 Then
-            MsgBox("El Tipo de Agrupación es requerido", vbCritical)
-            Me.cmbAgrupacion.Focus()
-            Exit Sub
-        End If
         Dim idAgrup As Integer = cmbAgrupacion.SelectedItem(0)
         Dim precio = txtPrecio.Text
         Dim ngi As String = "ngi"
@@ -288,7 +271,7 @@ Errores:
     Private Sub lstArticulos_DoubleClick(sender As Object, e As EventArgs) Handles lstArticulos.DoubleClick
         If Me.lstArticulos.SelectedItem <> "" Then
             Dim Rs As SqlDataReader
-            Sql = $"select aa.[id articulo], aa.[nom articulo],ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [id articulo]= {Val(Mid(Me.lstArticulos.SelectedItem, 1, Me.lstArticulos.SelectedItem.ToString.IndexOf("n")))}"
+            Sql = $"select aa.[id articulo], aa.[nom articulo],ag.[nom agrupacion], aa.[pco articulo] from Articulo aa with (nolock) INNER JOIN Agrupacion ag ON aa.[id agrupacion] = ag.[id agrupacion] WHERE [id articulo]= {Val(Me.lstArticulos.SelectedItem.ToString)}"
             Instruccion = New SqlCommand(Sql, Dao)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
@@ -359,4 +342,5 @@ Errores:
 
 
 #End Region
+
 End Class

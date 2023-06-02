@@ -120,5 +120,28 @@ Module FuncionesFriend
         Return False
     End Function
 
+    Friend Function _CamposVaciosArticulos(frmTiposMovimiento As frmTiposMovimiento, ByRef mensaje As String) As Boolean
+        mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
+        Dim tamMensaje As Integer = mensaje.Length
+
+        If frmTiposMovimiento.txtCodTipoMov.Text = "" Then
+            mensaje += "CódTipoMov" + vbCrLf
+            frmTiposMovimiento.txtCodTipoMov.BackColor = Color.LightPink
+        End If
+        If frmTiposMovimiento.txtNomTipoMov.Text = "" Then
+            mensaje += "Descripción" + vbCrLf
+            frmTiposMovimiento.txtNomTipoMov.BackColor = Color.LightPink
+        End If
+        If frmTiposMovimiento.cckEsPositivo.CheckState = CheckState.Indeterminate Then
+            mensaje += "Estado Tipo Movimiento se debe definir" + vbCrLf
+            frmTiposMovimiento.cckEsPositivo.BackColor = Color.LightPink
+        End If
+
+        If mensaje.Length > tamMensaje Then
+            Return True
+        End If
+        Return False
+    End Function
+
 
 End Module

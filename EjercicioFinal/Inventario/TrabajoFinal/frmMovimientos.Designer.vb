@@ -57,7 +57,7 @@ Partial Class frmMovimientos
         'txtObs
         '
         Me.txtObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtObs.Location = New System.Drawing.Point(29, 133)
+        Me.txtObs.Location = New System.Drawing.Point(12, 130)
         Me.txtObs.Multiline = True
         Me.txtObs.Name = "txtObs"
         Me.txtObs.Size = New System.Drawing.Size(366, 72)
@@ -66,12 +66,15 @@ Partial Class frmMovimientos
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Azure
+        Me.ToolStrip1.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.pizarra_vacia
+        Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(860, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(755, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(45, 487)
+        Me.ToolStrip1.Size = New System.Drawing.Size(45, 426)
         Me.ToolStrip1.TabIndex = 6
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -98,77 +101,91 @@ Partial Class frmMovimientos
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(29, 48)
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label1.Location = New System.Drawing.Point(9, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 16)
+        Me.Label1.Size = New System.Drawing.Size(50, 16)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Fecha"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(146, 48)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label2.Location = New System.Drawing.Point(129, 45)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 16)
+        Me.Label2.Size = New System.Drawing.Size(57, 16)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Código"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(251, 48)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label3.Location = New System.Drawing.Point(234, 45)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 16)
+        Me.Label3.Size = New System.Drawing.Size(59, 16)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Artículo"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(522, 48)
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(502, 45)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 16)
+        Me.Label4.Size = New System.Drawing.Size(69, 16)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Cantidad"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(643, 48)
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(629, 45)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(123, 16)
+        Me.Label5.Size = New System.Drawing.Size(122, 16)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Tipo Movimiento"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(29, 114)
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label6.Location = New System.Drawing.Point(9, 111)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(113, 16)
+        Me.Label6.Size = New System.Drawing.Size(112, 16)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Observaciones"
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.SlateGray
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 15
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'ArchivoToolStripMenuItem
         '
         Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
@@ -176,13 +193,13 @@ Partial Class frmMovimientos
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'lstMovimientos
@@ -192,26 +209,28 @@ Partial Class frmMovimientos
         Me.lstMovimientos.HorizontalExtent = 2000
         Me.lstMovimientos.HorizontalScrollbar = True
         Me.lstMovimientos.ItemHeight = 15
-        Me.lstMovimientos.Location = New System.Drawing.Point(32, 287)
+        Me.lstMovimientos.Location = New System.Drawing.Point(12, 287)
         Me.lstMovimientos.Name = "lstMovimientos"
         Me.lstMovimientos.ScrollAlwaysVisible = True
-        Me.lstMovimientos.Size = New System.Drawing.Size(736, 139)
+        Me.lstMovimientos.Size = New System.Drawing.Size(736, 124)
         Me.lstMovimientos.TabIndex = 16
         '
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(29, 268)
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label7.Location = New System.Drawing.Point(8, 268)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(95, 16)
+        Me.Label7.Size = New System.Drawing.Size(94, 16)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Movimientos"
         '
         'dtpFecha
         '
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(29, 67)
+        Me.dtpFecha.Location = New System.Drawing.Point(12, 64)
         Me.dtpFecha.MaxDate = New Date(3000, 12, 31, 0, 0, 0, 0)
         Me.dtpFecha.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
         Me.dtpFecha.Name = "dtpFecha"
@@ -220,7 +239,7 @@ Partial Class frmMovimientos
         '
         'txtCodArt
         '
-        Me.txtCodArt.Location = New System.Drawing.Point(149, 67)
+        Me.txtCodArt.Location = New System.Drawing.Point(132, 64)
         Me.txtCodArt.Name = "txtCodArt"
         Me.txtCodArt.Size = New System.Drawing.Size(74, 20)
         Me.txtCodArt.TabIndex = 19
@@ -228,14 +247,14 @@ Partial Class frmMovimientos
         'cmbArticulo
         '
         Me.cmbArticulo.FormattingEnabled = True
-        Me.cmbArticulo.Location = New System.Drawing.Point(254, 67)
+        Me.cmbArticulo.Location = New System.Drawing.Point(237, 64)
         Me.cmbArticulo.Name = "cmbArticulo"
         Me.cmbArticulo.Size = New System.Drawing.Size(230, 21)
         Me.cmbArticulo.TabIndex = 20
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(522, 67)
+        Me.txtCantidad.Location = New System.Drawing.Point(505, 64)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(74, 20)
         Me.txtCantidad.TabIndex = 21
@@ -243,41 +262,51 @@ Partial Class frmMovimientos
         'cmbTipoMov
         '
         Me.cmbTipoMov.FormattingEnabled = True
-        Me.cmbTipoMov.Location = New System.Drawing.Point(646, 67)
+        Me.cmbTipoMov.Location = New System.Drawing.Point(629, 64)
         Me.cmbTipoMov.Name = "cmbTipoMov"
         Me.cmbTipoMov.Size = New System.Drawing.Size(122, 21)
         Me.cmbTipoMov.TabIndex = 22
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.StatusStrip1.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.pizarra_vacia
+        Me.StatusStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 489)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(860, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(755, 22)
         Me.StatusStrip1.TabIndex = 23
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
+        Me.ToolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
         Me.ToolStripStatusLabel1.Text = "Conección:"
         '
         'statusCon
         '
+        Me.statusCon.BackColor = System.Drawing.Color.Transparent
+        Me.statusCon.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.statusCon.Name = "statusCon"
         Me.statusCon.Size = New System.Drawing.Size(43, 17)
         Me.statusCon.Text = "xxxxxx"
         '
         'ToolStripStatusLabel2
         '
+        Me.ToolStripStatusLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
         Me.ToolStripStatusLabel2.Text = "Base"
         '
         'statusBase
         '
+        Me.statusBase.BackColor = System.Drawing.Color.Transparent
+        Me.statusBase.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.statusBase.Name = "statusBase"
         Me.statusBase.Size = New System.Drawing.Size(55, 17)
         Me.statusBase.Text = "xxxxxxxx"
@@ -286,7 +315,9 @@ Partial Class frmMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.pizarra_vacia
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.cmbTipoMov)
         Me.Controls.Add(Me.txtCantidad)
@@ -304,6 +335,8 @@ Partial Class frmMovimientos
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.txtObs)
+        Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMovimientos"
         Me.Text = "frmMovimientos"

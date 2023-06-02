@@ -33,25 +33,25 @@ Partial Class frmAgrupacion
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.lstAgrupacion = New System.Windows.Forms.ListBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
-        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
-        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
-        Me.txtNombreAgrupacion = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.txtNombreAgrupacion = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
+        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ModificarToolStripMenuItem
@@ -87,11 +87,11 @@ Partial Class frmAgrupacion
         '
         'lblAgrupacion
         '
-        Me.lblAgrupacion.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblAgrupacion.BackColor = System.Drawing.Color.SteelBlue
         Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblAgrupacion.Location = New System.Drawing.Point(44, 27)
+        Me.lblAgrupacion.Location = New System.Drawing.Point(37, 17)
         Me.lblAgrupacion.Name = "lblAgrupacion"
         Me.lblAgrupacion.Size = New System.Drawing.Size(482, 20)
         Me.lblAgrupacion.TabIndex = 2
@@ -100,11 +100,11 @@ Partial Class frmAgrupacion
         '
         'lblId
         '
-        Me.lblId.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblId.BackColor = System.Drawing.Color.SteelBlue
         Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblId.Location = New System.Drawing.Point(18, 27)
+        Me.lblId.Location = New System.Drawing.Point(11, 17)
         Me.lblId.Name = "lblId"
         Me.lblId.Size = New System.Drawing.Size(20, 20)
         Me.lblId.TabIndex = 1
@@ -113,10 +113,13 @@ Partial Class frmAgrupacion
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.AliceBlue
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -125,9 +128,9 @@ Partial Class frmAgrupacion
         Me.lstAgrupacion.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstAgrupacion.FormattingEnabled = True
         Me.lstAgrupacion.ItemHeight = 15
-        Me.lstAgrupacion.Location = New System.Drawing.Point(18, 50)
+        Me.lstAgrupacion.Location = New System.Drawing.Point(11, 40)
         Me.lstAgrupacion.Name = "lstAgrupacion"
-        Me.lstAgrupacion.Size = New System.Drawing.Size(508, 199)
+        Me.lstAgrupacion.Size = New System.Drawing.Size(508, 184)
         Me.lstAgrupacion.TabIndex = 0
         '
         'SplitContainer1
@@ -138,6 +141,7 @@ Partial Class frmAgrupacion
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.White
         Me.SplitContainer1.Panel1.Controls.Add(Me.ToolStrip1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtNombreAgrupacion)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
@@ -145,24 +149,79 @@ Partial Class frmAgrupacion
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.White
+        Me.SplitContainer1.Panel2.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.Fondo2
         Me.SplitContainer1.Panel2.Controls.Add(Me.StatusStrip1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblAgrupacion)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstAgrupacion)
-        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
-        Me.SplitContainer1.SplitterDistance = 203
+        Me.SplitContainer1.Size = New System.Drawing.Size(800, 450)
+        Me.SplitContainer1.SplitterDistance = 181
         Me.SplitContainer1.TabIndex = 5
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.AliceBlue
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 243)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
+        Me.StatusStrip1.TabIndex = 5
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "Conección:"
+        '
+        'statusCon
+        '
+        Me.statusCon.Name = "statusCon"
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Text = "xxxxxx"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Text = "Base"
+        '
+        'statusBase
+        '
+        Me.statusBase.Name = "statusBase"
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Text = "xxxxxxxx"
         '
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(764, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 179)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 157)
         Me.ToolStrip1.TabIndex = 7
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'txtNombreAgrupacion
+        '
+        Me.txtNombreAgrupacion.Location = New System.Drawing.Point(108, 78)
+        Me.txtNombreAgrupacion.Name = "txtNombreAgrupacion"
+        Me.txtNombreAgrupacion.Size = New System.Drawing.Size(231, 20)
+        Me.txtNombreAgrupacion.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(11, 78)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 16)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Agrupación"
         '
         'tsLimpiar
         '
@@ -212,63 +271,15 @@ Partial Class frmAgrupacion
         Me.tsModificar.Size = New System.Drawing.Size(35, 35)
         Me.tsModificar.Text = "Modificar"
         '
-        'txtNombreAgrupacion
-        '
-        Me.txtNombreAgrupacion.Location = New System.Drawing.Point(126, 101)
-        Me.txtNombreAgrupacion.Name = "txtNombreAgrupacion"
-        Me.txtNombreAgrupacion.Size = New System.Drawing.Size(231, 20)
-        Me.txtNombreAgrupacion.TabIndex = 3
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(29, 101)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(87, 16)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Agrupación"
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 282)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
-        Me.StatusStrip1.TabIndex = 5
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
-        Me.ToolStripStatusLabel1.Text = "Conección:"
-        '
-        'statusCon
-        '
-        Me.statusCon.Name = "statusCon"
-        Me.statusCon.Size = New System.Drawing.Size(43, 17)
-        Me.statusCon.Text = "xxxxxx"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
-        Me.ToolStripStatusLabel2.Text = "Base"
-        '
-        'statusBase
-        '
-        Me.statusBase.Name = "statusBase"
-        Me.statusBase.Size = New System.Drawing.Size(55, 17)
-        Me.statusBase.Text = "xxxxxxxx"
-        '
         'frmAgrupacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAgrupacion"
         Me.Text = "frmAgrupacion"
         Me.MenuStrip1.ResumeLayout(False)
@@ -279,10 +290,10 @@ Partial Class frmAgrupacion
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

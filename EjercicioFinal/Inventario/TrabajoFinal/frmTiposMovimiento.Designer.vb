@@ -41,13 +41,15 @@ Partial Class frmTiposMovimiento
         Me.txtCodTipoMov = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblDescripcion = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lblCodigoTipoMovi = New System.Windows.Forms.Label()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.lstTipoMovimiento = New System.Windows.Forms.ListBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -67,18 +69,23 @@ Partial Class frmTiposMovimiento
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.White
         Me.SplitContainer1.Panel1.Controls.Add(Me.ToolStrip1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.MenuStrip1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.StatusStrip1)
+        Me.SplitContainer1.Panel2.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.Fondo5
+        Me.SplitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label3)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblDescripcion)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.StatusStrip1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblCodigoTipoMovi)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstTipoMovimiento)
-        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
-        Me.SplitContainer1.SplitterDistance = 203
+        Me.SplitContainer1.Size = New System.Drawing.Size(799, 452)
+        Me.SplitContainer1.SplitterDistance = 182
         Me.SplitContainer1.TabIndex = 4
         '
         'ToolStrip1
@@ -87,9 +94,9 @@ Partial Class frmTiposMovimiento
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(763, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 179)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 158)
         Me.ToolStrip1.TabIndex = 5
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -143,12 +150,13 @@ Partial Class frmTiposMovimiento
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Azure
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(799, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -190,7 +198,7 @@ Partial Class frmTiposMovimiento
         Me.GroupBox1.Controls.Add(Me.txtCodTipoMov)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 54)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 48)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(349, 127)
         Me.GroupBox1.TabIndex = 4
@@ -204,7 +212,7 @@ Partial Class frmTiposMovimiento
         Me.cckEsPositivo.CheckState = System.Windows.Forms.CheckState.Indeterminate
         Me.cckEsPositivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cckEsPositivo.Location = New System.Drawing.Point(12, 91)
-        Me.cckEsPositivo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cckEsPositivo.Margin = New System.Windows.Forms.Padding(2)
         Me.cckEsPositivo.Name = "cckEsPositivo"
         Me.cckEsPositivo.Size = New System.Drawing.Size(104, 20)
         Me.cckEsPositivo.TabIndex = 4
@@ -246,13 +254,40 @@ Partial Class frmTiposMovimiento
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CódTipoMov"
         '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Label3.Location = New System.Drawing.Point(414, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(94, 20)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Resultado"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblDescripcion
+        '
+        Me.lblDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblDescripcion.Location = New System.Drawing.Point(252, 23)
+        Me.lblDescripcion.Name = "lblDescripcion"
+        Me.lblDescripcion.Size = New System.Drawing.Size(156, 20)
+        Me.lblDescripcion.TabIndex = 4
+        Me.lblDescripcion.Text = "Descripción"
+        Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'StatusStrip1
         '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.Azure
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 282)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 244)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(799, 22)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -280,48 +315,49 @@ Partial Class frmTiposMovimiento
         Me.statusBase.Size = New System.Drawing.Size(55, 17)
         Me.statusBase.Text = "xxxxxxxx"
         '
-        'lblDescripcion
+        'lblCodigoTipoMovi
         '
-        Me.lblDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblDescripcion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblDescripcion.Location = New System.Drawing.Point(123, 27)
-        Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(403, 20)
-        Me.lblDescripcion.TabIndex = 2
-        Me.lblDescripcion.Text = "Descripción"
-        Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblCodigoTipoMovi.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblCodigoTipoMovi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCodigoTipoMovi.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblCodigoTipoMovi.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblCodigoTipoMovi.Location = New System.Drawing.Point(234, 23)
+        Me.lblCodigoTipoMovi.Name = "lblCodigoTipoMovi"
+        Me.lblCodigoTipoMovi.Size = New System.Drawing.Size(12, 20)
+        Me.lblCodigoTipoMovi.TabIndex = 2
+        Me.lblCodigoTipoMovi.Text = "C"
+        Me.lblCodigoTipoMovi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblCodigo
+        'lblId
         '
-        Me.lblCodigo.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblCodigo.Location = New System.Drawing.Point(18, 27)
-        Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(99, 20)
-        Me.lblCodigo.TabIndex = 1
-        Me.lblCodigo.Text = "Código"
-        Me.lblCodigo.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblId.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblId.Location = New System.Drawing.Point(222, 23)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(10, 20)
+        Me.lblId.TabIndex = 1
+        Me.lblId.Text = "i"
+        Me.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lstTipoMovimiento
         '
         Me.lstTipoMovimiento.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstTipoMovimiento.FormattingEnabled = True
         Me.lstTipoMovimiento.ItemHeight = 15
-        Me.lstTipoMovimiento.Location = New System.Drawing.Point(18, 50)
+        Me.lstTipoMovimiento.Location = New System.Drawing.Point(222, 46)
         Me.lstTipoMovimiento.Name = "lstTipoMovimiento"
-        Me.lstTipoMovimiento.Size = New System.Drawing.Size(508, 199)
+        Me.lstTipoMovimiento.Size = New System.Drawing.Size(286, 184)
         Me.lstTipoMovimiento.TabIndex = 0
         '
         'frmTiposMovimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmTiposMovimiento"
         Me.Text = "frmTiposMovimiento"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -348,8 +384,8 @@ Partial Class frmTiposMovimiento
     Friend WithEvents txtCodTipoMov As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblDescripcion As Label
-    Friend WithEvents lblCodigo As Label
+    Friend WithEvents lblCodigoTipoMovi As Label
+    Friend WithEvents lblId As Label
     Friend WithEvents lstTipoMovimiento As ListBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents tsLimpiar As ToolStripButton
@@ -368,4 +404,6 @@ Partial Class frmTiposMovimiento
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents statusBase As ToolStripStatusLabel
     Friend WithEvents cckEsPositivo As CheckBox
+    Friend WithEvents lblDescripcion As Label
+    Friend WithEvents Label3 As Label
 End Class

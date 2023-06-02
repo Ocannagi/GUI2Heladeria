@@ -3,8 +3,12 @@
 Public Class frmTiposMovimiento
 
     Private idTipoMovSeleccionado As Integer = 0
-    Friend espaciosNombreTipoMov As Integer = 50
+    Friend espaciosNombreTipoMov As Integer = 25
     Friend espaciosCodTipoMov As Integer = 1
+    Dim ordenId As Boolean = False
+    Dim ordenCod As Boolean = True
+    Dim ordenDesc As Boolean = True
+    Dim ordenResult As Boolean = True
 
     Private Sub frmTiposMovimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtCodTipoMov.MaxLength = espaciosCodTipoMov
@@ -67,6 +71,32 @@ Public Class frmTiposMovimiento
 
 #End Region
 
+#Region "COLORES"
+    Private Sub txtCodTipoMov_Enter(sender As Object, e As EventArgs) Handles txtCodTipoMov.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtCodTipoMov_Leave(sender As Object, e As EventArgs) Handles txtCodTipoMov.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub txtNomTipoMov_Enter(sender As Object, e As EventArgs) Handles txtNomTipoMov.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtNomTipoMov_Leave(sender As Object, e As EventArgs) Handles txtNomTipoMov.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub cckEsPositivo_Enter(sender As Object, e As EventArgs) Handles cckEsPositivo.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub cckEsPositivo_Leave(sender As Object, e As EventArgs) Handles cckEsPositivo.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+#End Region
 
 #Region "RUTINAS BOTONES"
 
@@ -75,41 +105,50 @@ Public Class frmTiposMovimiento
         LimpiarCampos(Me.Controls)
         Me.idTipoMovSeleccionado = 0
         Me.txtCodTipoMov.Focus()
-        MostrarTipoMov(0)
+        MostrarTipoMov("[id tipomovi]")
     End Sub
 
-    Private Sub MostrarTipoMov(Orden As Integer)
+    Private Sub MostrarTipoMov(Orden As String)
+
         Dim Rs As SqlDataReader
         Me.lstTipoMovimiento.Items.Clear()
-        Select Case Orden
-            Case 0
-                Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [tip tipomovi]"
-            Case 1
-                Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [nom tipomovi]"
-        End Select
+        Sql = "select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY [id tipomovi] desc"
+        Instruccion = New SqlCommand(Sql, Dao)
+        Rs = Instruccion.ExecuteReader()
+        Rs.Read()
+        Dim espaciosIDmax As Integer
+        If Rs.HasRows Then
+            espaciosIDmax = Rs(0).ToString().Length
+        Else
+            espaciosIDmax = 1
+        End If
+        Rs.Close()
+
+        Sql = $"select * from tipomovi with (nolock) WHERE [nom tipomovi] like 'ngi%' ORDER BY {Orden}"
+
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         While Rs.Read
-            Me.lstTipoMovimiento.Items.Add($"{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}{Space(espaciosNombreTipoMov - Rs(Rs.GetOrdinal("nom tipomovi")).ToString.Length + 1)}{Rs(Rs.GetOrdinal("esPositivo"))}")
+            Dim espPreIDArt = Space(espaciosIDmax - Rs(0).ToString.Length)
+            Dim resultado As String
+            If Rs(Rs.GetOrdinal("esPositivo")) = True Then
+                resultado = "positivo"
+            Else
+                resultado = "negativo"
+            End If
+
+
+            Me.lstTipoMovimiento.Items.Add($"{espPreIDArt}{Rs(Rs.GetOrdinal("id tipomovi"))} {Rs(Rs.GetOrdinal("tip tipomovi"))} {Rs(Rs.GetOrdinal("nom tipomovi"))}{Space(espaciosNombreTipoMov - Rs(Rs.GetOrdinal("nom tipomovi")).ToString.Length + 1)}{resultado}")
         End While
         Rs.Close()
     End Sub
 
     Private Sub Guardar()
         On Error GoTo Errores
-        If Me.txtCodTipoMov.Text = "" Then
-            MsgBox("El Código de Tipo Movimiento es requerido", vbCritical)
-            Me.txtCodTipoMov.Focus()
-            Exit Sub
-        End If
-        If Me.txtNomTipoMov.Text = "" Then
-            MsgBox("El Nombre de Tipo Movimiento es requerido", vbCritical)
-            Me.txtNomTipoMov.Focus()
-            Exit Sub
-        End If
-        If Me.cckEsPositivo.CheckState = CheckState.Indeterminate Then
-            MsgBox("Definir el estado del Tipo de Movimiento es requerido", vbCritical)
-            Me.cckEsPositivo.Focus()
+
+        Dim mensaje = ""
+        If _CamposVaciosArticulos(Me, mensaje) Then
+            MsgBox(mensaje, vbCritical, "Error")
             Exit Sub
         End If
 
@@ -206,7 +245,7 @@ Errores:
     Private Sub lstTipoMovimiento_DoubleClick(sender As Object, e As EventArgs) Handles lstTipoMovimiento.DoubleClick
         If Me.lstTipoMovimiento.SelectedItem <> "" Then
             Dim Rs As SqlDataReader
-            Sql = $"select * from tipomovi WHERE [id tipomovi]= {Val(Mid(Me.lstTipoMovimiento.SelectedItem, 1, Me.lstTipoMovimiento.SelectedItem.ToString.IndexOf(" ") + 1))}"
+            Sql = $"select * from tipomovi WHERE [id tipomovi]= {Val(Me.lstTipoMovimiento.SelectedItem.ToString)}"
             Instruccion = New SqlCommand(Sql, Dao)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
@@ -240,6 +279,46 @@ Errores:
 
     Private Sub frmTiposMovimiento_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub lblId_Click(sender As Object, e As EventArgs) Handles lblId.Click
+        If ordenId Then
+            MostrarTipoMov("[id tipomovi]")
+            ordenId = Not ordenId
+        Else
+            MostrarTipoMov("[id tipomovi] desc")
+            ordenId = Not ordenId
+        End If
+    End Sub
+
+    Private Sub lblCodigoTipoMovi_Click(sender As Object, e As EventArgs) Handles lblCodigoTipoMovi.Click
+        If ordenCod Then
+            MostrarTipoMov("[tip tipomovi]")
+            ordenCod = Not ordenCod
+        Else
+            MostrarTipoMov("[tip tipomovi] desc")
+            ordenCod = Not ordenCod
+        End If
+    End Sub
+
+    Private Sub lblDescripcion_Click(sender As Object, e As EventArgs) Handles lblDescripcion.Click
+        If ordenDesc Then
+            MostrarTipoMov("[nom tipomovi]")
+            ordenDesc = Not ordenDesc
+        Else
+            MostrarTipoMov("[nom tipomovi] desc")
+            ordenDesc = Not ordenDesc
+        End If
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        If ordenResult Then
+            MostrarTipoMov("esPositivo")
+            ordenResult = Not ordenResult
+        Else
+            MostrarTipoMov("esPositivo desc")
+            ordenResult = Not ordenResult
+        End If
     End Sub
 
 #End Region

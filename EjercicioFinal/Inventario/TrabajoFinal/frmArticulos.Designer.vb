@@ -41,17 +41,17 @@ Partial Class frmArticulos
         Me.lstArticulos = New System.Windows.Forms.ListBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
-        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
-        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
+        Me.lblPrecio = New System.Windows.Forms.Label()
+        Me.lblAgrupacion = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblAgrupacion = New System.Windows.Forms.Label()
-        Me.lblPrecio = New System.Windows.Forms.Label()
+        Me.tsLimpiar = New System.Windows.Forms.ToolStripButton()
+        Me.tsGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.tsEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.tsModificar = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,20 +95,20 @@ Partial Class frmArticulos
         '
         'lblArticulo
         '
-        Me.lblArticulo.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblArticulo.BackColor = System.Drawing.Color.SteelBlue
         Me.lblArticulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblArticulo.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblArticulo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.lblArticulo.Location = New System.Drawing.Point(50, 27)
         Me.lblArticulo.Name = "lblArticulo"
-        Me.lblArticulo.Size = New System.Drawing.Size(278, 20)
+        Me.lblArticulo.Size = New System.Drawing.Size(268, 20)
         Me.lblArticulo.TabIndex = 2
         Me.lblArticulo.Text = "Artículo"
         Me.lblArticulo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'lblId
         '
-        Me.lblId.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblId.BackColor = System.Drawing.Color.SteelBlue
         Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -125,7 +125,7 @@ Partial Class frmArticulos
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(11, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(84, 16)
+        Me.Label2.Size = New System.Drawing.Size(83, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Nombe art."
         '
@@ -135,18 +135,19 @@ Partial Class frmArticulos
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 66)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 16)
+        Me.Label1.Size = New System.Drawing.Size(52, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Precio"
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.AliceBlue
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -165,7 +166,7 @@ Partial Class frmArticulos
         Me.GroupBox1.Controls.Add(Me.txtNomArticulo)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 54)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 47)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(349, 127)
         Me.GroupBox1.TabIndex = 4
@@ -181,6 +182,7 @@ Partial Class frmArticulos
         '
         'cmbAgrupacion
         '
+        Me.cmbAgrupacion.BackColor = System.Drawing.Color.Azure
         Me.cmbAgrupacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAgrupacion.FormattingEnabled = True
         Me.cmbAgrupacion.Location = New System.Drawing.Point(108, 99)
@@ -194,7 +196,7 @@ Partial Class frmArticulos
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(11, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 16)
+        Me.Label3.Size = New System.Drawing.Size(86, 16)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Agrupación"
         '
@@ -205,7 +207,7 @@ Partial Class frmArticulos
         Me.lstArticulos.ItemHeight = 15
         Me.lstArticulos.Location = New System.Drawing.Point(18, 50)
         Me.lstArticulos.Name = "lstArticulos"
-        Me.lstArticulos.Size = New System.Drawing.Size(657, 199)
+        Me.lstArticulos.Size = New System.Drawing.Size(638, 184)
         Me.lstArticulos.TabIndex = 3
         '
         'SplitContainer1
@@ -216,19 +218,22 @@ Partial Class frmArticulos
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.White
         Me.SplitContainer1.Panel1.Controls.Add(Me.ToolStrip1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.MenuStrip1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.Fondo3
+        Me.SplitContainer1.Panel2.Controls.Add(Me.StatusStrip1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblPrecio)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblAgrupacion)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblArticulo)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblId)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lstArticulos)
-        Me.SplitContainer1.Size = New System.Drawing.Size(905, 511)
-        Me.SplitContainer1.SplitterDistance = 202
+        Me.SplitContainer1.Size = New System.Drawing.Size(800, 451)
+        Me.SplitContainer1.SplitterDistance = 181
         Me.SplitContainer1.TabIndex = 5
         '
         'ToolStrip1
@@ -237,11 +242,72 @@ Partial Class frmArticulos
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar, Me.tsEliminar, Me.tsModificar})
-        Me.ToolStrip1.Location = New System.Drawing.Point(869, 24)
+        Me.ToolStrip1.Location = New System.Drawing.Point(764, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(36, 178)
+        Me.ToolStrip1.Size = New System.Drawing.Size(36, 157)
         Me.ToolStrip1.TabIndex = 8
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'lblPrecio
+        '
+        Me.lblPrecio.BackColor = System.Drawing.Color.SteelBlue
+        Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecio.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblPrecio.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblPrecio.Location = New System.Drawing.Point(534, 27)
+        Me.lblPrecio.Name = "lblPrecio"
+        Me.lblPrecio.Size = New System.Drawing.Size(122, 20)
+        Me.lblPrecio.TabIndex = 4
+        Me.lblPrecio.Text = "Precio"
+        Me.lblPrecio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'lblAgrupacion
+        '
+        Me.lblAgrupacion.BackColor = System.Drawing.Color.SteelBlue
+        Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblAgrupacion.Location = New System.Drawing.Point(324, 27)
+        Me.lblAgrupacion.Name = "lblAgrupacion"
+        Me.lblAgrupacion.Size = New System.Drawing.Size(204, 20)
+        Me.lblAgrupacion.TabIndex = 3
+        Me.lblAgrupacion.Text = "Agrupación"
+        Me.lblAgrupacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.AliceBlue
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 244)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
+        Me.StatusStrip1.TabIndex = 6
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "Conección:"
+        '
+        'statusCon
+        '
+        Me.statusCon.Name = "statusCon"
+        Me.statusCon.Size = New System.Drawing.Size(43, 17)
+        Me.statusCon.Text = "xxxxxx"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
+        Me.ToolStripStatusLabel2.Text = "Base"
+        '
+        'statusBase
+        '
+        Me.statusBase.Name = "statusBase"
+        Me.statusBase.Size = New System.Drawing.Size(55, 17)
+        Me.statusBase.Text = "xxxxxxxx"
         '
         'tsLimpiar
         '
@@ -291,73 +357,13 @@ Partial Class frmArticulos
         Me.tsModificar.Size = New System.Drawing.Size(35, 35)
         Me.tsModificar.Text = "Modificar"
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.statusCon, Me.ToolStripStatusLabel2, Me.statusBase})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 489)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(905, 22)
-        Me.StatusStrip1.TabIndex = 6
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
-        Me.ToolStripStatusLabel1.Text = "Conección:"
-        '
-        'statusCon
-        '
-        Me.statusCon.Name = "statusCon"
-        Me.statusCon.Size = New System.Drawing.Size(43, 17)
-        Me.statusCon.Text = "xxxxxx"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(31, 17)
-        Me.ToolStripStatusLabel2.Text = "Base"
-        '
-        'statusBase
-        '
-        Me.statusBase.Name = "statusBase"
-        Me.statusBase.Size = New System.Drawing.Size(55, 17)
-        Me.statusBase.Text = "xxxxxxxx"
-        '
-        'lblAgrupacion
-        '
-        Me.lblAgrupacion.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblAgrupacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAgrupacion.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblAgrupacion.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblAgrupacion.Location = New System.Drawing.Point(334, 27)
-        Me.lblAgrupacion.Name = "lblAgrupacion"
-        Me.lblAgrupacion.Size = New System.Drawing.Size(210, 20)
-        Me.lblAgrupacion.TabIndex = 3
-        Me.lblAgrupacion.Text = "Agrupación"
-        Me.lblAgrupacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'lblPrecio
-        '
-        Me.lblPrecio.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblPrecio.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.lblPrecio.Location = New System.Drawing.Point(550, 27)
-        Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(125, 20)
-        Me.lblPrecio.TabIndex = 4
-        Me.lblPrecio.Text = "Precio"
-        Me.lblPrecio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 511)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmArticulos"
         Me.Text = "frmArticulos"
         Me.MenuStrip1.ResumeLayout(False)
@@ -367,6 +373,7 @@ Partial Class frmArticulos
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
@@ -374,7 +381,6 @@ Partial Class frmArticulos
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 

@@ -63,7 +63,7 @@ Public Class frmMovimientos
     Private Sub MostrarMovimiento(Orden As Integer)
         Dim Rs As SqlDataReader
         Me.lstMovimientos.Items.Clear()
-        Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [id movimiento] desc"
+        Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [id movimiento] desc"
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
         Rs.Read()
@@ -79,9 +79,9 @@ Public Class frmMovimientos
 
         Select Case Orden
             Case 0
-                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [id movimiento]"
+                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [id movimiento]"
             Case 1
-                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE [nom articulo] like 'ngi%' ORDER BY [Fec movimiento]"
+                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [Fec movimiento]"
         End Select
 
         Instruccion = New SqlCommand(Sql, Dao)

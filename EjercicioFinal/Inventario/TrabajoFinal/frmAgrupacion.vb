@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmAgrupacion
-    Friend espaciosNombreAgrupacion As Integer = 50
+    Friend espaciosNombreAgrupacion As Integer = 40
     Friend idTipoAgrupacionSeleccionada As Integer = 0
 
     Dim ordenId As Boolean = False
@@ -190,7 +190,7 @@ Errores:
         If Me.lstAgrupacion.SelectedItem <> "" Then
             Dim Rs As SqlDataReader
             Dim aver = Val(Mid(Me.lstAgrupacion.SelectedItem, 1, Me.lstAgrupacion.SelectedItem.ToString.IndexOf("n")))
-            Sql = $"select * from Agrupacion WHERE [id agrupacion]= {Val(Mid(Me.lstAgrupacion.SelectedItem, 1, Me.lstAgrupacion.SelectedItem.ToString.IndexOf("n")))}"
+            Sql = $"select * from Agrupacion WHERE [id agrupacion]= {Val(Me.lstAgrupacion.SelectedItem.ToString)}"
             Instruccion = New SqlCommand(Sql, Dao)
             Rs = Instruccion.ExecuteReader()
             While Rs.Read
@@ -228,10 +228,6 @@ Errores:
             ordenAgrup = Not ordenAgrup
         End If
     End Sub
-
-
-
-
 
 
 #End Region
