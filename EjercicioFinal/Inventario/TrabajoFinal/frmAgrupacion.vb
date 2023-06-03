@@ -15,6 +15,21 @@ Public Class frmAgrupacion
         Me.Limpiar()
     End Sub
 
+
+    Private Sub frmAgrupacion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub frmAgrupacion_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If HayCamposConContenido(Me.Controls) Then
+            If MsgBox("Hay campos sin persistir. Si cierra el formulario,los datos se perderán ¿Está seguro de cerrar el formulario?", vbYesNo) = vbNo Then
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+
 #Region "ACCESO BOTONES"
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
         Limpiar()
@@ -205,10 +220,6 @@ Errores:
         End If
     End Sub
 
-    Private Sub frmAgrupacion_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        frmMenuPrincipal.Show()
-    End Sub
-
     Private Sub lblId_Click(sender As Object, e As EventArgs) Handles lblId.Click
         If ordenId Then
             MostrarAgrupacion("[id agrupacion]")
@@ -229,7 +240,11 @@ Errores:
         End If
     End Sub
 
-
 #End Region
+
+
+
+
+
 
 End Class

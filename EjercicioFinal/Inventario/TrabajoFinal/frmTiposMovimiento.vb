@@ -19,6 +19,18 @@ Public Class frmTiposMovimiento
         Me.Limpiar()
     End Sub
 
+    Private Sub frmTiposMovimiento_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub frmTiposMovimiento_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If HayCamposConContenido(Me.Controls) Then
+            If MsgBox("Hay campos sin persistir. Si cierra el formulario,los datos se perderán ¿Está seguro de cerrar el formulario?", vbYesNo) = vbNo Then
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
 #Region "BOTONES"
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
@@ -147,7 +159,7 @@ Public Class frmTiposMovimiento
         On Error GoTo Errores
 
         Dim mensaje = ""
-        If _CamposVaciosArticulos(Me, mensaje) Then
+        If _CamposVaciosTipoMovi(Me, mensaje) Then
             MsgBox(mensaje, vbCritical, "Error")
             Exit Sub
         End If
@@ -275,10 +287,6 @@ Errores:
             MsgBox("No se seleccionó ningun item", vbCritical, "Verifique")
             Me.lstTipoMovimiento.Focus()
         End If
-    End Sub
-
-    Private Sub frmTiposMovimiento_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        frmMenuPrincipal.Show()
     End Sub
 
     Private Sub lblId_Click(sender As Object, e As EventArgs) Handles lblId.Click

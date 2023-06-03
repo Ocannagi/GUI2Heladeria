@@ -23,6 +23,32 @@ Module FuncionesStd
         Next
     End Sub
 
+    Friend Function HayCamposConContenido(ByVal contenedor As Control.ControlCollection) As Boolean
+        Dim resultado As Boolean = False
+        For Each control As Control In contenedor
+            If TypeOf control Is TextBox Then
+                If CType(control, TextBox).Text <> "" Then
+                    resultado = True
+                    Return resultado
+                End If
+            ElseIf TypeOf control Is ComboBox Then
+                If CType(control, ComboBox).SelectedIndex > 0 Then
+                    resultado = True
+                    Return resultado
+                End If
+            ElseIf TypeOf control Is CheckBox Then
+                If CType(control, CheckBox).CheckState <> CheckState.Indeterminate Then
+                    resultado = True
+                    Return resultado
+                End If
+            ElseIf control.HasChildren Then
+                resultado = HayCamposConContenido(control.Controls)
+                Return resultado
+            End If
+        Next
+        Return resultado
+    End Function
+
     Friend Function SuperaMaxLength(sender As Object, e As KeyPressEventArgs, length As Integer) As Boolean
         Dim bool As Boolean = False
         If sender.text.length >= length Then
@@ -122,12 +148,36 @@ Module FuncionesStd
         Return bool
     End Function
 
+    Friend Function EsCaracterNumero(sender As Object, e As KeyPressEventArgs) As Boolean
+        Dim bool As Boolean = False
+        Dim exp As String = "[0-9]"
+        Dim regex As Regex = New Regex(exp)
+        If regex.IsMatch(e.KeyChar) Or e.KeyChar = vbBack Then
+            bool = True
+        End If
+        Return bool
+    End Function
+
     Friend Sub AgregarCeroPrePunto(sender As Object)
         If sender.Text = "." Then
             sender.Text = "0."
         End If
         sender.Focus()
         sender.SelectionStart() = sender.Text.Length
+    End Sub
+
+    Friend Sub QuitarCeroInicial(sender As Object)
+        If sender.Text.Length > 0 Then
+            If sender.Text(0) = "0" Then
+                If sender.Text.Length = 1 Then
+                    sender.Text = ""
+                Else
+                    sender.Text = Mid(sender.Text, 2)
+                End If
+            End If
+            sender.Focus()
+            sender.SelectionStart() = sender.Text.Length
+        End If
     End Sub
 
 

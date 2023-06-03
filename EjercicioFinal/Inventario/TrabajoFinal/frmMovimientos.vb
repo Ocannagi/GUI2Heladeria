@@ -13,6 +13,19 @@ Public Class frmMovimientos
         Me.dtpFecha.Focus()
     End Sub
 
+    Private Sub frmMovimientos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        frmMenuPrincipal.CargarListaMenuPrincipal("agrupacion")
+        frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub frmMovimientos_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If HayCamposConContenidoFrmMovimientos(Me) Then
+            If MsgBox("Hay campos sin persistir. Si cierra el formulario,los datos se perderán ¿Está seguro de cerrar el formulario?", vbYesNo) = vbNo Then
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
 
     Friend espaciosTipoMovi As Integer = frmTiposMovimiento.espaciosCodTipoMov
     Friend espaciosFecha As Integer = 10
@@ -21,6 +34,147 @@ Public Class frmMovimientos
     Friend espaciosPrecioMov As Integer = frmArticulos.espaciosEnteros + frmArticulos.espaciosDecimales + 1
     Friend espaciosObs As Integer = 250
     Dim errorCombo As Boolean = False
+
+    Dim ordenID As Boolean = False
+    Dim ordenCodTipoMovi As Boolean = True
+    Dim ordenNomArti As Boolean = True
+    Dim ordenFecha As Boolean = True
+    Dim ordenCantidad As Boolean = True
+    Dim ordenPrecio As Boolean = True
+    Dim ordenObs As Boolean = True
+
+
+
+#Region "BOTONES"
+
+    Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
+        Limpiar()
+    End Sub
+    Private Sub LimpiarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarToolStripMenuItem.Click
+        Limpiar()
+    End Sub
+
+    Private Sub tsGuardar_Click(sender As Object, e As EventArgs) Handles tsGuardar.Click
+        Guardar()
+    End Sub
+
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+        Guardar()
+    End Sub
+#End Region
+
+#Region "VALIDACIÓN CAMPOS"
+    Private Sub txtCodArt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodArt.KeyPress
+        If Not EsCaracterNumero(sender, e) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtCodArt_TextChanged(sender As Object, e As EventArgs) Handles txtCodArt.TextChanged
+
+        If txtCodArt.Text <> "" Then
+            For index = 0 To cmbArticulo.Items.Count() - 1
+                Dim algo As DataRowView = cmbArticulo.Items(index)
+                Dim otraCosa = algo.Row.ItemArray
+
+                If otraCosa(0).ToString() = txtCodArt.Text Then
+                    cmbArticulo.SelectedIndex() = index
+                    errorCombo = False
+                    Exit Sub
+                End If
+            Next
+        End If
+
+        errorCombo = True
+    End Sub
+
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        If SuperaMaxLength(sender, e, espaciosCantidad) Or Not EsCaracterNumero(sender, e) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
+        QuitarCeroInicial(sender)
+    End Sub
+
+    Private Sub txtObs_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtObs.KeyPress
+        If SuperaMaxLength(sender, e, espaciosObs) Or Not EsCaracterLetraEspacioNumeroPunto(sender, e) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub AnalizarErrorCombo()
+        If errorCombo Then
+            txtCodArt.Text = "0"
+        End If
+    End Sub
+
+    Private Sub ObsVacío()
+        If txtObs.Text = "" Then
+            txtObs.Text = "Sin Observaciones"
+        End If
+    End Sub
+
+#End Region
+
+#Region "FOCO"
+
+    Private Sub dtpFecha_Enter(sender As Object, e As EventArgs) Handles dtpFecha.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub dtpFecha_Leave(sender As Object, e As EventArgs) Handles dtpFecha.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub txtCodArt_Enter(sender As Object, e As EventArgs) Handles txtCodArt.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtCodArt_Leave(sender As Object, e As EventArgs) Handles txtCodArt.Leave
+        If errorCombo Then
+            txtCodArt.Text = "0"
+        End If
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub cmbArticulo_Enter(sender As Object, e As EventArgs) Handles cmbArticulo.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub cmbArticulo_Leave(sender As Object, e As EventArgs) Handles cmbArticulo.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub txtCantidad_Enter(sender As Object, e As EventArgs) Handles txtCantidad.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub cmbTipoMov_Enter(sender As Object, e As EventArgs) Handles cmbTipoMov.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub cmbTipoMov_Leave(sender As Object, e As EventArgs) Handles cmbTipoMov.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+    Private Sub txtObs_Enter(sender As Object, e As EventArgs) Handles txtObs.Enter
+        sender.BackColor = Color.LightYellow
+    End Sub
+
+    Private Sub txtObs_Leave(sender As Object, e As EventArgs) Handles txtObs.Leave
+        sender.BackColor = Color.White
+    End Sub
+
+
+#End Region
+
+#Region "RUTINAS"
 
     Private Sub CargarComboArticulo()
         Sql = "select * from Articulo with (nolock) WHERE [nom articulo] like 'ngi%' ORDER BY [nom articulo]"
@@ -57,10 +211,10 @@ Public Class frmMovimientos
         SetearHabilitacionBotonesABMLimpiar(Me)
         LimpiarCampos(Me.Controls)
         Me.dtpFecha.Focus()
-        MostrarMovimiento(0)
+        MostrarMovimiento("[id movimiento]")
     End Sub
 
-    Private Sub MostrarMovimiento(Orden As Integer)
+    Private Sub MostrarMovimiento(Orden As String)
         Dim Rs As SqlDataReader
         Me.lstMovimientos.Items.Clear()
         Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [id movimiento] desc"
@@ -77,12 +231,9 @@ Public Class frmMovimientos
 
         Rs.Close()
 
-        Select Case Orden
-            Case 0
-                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [id movimiento]"
-            Case 1
-                Sql = "select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY [Fec movimiento]"
-        End Select
+
+        Sql = $"select mm.[id movimiento], tm.[tip tipomovi], aa.[nom articulo], mm.[Fec movimiento], mm.[can movimiento], mm.[pre movimiento], mm.[obs movimiento] from Movimiento mm with (nolock) INNER JOIN Tipomovi tm on mm.[id tipomovi] = tm.[id tipomovi] INNER JOIN Articulo aa on mm.[id articulo] = aa.[id articulo] WHERE aa.[nom articulo] like 'ngi%' AND tm.[nom tipomovi] like 'ngi%' ORDER BY {Orden}"
+
 
         Instruccion = New SqlCommand(Sql, Dao)
         Rs = Instruccion.ExecuteReader()
@@ -107,46 +258,14 @@ Public Class frmMovimientos
         Me.dtpFecha.Focus()
     End Sub
 
-    Private Sub AnalizarErrorCombo()
-        If errorCombo Then
-            txtCodArt.Text = "0"
-        End If
-    End Sub
-
-    Private Sub ObsVacío()
-        If txtObs.Text = "" Then
-            txtObs.Text = "Sin Observaciones"
-        End If
-    End Sub
-
     Private Sub Guardar()
         On Error GoTo Errores
         AnalizarErrorCombo()
         ObsVacío()
 
-        If Me.txtCodArt.Text = "" Then
-            MsgBox("El Nombre de Articulo es requerido", vbCritical)
-            Me.cmbArticulo.Focus()
-            Exit Sub
-        End If
-        If Me.cmbArticulo.SelectedIndex() = 0 Or cmbArticulo.SelectedIndex() = -1 Then
-            MsgBox("El Nombre del Artículo es requerido", vbCritical)
-            Me.cmbArticulo.Focus()
-            Exit Sub
-        End If
-        If txtCantidad.Text = "" Then
-            MsgBox("La Cantidad de Articulos es requerida", vbCritical)
-            Me.txtCantidad.Focus()
-            Exit Sub
-        End If
-        If Me.cmbTipoMov.SelectedIndex() = 0 Or Me.cmbTipoMov.SelectedIndex() = -1 Then
-            MsgBox("El Tipo de Movimiento es requerido", vbCritical)
-            Me.cmbTipoMov.Focus()
-            Exit Sub
-        End If
-        If txtObs.Text = "" Or txtObs.Text.Length < 4 Then
-            MsgBox("Completar la observación es requerido (al menos 4 caracteres)", vbCritical)
-            Me.txtObs.Focus()
+        Dim mensaje = ""
+        If _CamposVaciosMovi(Me, mensaje) Then
+            MsgBox(mensaje, vbCritical, "Error")
             Exit Sub
         End If
 
@@ -177,44 +296,76 @@ Errores:
         txtCodArt.Text = CType(sender, ComboBox).SelectedItem("id articulo")
     End Sub
 
-    Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
-        Limpiar()
-    End Sub
-
-    Private Sub tsGuardar_Click(sender As Object, e As EventArgs) Handles tsGuardar.Click
-        Guardar()
-    End Sub
-
-    Private Sub frmMovimientos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        frmMenuPrincipal.CargarListaMenuPrincipal(0)
-        frmMenuPrincipal.Show()
-    End Sub
-
-    Private Sub txtCodArt_TextChanged(sender As Object, e As EventArgs) Handles txtCodArt.TextChanged
-
-        If txtCodArt.Text <> "" Then
-            For index = 0 To cmbArticulo.Items.Count() - 1
-                Dim algo As DataRowView = cmbArticulo.Items(index)
-                Dim otraCosa = algo.Row.ItemArray
-
-                If otraCosa(0).ToString() = txtCodArt.Text Then
-                    cmbArticulo.SelectedIndex() = index
-                    errorCombo = False
-                    Exit Sub
-                End If
-            Next
-        End If
-
-        errorCombo = True
-
-
-
-    End Sub
-
-    Private Sub txtCodArt_Leave(sender As Object, e As EventArgs) Handles txtCodArt.Leave
-        If errorCombo Then
-            txtCodArt.Text = "0"
+    Private Sub lblId_Click(sender As Object, e As EventArgs) Handles lblId.Click
+        If ordenID Then
+            MostrarMovimiento("[id movimiento]")
+            ordenID = Not ordenID
+        Else
+            MostrarMovimiento("[id movimiento] desc")
+            ordenID = Not ordenID
         End If
     End Sub
+
+    Private Sub lblCodTipoMov_Click(sender As Object, e As EventArgs) Handles lblCodTipoMov.Click
+        If ordenCodTipoMovi Then
+            MostrarMovimiento("[tip tipomovi]")
+            ordenCodTipoMovi = Not ordenCodTipoMovi
+        Else
+            MostrarMovimiento("[tip tipomovi] desc")
+            ordenCodTipoMovi = Not ordenCodTipoMovi
+        End If
+    End Sub
+
+    Private Sub lblArticulo_Click(sender As Object, e As EventArgs) Handles lblArticulo.Click
+        If ordenNomArti Then
+            MostrarMovimiento("[nom articulo]")
+            ordenNomArti = Not ordenNomArti
+        Else
+            MostrarMovimiento("[nom articulo] desc")
+            ordenNomArti = Not ordenNomArti
+        End If
+    End Sub
+
+    Private Sub lblFecha_Click(sender As Object, e As EventArgs) Handles lblFecha.Click
+        If ordenFecha Then
+            MostrarMovimiento("[Fec movimiento]")
+            ordenFecha = Not ordenFecha
+        Else
+            MostrarMovimiento("[Fec movimiento] desc")
+            ordenFecha = Not ordenFecha
+        End If
+    End Sub
+
+    Private Sub lblCantidad_Click(sender As Object, e As EventArgs) Handles lblCantidad.Click
+        If ordenCantidad Then
+            MostrarMovimiento("[can movimiento]")
+            ordenCantidad = Not ordenCantidad
+        Else
+            MostrarMovimiento("[can movimiento] desc")
+            ordenCantidad = Not ordenCantidad
+        End If
+    End Sub
+
+    Private Sub lblPrecio_Click(sender As Object, e As EventArgs) Handles lblPrecio.Click
+        If ordenPrecio Then
+            MostrarMovimiento("[pre movimiento]")
+            ordenPrecio = Not ordenPrecio
+        Else
+            MostrarMovimiento("[pre movimiento] desc")
+            ordenPrecio = Not ordenPrecio
+        End If
+    End Sub
+
+    Private Sub lblObs_Click(sender As Object, e As EventArgs) Handles lblObs.Click
+        If ordenObs Then
+            MostrarMovimiento("[obs movimiento]")
+            ordenObs = Not ordenObs
+        Else
+            MostrarMovimiento("[obs movimiento] desc")
+            ordenObs = Not ordenObs
+        End If
+    End Sub
+#End Region
+
 
 End Class

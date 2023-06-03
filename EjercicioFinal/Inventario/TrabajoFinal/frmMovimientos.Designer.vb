@@ -49,6 +49,13 @@ Partial Class frmMovimientos
         Me.statusCon = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statusBase = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblId = New System.Windows.Forms.Label()
+        Me.lblCodTipoMov = New System.Windows.Forms.Label()
+        Me.lblArticulo = New System.Windows.Forms.Label()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        Me.lblCantidad = New System.Windows.Forms.Label()
+        Me.lblPrecio = New System.Windows.Forms.Label()
+        Me.lblObs = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -70,6 +77,7 @@ Partial Class frmMovimientos
         Me.ToolStrip1.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.pizarra_vacia
         Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsLimpiar, Me.tsGuardar})
         Me.ToolStrip1.Location = New System.Drawing.Point(755, 24)
@@ -193,13 +201,13 @@ Partial Class frmMovimientos
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.LimpiarToolStripMenuItem.Text = "&Limpiar"
         '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.GuardarToolStripMenuItem.Text = "&Guardar"
         '
         'lstMovimientos
@@ -209,10 +217,10 @@ Partial Class frmMovimientos
         Me.lstMovimientos.HorizontalExtent = 2000
         Me.lstMovimientos.HorizontalScrollbar = True
         Me.lstMovimientos.ItemHeight = 15
-        Me.lstMovimientos.Location = New System.Drawing.Point(12, 287)
+        Me.lstMovimientos.Location = New System.Drawing.Point(12, 268)
         Me.lstMovimientos.Name = "lstMovimientos"
         Me.lstMovimientos.ScrollAlwaysVisible = True
-        Me.lstMovimientos.Size = New System.Drawing.Size(736, 124)
+        Me.lstMovimientos.Size = New System.Drawing.Size(736, 154)
         Me.lstMovimientos.TabIndex = 16
         '
         'Label7
@@ -221,7 +229,7 @@ Partial Class frmMovimientos
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label7.Location = New System.Drawing.Point(8, 268)
+        Me.Label7.Location = New System.Drawing.Point(10, 223)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(94, 16)
         Me.Label7.TabIndex = 17
@@ -277,6 +285,7 @@ Partial Class frmMovimientos
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(755, 22)
+        Me.StatusStrip1.SizingGrip = False
         Me.StatusStrip1.TabIndex = 23
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -311,6 +320,97 @@ Partial Class frmMovimientos
         Me.statusBase.Size = New System.Drawing.Size(55, 17)
         Me.statusBase.Text = "xxxxxxxx"
         '
+        'lblId
+        '
+        Me.lblId.BackColor = System.Drawing.Color.SlateGray
+        Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblId.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblId.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblId.Location = New System.Drawing.Point(14, 245)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(20, 20)
+        Me.lblId.TabIndex = 24
+        Me.lblId.Text = "Id"
+        Me.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblCodTipoMov
+        '
+        Me.lblCodTipoMov.BackColor = System.Drawing.Color.SlateGray
+        Me.lblCodTipoMov.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCodTipoMov.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblCodTipoMov.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblCodTipoMov.Location = New System.Drawing.Point(41, 245)
+        Me.lblCodTipoMov.Name = "lblCodTipoMov"
+        Me.lblCodTipoMov.Size = New System.Drawing.Size(10, 20)
+        Me.lblCodTipoMov.TabIndex = 25
+        Me.lblCodTipoMov.Text = "c"
+        Me.lblCodTipoMov.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblArticulo
+        '
+        Me.lblArticulo.BackColor = System.Drawing.Color.SlateGray
+        Me.lblArticulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblArticulo.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblArticulo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblArticulo.Location = New System.Drawing.Point(57, 245)
+        Me.lblArticulo.Name = "lblArticulo"
+        Me.lblArticulo.Size = New System.Drawing.Size(277, 20)
+        Me.lblArticulo.TabIndex = 26
+        Me.lblArticulo.Text = "Artículo"
+        Me.lblArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblFecha
+        '
+        Me.lblFecha.BackColor = System.Drawing.Color.SlateGray
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblFecha.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblFecha.Location = New System.Drawing.Point(339, 245)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(69, 20)
+        Me.lblFecha.TabIndex = 27
+        Me.lblFecha.Text = "Fecha"
+        Me.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblCantidad
+        '
+        Me.lblCantidad.BackColor = System.Drawing.Color.SlateGray
+        Me.lblCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCantidad.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblCantidad.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblCantidad.Location = New System.Drawing.Point(414, 245)
+        Me.lblCantidad.Name = "lblCantidad"
+        Me.lblCantidad.Size = New System.Drawing.Size(78, 20)
+        Me.lblCantidad.TabIndex = 28
+        Me.lblCantidad.Text = "Cantidad"
+        Me.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblPrecio
+        '
+        Me.lblPrecio.BackColor = System.Drawing.Color.SlateGray
+        Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecio.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblPrecio.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblPrecio.Location = New System.Drawing.Point(498, 245)
+        Me.lblPrecio.Name = "lblPrecio"
+        Me.lblPrecio.Size = New System.Drawing.Size(89, 20)
+        Me.lblPrecio.TabIndex = 29
+        Me.lblPrecio.Text = "Precio"
+        Me.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblObs
+        '
+        Me.lblObs.BackColor = System.Drawing.Color.SlateGray
+        Me.lblObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblObs.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblObs.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.lblObs.Location = New System.Drawing.Point(593, 245)
+        Me.lblObs.Name = "lblObs"
+        Me.lblObs.Size = New System.Drawing.Size(155, 20)
+        Me.lblObs.TabIndex = 30
+        Me.lblObs.Text = "Observaciones"
+        Me.lblObs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -318,6 +418,13 @@ Partial Class frmMovimientos
         Me.BackgroundImage = Global.TrabajoFinal.My.Resources.Resources.pizarra_vacia
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblObs)
+        Me.Controls.Add(Me.lblPrecio)
+        Me.Controls.Add(Me.lblCantidad)
+        Me.Controls.Add(Me.lblFecha)
+        Me.Controls.Add(Me.lblArticulo)
+        Me.Controls.Add(Me.lblCodTipoMov)
+        Me.Controls.Add(Me.lblId)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.cmbTipoMov)
         Me.Controls.Add(Me.txtCantidad)
@@ -376,4 +483,11 @@ Partial Class frmMovimientos
     Friend WithEvents statusCon As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents statusBase As ToolStripStatusLabel
+    Friend WithEvents lblId As Label
+    Friend WithEvents lblCodTipoMov As Label
+    Friend WithEvents lblArticulo As Label
+    Friend WithEvents lblFecha As Label
+    Friend WithEvents lblCantidad As Label
+    Friend WithEvents lblPrecio As Label
+    Friend WithEvents lblObs As Label
 End Class

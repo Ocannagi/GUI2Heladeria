@@ -26,6 +26,16 @@ Public Class frmArticulos
 
     End Sub
 
+    Private Sub frmArticulos_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If HayCamposConContenido(Me.Controls) Then
+            If MsgBox("Hay campos sin persistir. Si cierra el formulario,los datos se perderán ¿Está seguro de cerrar el formulario?", vbYesNo) = vbNo Then
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+
+
 #Region "BOTONES"
 
     Private Sub tsLimpiar_Click(sender As Object, e As EventArgs) Handles tsLimpiar.Click
@@ -339,6 +349,7 @@ Errores:
             ordenPrecio = Not ordenPrecio
         End If
     End Sub
+
 
 
 #End Region

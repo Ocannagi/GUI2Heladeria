@@ -22,6 +22,7 @@ Public Class frmMenuPrincipal
     Private Sub MovimientosABMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovimientosABMToolStripMenuItem.Click
         Me.Hide()
         frmMovimientos.Show()
+        frmMovimientos.dtpFecha.Focus()
     End Sub
 
     Private Sub TipoMovimientoABMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TipoMovimientoABMToolStripMenuItem.Click
@@ -44,6 +45,7 @@ Public Class frmMenuPrincipal
         Dim Rs As SqlDataReader
         Rs = Instruccion.ExecuteReader()
         If Not Rs.HasRows Then
+            MsgBox("Eliminaron la columna esPositivo de la tabla tipomovi", vbCritical, "Verifique")
             Sql = "ALTER TABLE tipomovi ADD esPositivo bit DEFAULT NULL"
             Instruccion = New SqlCommand(Sql, Dao)
             Instruccion.ExecuteNonQuery()
@@ -156,6 +158,12 @@ Errores:
         Else
             CargarListaMenuPrincipal("resultado desc")
             ordenResultado = Not ordenResultado
+        End If
+    End Sub
+
+    Private Sub frmMenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If MsgBox("¿Está seguro que desea salir del programa?", vbYesNo) = vbNo Then
+            e.Cancel = True
         End If
     End Sub
 End Class

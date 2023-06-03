@@ -120,7 +120,7 @@ Module FuncionesFriend
         Return False
     End Function
 
-    Friend Function _CamposVaciosArticulos(frmTiposMovimiento As frmTiposMovimiento, ByRef mensaje As String) As Boolean
+    Friend Function _CamposVaciosTipoMovi(frmTiposMovimiento As frmTiposMovimiento, ByRef mensaje As String) As Boolean
         mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
         Dim tamMensaje As Integer = mensaje.Length
 
@@ -143,5 +143,51 @@ Module FuncionesFriend
         Return False
     End Function
 
+    Friend Function _CamposVaciosMovi(frmMovimiento As frmMovimientos, ByRef mensaje As String) As Boolean
+        mensaje = "Los siguientes campos deben estar completos:" + vbCrLf
+        Dim tamMensaje As Integer = mensaje.Length
+
+        If frmMovimiento.txtCodArt.Text = "" Then
+            mensaje += "Código" + vbCrLf
+            frmMovimiento.txtCodArt.BackColor = Color.LightPink
+        End If
+        If frmMovimiento.cmbArticulo.SelectedIndex() = 0 Or frmMovimiento.cmbArticulo.SelectedIndex() = -1 Then
+            mensaje += "Artículo" + vbCrLf
+            frmMovimiento.cmbArticulo.BackColor = Color.LightPink
+        End If
+        If frmMovimiento.txtCantidad.Text = "" Then
+            mensaje += "Cantidad" + vbCrLf
+            frmMovimiento.txtCantidad.BackColor = Color.LightPink
+        End If
+        If frmMovimiento.cmbTipoMov.SelectedIndex() = 0 Or frmMovimiento.cmbTipoMov.SelectedIndex() = -1 Then
+            mensaje += "Tipo de Movimiento" + vbCrLf
+            frmMovimiento.cmbTipoMov.BackColor = Color.LightPink
+        End If
+        If frmMovimiento.txtObs.Text = "" Or frmMovimiento.txtObs.Text.Length < 4 Then
+            mensaje += "Observación (se requiere al menos 4 caracteres)" + vbCrLf
+            frmMovimiento.txtObs.BackColor = Color.LightPink
+        End If
+
+        If mensaje.Length > tamMensaje Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Friend Function HayCamposConContenidoFrmMovimientos(frmMovimientos As frmMovimientos) As Boolean
+        Dim resultado As Boolean = False
+        If frmMovimientos.txtCodArt.Text <> "" And frmMovimientos.txtCodArt.Text <> "0" Then
+            resultado = True
+        ElseIf frmMovimientos.cmbArticulo.SelectedIndex > 0 Then
+            resultado = True
+        ElseIf frmMovimientos.txtCantidad.Text <> "" Then
+            resultado = True
+        ElseIf frmMovimientos.cmbTipoMov.SelectedIndex > 0 Then
+            resultado = True
+        ElseIf frmMovimientos.txtObs.Text <> "" Then
+            resultado = True
+        End If
+        Return resultado
+    End Function
 
 End Module
