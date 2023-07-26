@@ -244,7 +244,7 @@ Public Class frmMovimientos
             Dim espPosCodTipoMovi = Space(espaciosTipoMovi - Rs(Rs.GetOrdinal("tip tipomovi")).ToString.Length + 1)
             Dim nomArt = Rs(Rs.GetOrdinal("nom articulo"))
             Dim espPosNomArt = Space(espaciosArticulo - Rs(Rs.GetOrdinal("nom articulo")).ToString.Length + 1)
-            Dim fechaMov = CType(Rs(Rs.GetOrdinal("Fec movimiento")), Date).ToShortDateString
+            Dim fechaMov = Format(CType(Rs(Rs.GetOrdinal("Fec movimiento")), Date), "dd/MM/yyyy")
             Dim espPosFecMov = Space(1)
             Dim cantMov = Rs(Rs.GetOrdinal("can movimiento"))
             Dim espPosCantMov = Space(espaciosCantidad - Rs(Rs.GetOrdinal("can movimiento")).ToString.Length + 1)
@@ -271,7 +271,7 @@ Public Class frmMovimientos
 
         Dim idTipoMovi As Integer = cmbTipoMov.SelectedItem(0)
         Dim idArt As Integer = cmbArticulo.SelectedItem(0)
-        Dim fechaString = String.Format(dtpFecha.Value.ToShortDateString(), "dd/MM/yyyy")
+        Dim fechaString = Format(dtpFecha.Value, "dd/MM/yyyy")
         Dim precio As String = cmbArticulo.SelectedItem(3).ToString().Replace(",", ".")
 
         Dim cantidad = Val(txtCantidad.Text)

@@ -95,6 +95,7 @@ Partial Class frmMovimientos
         Me.tsLimpiar.Name = "tsLimpiar"
         Me.tsLimpiar.Size = New System.Drawing.Size(43, 34)
         Me.tsLimpiar.Text = "ToolStripButton1"
+        Me.tsLimpiar.ToolTipText = "Limpiar"
         '
         'tsGuardar
         '
@@ -105,6 +106,7 @@ Partial Class frmMovimientos
         Me.tsGuardar.Name = "tsGuardar"
         Me.tsGuardar.Size = New System.Drawing.Size(43, 34)
         Me.tsGuardar.Text = "ToolStripButton2"
+        Me.tsGuardar.ToolTipText = "Guardar"
         '
         'Label1
         '
@@ -443,8 +445,10 @@ Partial Class frmMovimientos
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.txtObs)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "frmMovimientos"
         Me.Text = "frmMovimientos"
         Me.ToolStrip1.ResumeLayout(False)
